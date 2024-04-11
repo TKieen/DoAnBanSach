@@ -1,0 +1,28 @@
+ul li {
+    list-style: none;
+    margin: 8px auto;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    margin: 15% auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+button {
+    font-size: 25px;
+    padding: 2px 12px;
+    background-color: #DC143C;
+    color: #F8F8FF;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #DCDCDC;
+    color: #333;
+} 

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Admin</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>Sản phẩm #1 đã hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Lê Ngọc Thảo Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <main class="content">
+            <h1>Người dùng</h1>
+            <!--Start: Admin-controller-->
+            <form class="admin-controller" action="#" method="post">
+                <!--add new user-->
+            <button type="button"><i class="fa-solid fa-plus"></i>Thêm</button>
+            <!--search: name or id-->
+            <div class="right">
+                <div class="srch">
+                    <input type="text" placeholder="Từ khóa tìm kiếm" name='kyw'>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <select name="theloai" id="">
+                    <option value="-1">---Loại người dùng---</option>
+                    <option value="1">Chủ doanh nghiệp</option>
+                    <option value="2">Admin</option>
+                    <option value="3">Quản lí kho</option>
+                    <option value="4">Khách hàng</option>
+                </select>
+                <!--select box: user status-->
+                <select name="user-status" id="user-status">
+                    <option value="-1">---Trạng thái---</option>
+                    <option value="1">Hoạt động</option>
+                    <option value="0">Bị khóa</option>
+                </select>
+                <!--icon sorting: when hover a block display: A-Z-->
+                <label for="">Người dùng</label>
+                <button class="sort">
+                    <i class="fa-solid fa-sort-down"></i>
+                    <div class="note">A-Z</div>
+                </button>
+                <button class="sort">
+                    <i class="fa-solid fa-sort-up"></i>
+                    <div class="note">Z-A</div>
+                </button>
+                <button type="submit" name="btnsearch">Xem</button>
+            </div>
+        </form>
+            <!--End: Admin-controller-->
+
+            <!--Start: Data table-->
+             <table>
+                <!--noi dung tieu de-->
+                <tr class="title">
+                    <th>ID</th>
+                    <th>Người dùng</th>
+                    <th>Điện thoại</th>
+                    <th>Phân quyền</th>
+                    <th>Trạng thái</th> 
+                    <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                </tr>
+                <!--thong tin users -->
+                <tr>
+                    <td>1</td>
+                    <td>Le Ngoc Thao Vy</td>
+                    <td>0794988554</td>
+                    <td><span class="status red">Bị khóa</span></td>
+                    <td>Khách hàng</td>
+                    <td>
+                        <a href="#" class="action-button" onclick="togglePopup('frmUser')">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiết</div>
+                        </a>
+                        <a href="#" class="action-button" onclick="togglePopup('frmEditUser')">
+                            <i class="fas fa-edit"></i>
+                            <div class="action-tooltip">Chỉnh sửa</div>
+                        </a>
+                        <a href="#" class="action-button">
+                            <i class="fas fa-trash-alt"></i>
+                            <div class="action-tooltip">Xóa</div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <!--End: Data table-->
+
+            <!--Start: Add User-->
+            <div class="formPopup" id="frmAddUser">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmAddUser')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                        <label for="input_file" class="change_button">Thêm</label>
+                        <input type="file" id="input_file" accept="image/*">
+                    </div>
+                    <div class="info">
+                    <h1>Thêm người dùng</h1>
+                    <div class="cols">
+                    <div class="left">
+                        <div class="field">
+                            <label for="ten">Họ và tên</label>
+                            <input type="text" name="ten">
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="text" name="email">
+                        </div>
+                        <div class="field">
+                            <label for="matkhau">Mật khẩu</label>
+                            <input type="password" name="matkhau">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="field">
+                            <label for="dienthoai">Điện thoại</label>
+                            <input type="text" name="dienthoai">
+                        </div>
+                        <div class="field">
+                            <label for="diachi">Địa chỉ</label>
+                            <input type="text" name="diachi">
+                        </div>
+                        <div class="field">
+                            <label for="phanquyen">Phân quyền</label>
+                            <select name="phanquyen" id="phanquyen">
+                                <option value="-1">---Chọn ---</option>
+                                <option value="1">Chủ doanh nghiệp</option>
+                                <option value="2">Admin</option>
+                                <option value="4">Quản lí kho</option>
+                                <option value="5">Khách hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" name="btnadd">Thêm</button>
+                </div>
+            </div>
+                </form>
+            </div>
+            <!--End: Add User-->
+
+            <!--Start: User Detail-->
+            <div class="formPopup" id="frmUser">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmUser')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                    </div>
+                    <div class="info">
+                        <h1>Chi tiết người dùng</h1>
+                        <div class="cols">
+                        <div class="left">
+                            <div class="field">
+                                <label for="ten">Họ và tên</label>
+                                <input type="text" name="ten">
+                            </div>
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="field">
+                                <label for="matkhau">Mật khẩu</label>
+                                <input type="password" name="matkhau">
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="field">
+                                <label for="dienthoai">Điện thoại</label>
+                                <input type="text" name="dienthoai">
+                            </div>
+                            <div class="field">
+                                <label for="diachi">Địa chỉ</label>
+                                <input type="text" name="diachi">
+                            </div>
+                            <div class="field">
+                                <label for="phanquyen">Phân quyền</label>
+                                <select name="phanquyen" id="phanquyen">
+                                    <option value="-1">---Chọn ---</option>
+                                    <option value="1">Chủ doanh nghiệp</option>
+                                    <option value="2">Admin</option>
+                                    <option value="4">Quản lí kho</option>
+                                    <option value="5">Khách hàng</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" name="btnadd" class="edit">Cập nhật</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!--End: User Detail-->
+
+            <!--Start: Edit User-->
+            <div class="formPopup" id="frmEditUser">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmEditUser')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                        <label for="input_file" class="change_button">Thay đổi</label>
+                        <input type="file" id="input_file" accept="image/*">
+                    </div>
+                    <div class="info">
+                        <h1>Sửa người dùng</h1>
+                        <div class="cols">
+                        <div class="left">
+                            <div class="field">
+                                <label for="ten">Họ và tên</label>
+                                <input type="text" name="ten">
+                            </div>
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="field">
+                                <label for="matkhau">Mật khẩu</label>
+                                <input type="password" name="matkhau">
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="field">
+                                <label for="dienthoai">Điện thoại</label>
+                                <input type="text" name="dienthoai">
+                            </div>
+                            <div class="field">
+                                <label for="diachi">Địa chỉ</label>
+                                <input type="text" name="diachi">
+                            </div>
+                            <div class="field">
+                                <label for="phanquyen">Phân quyền</label>
+                                <select name="phanquyen" id="phanquyen">
+                                    <option value="-1">---Chọn ---</option>
+                                    <option value="1">Chủ doanh nghiệp</option>
+                                    <option value="2">Admin</option>
+                                    <option value="4">Quản lí kho</option>
+                                    <option value="5">Khách hàng</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" name="btnadd">Lưu</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!--End: Edit User-->
+        </main>
+    </div>
+</body>
+</html>

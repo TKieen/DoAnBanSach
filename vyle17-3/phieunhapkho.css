@@ -1,0 +1,99 @@
+/* general */
+.general{
+    margin: 20px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: beige;
+    border: 0.5px solid black;
+    padding: 20px 10px;
+}
+
+.general .field{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.general .field label{
+    width: 120px;
+    text-align: left;
+    margin-right: 5px;
+}
+/* general */
+
+/* add-button */
+.inventory .admin-controller{
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+}
+/* add-button */
+
+/* inventory */
+.inventory table{
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.inventory table th{
+    border: 0.5px solid grey;
+}
+
+.inventory table tr{
+    border: 0.5px solid grey;
+}
+
+tr:nth-child(even){
+    background-color:white;
+}
+/* inventory */
+
+/* srch-product */
+.srch-product button{
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+/* srch-product */
+
+/* cancel button */
+.inventory .cancel{
+    background-color: lightblue;
+    color: blue;
+    font-weight: 500px;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* cancel button */
+
+/* add-new-item */
+table .add-new-line a{
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+/* add-new-item */
+
+/* complete button */
+.inventory .complete{
+    float: right;
+    background-color: #387ADF;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+/* complete button */
+

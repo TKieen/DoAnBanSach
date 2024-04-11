@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: white;
+    background-size: cover;
+    background-position: center;
+}
+
+/* form */
+form{
+    width: 60%;
+    height: 100%;
+    margin: 150px auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    position: relative;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    font-size: 30px;
+    background-color: gold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* add image */
+.change_img img{
+    width: 50%;
+}
+
+.change_img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    width: 30%;
+    border-right: 1px solid black;
+}
+
+.change_action{
+	display: flex;
+}
+
+.change_button{
+	width: 100px;
+	text-align: center;
+	padding: 4px 3px;
+	margin: 20px 10px 20px 0;
+	border: none;
+	border-radius: 3px;
+	background-color: gold;
+    color: black;
+	cursor: pointer;
+    transition: 0.2s;
+}
+
+.change_button:hover{
+	background-color: #DCDCDC;
+    color: #333;
+    transform: translateY(-1px);
+}
+
+input[type="file"]{
+	display: none;
+}
+
+/* info */
+.info{
+    width: 60%;
+    padding: 5px 5px 5px 20px;
+}
+
+.cols{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    margin-right: 20px;
+}
+
+input, select{
+    display: block;
+    border-radius: 4px;
+    height: 30px;
+    width: 230px;
+    padding: 5px;
+    margin: 3px;
+}
+
+textarea{
+    display: block;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.status{
+    margin: 3px 0;
+}
+
+.status div{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.status input{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.status select{
+    display: inline-block;
+    width: 35%;
+}
+
+/*detail*/
+.detail{
+    width: 100%;
+    padding: 5px 5px 5px 20px;
+}
+
+.detail .title{
+    background-color: transparent;
+    border-bottom: 2px solid black;
+}
+
+/*table*/
+table{
+    margin: 10px 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+tr{
+    border: 1px solid lightgray;
+}
+
+.title{
+    font-size: 18px;
+    background-color: #E5D4FF;
+}
+
+tr:nth-child(even){
+    background-color:#E9F6FF;
+}
+
+td, th{
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+/*pagingFrm*/
+.pagingFrm{
+    position: absolute;
+    right: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagingFrm a{
+    display: block;
+    width: 30px;
+    text-decoration: none;
+    color: black;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+
+.pagingFrm a:not(.active):hover{
+    background-color: #ddd;
+}
+
+.pagingFrm a.active{
+    background-color: #ddd;
+}
+
+/* button */
+.buttons{
+    margin-top: 20px;
+}
+
+.buttons button{
+    cursor: pointer;
+    width: 80px;
+    margin-right: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    background-color: lightseagreen;
+    transition: 0.2s;
+}
+
+.buttons button:hover{
+    transform: translateY(-1px);
+    background-color: lightskyblue;
+}
+
+.buttons .update{
+    width: 90px;
+}
+
+.buttons .back{
+    margin-right: 20px;
+}

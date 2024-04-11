@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="test2.css">
+    <title>Document</title>
+</head>
+<body>
+    <aside>
+    <!--sidebar-->
+    <div class="side-bar">
+        <!--Menu items-->
+        <div class="menu">
+            <div class="logo"><img src="logo.png" alt=""></div>
+            <div class="item"><a href="NguoiBanHang.html" class="active"><i class="fas fa-desktop"></i>Đơn hàng</a></div>
+            <div class="item"><a href="KhachHang.html"><i class="fas fa-th"></i>Khách hàng</a></div>  
+            <div class="item">
+                <a href="">
+                    <i class="fas fa-table"></i>Thống kê
+                    <!--dropdown-->
+                    <!--dropdown arrow-->
+                    <i class="fas fa-angle-right dropdown"></i>
+                </a>
+                <div class="sub-menu">
+                    <a href="" class="sub-item">Doanh thu</a>
+                    <a href="" class="sub-item">Lợi nhuận</a>
+                    <a href="" class="sub-item">Đơn hàng</a>
+                </div>
+            </div>      
+        </div>
+    </div>
+    </aside>
+    <main>
+        <header>
+            <ul>
+                <!--thong bao-->
+                <li class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <!--dung de number-->
+                    <div class="num"></div>
+                    <div class="sub-menu-wrap">
+                        <div class="sub-menu">
+                            <!--notice message-->
+                            <!--js generate automatically-->
+                            <div>
+                                <img src="duck.jpg" alt="">
+                                <p>Sản phẩm #1 đã hết hàng</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Lê Ngọc Thảo Vy</span></a></li>
+                <li>| <a href="">Đăng xuất</a></li>
+            </ul>
+        </header>
+        <!--Start: Update Order Detail-->
+        <div class="content">
+            <form action="#" method="post" class="updateOrderFrm">
+                <div class="detail">
+                    <h1>Chi tiết đơn hàng</h1>
+                    <table>
+                        <!--noi dung tieu de-->
+                        <tr class="title">
+                            <th>ID</th>
+                            <th>Sản phẩm</th> <!--hinh anh + ten sp-->
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                        </tr>
+                        <!--thong tin users -->
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="product">
+                                    <img src="duck.jpg" alt="">
+                                    Khói trời lộng lẫy
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>100.000d</td>
+                            <td>100.000d</td>
+                            <td>
+                            <a href="#" class="action-button" onclick="togglePopup('frmProduct')">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <div class="action-tooltip">Chi tiết</div>
+                            </a>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <hr>
+                    <div class="info">
+                        <div class="field">
+                            <label for="khachhang">Khách hàng</label>
+                            <input type="text" name="khachhang">
+                        </div>
+                        <div class="field">
+                            <label for="dienthoai">Điện thoại</label>
+                            <input type="text" name="dienthoai">
+                        </div>
+                        <div class="field">
+                            <label for="diachigiao">Địa chỉ giao</label>
+                            <input type="text" name="diachigiao">
+                        </div>
+                        <div class="field">
+                            <label for="ngaydat">Ngày tạo</label>
+                            <input type="text" name="ngaydat">
+                        </div>
+                        <div class="field">
+                            <label for="tongtien">Tổng tiền</label>
+                            <input type="text" name="tongtien">
+                        </div>
+                        <div class="field">
+                            <label for="nhacungcap">Thanh toán</label>
+                            <input type="text" name="thanhtoan">
+                        </div>
+                    <div class="field">
+                    <label for="trangthai">Trạng thái</label>
+                    <select name="trangthai" id="">
+                        <option value="choduyet">Chờ giao</option>
+                        <option value="danggiao">Đang giao</option>
+                        <option value="dagiao">Đã giao</option>
+                        <option value="dahuy">Đã hủy</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <a href="#"><button type="button">Đóng</button></a>
+                    <button type="submit" name="btnadd" class="edit">Chỉnh sửa</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        <!--End: Update Order Detail-->
+    </main>
+</body>
+</html>

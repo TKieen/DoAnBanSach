@@ -1,0 +1,719 @@
+/* css cua  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: white;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Start: header*/
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);;
+    padding: 5px 5px;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+header ul a{
+    text-decoration: none;
+    color: black;
+}
+
+header ul a:hover{
+    color: blue;
+}
+
+/* header logo */
+header .logo{
+    width: 200px;
+}
+
+/*notification*/
+.notification{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notification i:hover{
+    color: blue;
+}
+
+.notification .num{
+    position: absolute;
+    top: -3px;
+    right: -1px;
+    text-align: center;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.notification .sub-menu-wrap{
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    padding: 10px;
+    display: none;
+    transition: 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+.notification .sub-menu-wrap .sub-menu{
+    padding: 10px;
+    height: 200px;
+    overflow: auto;
+    z-index: 1; /*added*/
+    position: relative;/*added*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.notification .sub-menu div{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    transition: 0.08s;
+}
+
+.notification .sub-menu img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.notification .sub-menu div:hover{
+    background-color: #ddd;
+}
+
+/* account */
+.account{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.account span{
+    margin-left: 8px;
+}
+/* End: header */
+
+/* Start: side bar*/
+aside{
+    position: relative;
+    display: inline-block;
+}
+
+.menu-btn{
+    position: absolute;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.side-bar{
+    background-color: white;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    display: none;
+    transition: 0.6s ease ;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+aside:hover .side-bar{
+    display: block;
+}
+
+.side-bar .menu{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.side-bar .menu .item{
+    position: relative;
+}
+
+.side-bar a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 5px 30px;
+    line-height: 60px;
+}
+
+.side-bar a.active{
+    background-color: #ddd;
+}
+
+.side-bar a:hover{
+    background-color: #ddd;
+}
+
+.side-bar .item i{
+    margin-right: 15px;
+}
+
+.side-bar .item a .dropdown{
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.side-bar .item .sub-menu{
+    display: none;
+    overflow: hidden;
+}
+
+.side-bar .item:hover .sub-menu{
+    display: block;
+}
+
+.side-bar .sub-menu .active{
+    background-color: gold;
+}
+
+.side-bar .sub-menu .sub-item:hover{
+    background-color: gold;
+}
+/* End: side bar */
+
+/* Start: main section*/
+main{
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 20px 20px 20px;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0px 0 20px 10px;
+}
+
+/* Start: category*/
+.category{
+    height: 60px;
+    width: 100%;
+    padding: 10px 0 30px 0;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.category a{
+    color: orange;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: 3px solid transparent;
+    transition: 0.5s ease;
+}
+
+.category a:hover{
+    border-bottom: 3px solid darkorchid;
+    transform: translateX(3px);
+}
+
+.category span{
+    font-size: 14px;
+    margin-left: 2px;
+}
+/* End: category */
+
+/* Start: admin controller */
+.admin-controller{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-controller .right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* search */
+.admin-controller .srch{
+    position: relative;
+    margin-right: 30px;
+}
+
+.admin-controller .srch input{
+    width: 200px;
+    padding: 0 10px 0 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    height: 20px;
+}
+
+.admin-controller .srch input:focus{
+    outline: none;
+}
+
+.admin-controller .srch i{
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+
+/* select */
+.admin-controller select{
+    margin-right: 10px;
+    padding: 5px;
+}
+
+/* date */
+.admin-controller .date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-controller .date div{
+    margin-right: 10px;
+}
+
+.admin-controller input[type='date']{
+    margin-left: 10px;
+}
+
+/* sorting */
+.admin-controller .sort .note{
+    display: none;
+    position: absolute;
+    top: 100%; /* Hiển thị bảng phía dưới biểu tượng */
+    left: 0;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.admin-controller .sort:hover .note{
+    display: block;
+}
+
+/* button */
+.admin-controller button{
+    color: black;
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    margin: 0 5px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.admin-controller button[type="button"]{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.admin-controller button[type="button"] i{
+    margin-right: 3px;
+}
+
+.admin-controller button[type="submit"]{
+    width: 60px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.admin-controller button:hover{
+    background-color: gold;
+}
+/* End: admin-controller */
+
+/* Start: table*/
+table{
+    margin: 10px 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+tr:nth-child(even){
+    background-color:#E9F6FF;
+}
+
+.title{
+    font-size: 18px;
+    background-color: #E5D4FF;
+}
+
+td, th{
+    padding: 5px 10px;
+    text-align: center;
+}
+
+table .product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table .product img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+table input[type='checkbox']{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+table .status{
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}
+
+.red{
+    background-color: lightcoral;
+}
+
+.green{
+    background-color: lightgreen;
+}
+
+.yellow{
+    background-color: lightsalmon;
+}
+
+.blue{
+    background-color: lightskyblue;
+}
+
+/*action-button*/
+.action-button {
+	color: black;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px; /* Khoảng cách giữa các biểu tượng */
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+.action-tooltip {
+    display: none;
+    position: absolute;
+    top: 100%; /* Hiển thị bảng phía dưới biểu tượng */
+    left: 0;
+    background-color: #D0A2F7;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.action-button:hover{
+	color: red;
+}
+
+.action-button:hover .action-tooltip {
+    display: block; /* Hiển thị bảng khi hover vào biểu tượng */
+}
+/* End: table */
+
+/**** tach ra css rieng *****/
+/*Start: Form-popup*/
+/* container */
+.formPopup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    /* display: none; */
+    overflow-y: auto;
+}
+
+.formPopup.active{
+    display: block;
+}
+
+/* form */
+.formPopup form{
+    /* max-width: 750px; */
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+}
+
+/* updateOrderFrm include 2 parts: product details and user's info,
+    so let it be displayed as block, not flex
+*/
+.formPopup form:not(.updateOrderFrm){
+    display: flex;
+    /* height: 70%; */
+    transform: translate(-50%, -50%);
+}
+
+.formPopup .updateOrderFrm{
+    transform: translate(-50%, -40%);
+}
+
+.formPopup form .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    font-size: 30px;
+    background-color: gold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* add-form: add image */
+.formPopup .change_img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    width: 30%;
+    border-right: 1px solid black;
+}
+
+.formPopup .change_img img{
+    width: 50%;
+}
+
+.formPopup .change_button{
+	width: 100px;
+	text-align: center;
+	padding: 4px 3px;
+	margin: 20px 10px 20px 0;
+	border: none;
+	border-radius: 3px;
+	background-color: gold;
+    color: black;
+	cursor: pointer;
+    transition: 0.2s;
+}
+
+.formPopup .change_button:hover{
+	background-color: #DCDCDC;
+    color: #333;
+    transform: translateY(-1px);
+}
+
+.formPopup input[type="file"]{
+	display: none;
+}
+
+/* info */
+.formPopup .info{
+    width: 60%;
+    padding: 5px 5px 5px 20px;
+    align-self: center;
+}
+
+.info .cols{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info .left{
+    margin-right: 20px;
+}
+
+.info input, .info select{
+    display: block;
+    border-radius: 4px;
+    height: 30px;
+    width: 230px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.info textarea{
+    display: block;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 3px;
+}
+
+/* status */
+.info .status{
+    margin: 3px 0;
+}
+
+.status div{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.status input{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* status: edit-form */
+.status select{
+    display: inline-block;
+    width: 35%;
+}
+
+/* edit-form: detail */
+.detail{
+    width: 100%;
+    padding: 5px 5px 5px 20px;
+}
+
+/* edit-form: detail table */
+.detail .title{
+    background-color: transparent;
+    border-bottom: 2px solid black;
+}
+
+/* button */
+.buttons{
+    margin-top: 20px;
+}
+
+.buttons button{
+    cursor: pointer;
+    width: 80px;
+    margin-right: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    background-color: lightseagreen;
+    transition: 0.2s;
+}
+
+.buttons .edit{
+    width: 90px;
+}
+
+.buttons button[type="button"]{
+    margin-right: 20px;
+}
+.buttons button:hover{
+    transform: translateY(-1px);
+    background-color: lightskyblue;
+}
+/***End: FormFill***/
+
+/* Start: paging*/
+.paging{
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paging a{
+    display: block;
+    width: 30px;
+    text-decoration: none;
+    color: black;
+    border-radius: 3px;
+    border: none;
+    padding: 3px 2px;
+    margin: 0 5px;
+    font-weight: 550;
+}
+
+.paging a:not(.active):hover{
+    background-color: #ddd;
+}
+
+.paging a.active{
+    background-color: orange;
+}
+/* End: paging */
+
+
+

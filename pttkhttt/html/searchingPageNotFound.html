@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/searchingPageCSS.css">
+    <link rel="icon" href="../img/vnbLogo.jpg">
+    <title>Vinabook.com</title>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+    <body>
+        <div class="website">
+            <!-- phần header có navbar -->
+            <header class="header">
+                <nav class="header-navbar">
+                    <!-- các elements trên navbar -->
+                    <ul class="header-navbar-list">
+                        <li class="header-navbar-items">
+                            <a href=""><img src="../img/vinabookLogo.png" alt="Vinabook-Logo"></a>
+                        </li>
+                        <li class="header-navbar-items">
+                            <div class="header-navbar-items-search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
+                                <button class="findBook-button">Tìm sách</button>
+                            </div>
+                        </li>
+                        <li class="header-navbar-items">
+                            <div class="header-navbar-items-Cart-SignIn-SignUp">
+                                <div class="header-navbar-items-Cart">
+                                    <a class="cart" href="#">
+                                        <div class="circle"></div>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                </div>
+                                <div class="header-navbar-items-SignIn-SignUp">
+                                    <a id="signin" href="#"><div class="header-navbar-items-SignIn">Đăng nhập</div></a>
+                                    <div class="header-navbar-items-separate"></div>
+                                    <a id="signup" href="#"><div class="header-navbar-items-SignUp">Đăng ký</div></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="container">
+                <section class="container-top">
+                    <div class="container-top-book-catalogue">
+                        <div class="container-top-book-catalogue-content">
+                            <div class="container-top-book-catalogue-content-left-dropdown">
+                                <input type="checkbox" id="dropcheck" class="dropcheck">
+                                <label for="dropcheck" class="dropbtn"><i class="fa-solid fa-bars"></i> Danh Mục Sách</label>
+                                <div class="dropdown-content">
+                                    <ul class="container-top-dropDownList-and-banner-left-list">
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageBestSeller.html">Sách Bán Chạy</a>
+                                            </div>
+                                        </li>
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageVH.html">Sách Văn Học</a>
+                                            </div>
+                                        </li>
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageTTDS.html">Sách Thường Thức - Đời sống</a>
+                                            </div>
+                                        </li>
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageTHNN.html">Sách Tin Học - Ngoại Ngữ</a>
+                                            </div>
+                                        </li>
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageTT.html">Tiểu Thuyết</a>
+                                            </div>
+                                        </li>
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageGKGT.html">Sách Giáo Khoa - Giáo Trình</a>
+                                            </div>
+                                        </li>
+                                        <li class="container-top-dropDownList-and-banner-left-list-items">
+                                            <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                                <a href="../html/searchingPageCN.html">Sách Chuyên Ngành</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="container-top-book-catalogue-content-right">
+                                <i class="fa-solid fa-phone"></i>
+                                <p>Hotline: 1900 704421</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="container-bottom">
+                    <div class="container-bottom-left">
+                        <div class="container-bottom-left-filter">
+                            <div class="container-bottom-left-filter-category">
+                                <div style="font-size: 16px" class="container-bottom-left-filter-category-content1">
+                                    <b>TÌM SÁCH THEO DANH MỤC SÁCH</b>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageBestSeller.html">Sách Bán Chạy</a>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageVH.html">Sách Văn Học</a>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageTTDS.html">Sách Thường Thức - Đời sống</a>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageTHNN.html">Sách Tin Học - Ngoại Ngữ</a>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageTT.html">Tiểu Thuyết</a>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageGKGT.html">Sách Giáo Khoa - Giáo Trình</a>
+                                </div>
+                                <div class="container-bottom-left-filter-category-content">
+                                    <a href="../html/searchingPageCN.html">Sách Chuyên Ngành</a>
+                                </div>
+                            </div>
+                            <div class="container-bottom-left-filter-price">
+                                <div style="font-size: 16px" class="container-bottom-left-filter-category-content1">
+                                    <b>TÌM SÁCH THEO GIÁ TIỀN</b>
+                                </div>
+                                <div class="container-bottom-left-filter-price-range">
+                                    <i>Nhập vào khoảng giá cần tìm</i>
+                                        <div class="container-bottom-left-filter-price-range-input">
+                                            <input type="text" name="starting-price" id="starting-price">
+                                            --
+                                            <input type="text" name="reserve-price" id="reserve-price">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-bottom-right">
+                        <div class="container-bottom-right-content">
+                            <div class="container-bottom-right-content-top">
+                                Kết quả tìm kiếm: 
+                                <span> sdwdqwedqw</span>
+                            </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+        <script>
+            /* function myFunction() {
+                document.getElementById("dropDownList").classList.toggle("show");
+            }
+            
+            window.onclick = function(event) {
+                if (!event.target.matches('.container-top-book-catalogue-content-left')) {
+                    var dropdowns = document.getElementsByClassName("container-top-dropDownList-and-banner-left-list");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            } */
+             //show and hide dropdown list item on button click
+            function show_hide() {
+                var click = document.getElementById("dropDownList");
+                if (click.style.display === "none") {
+                click.style.display = "block";
+                } else {
+                click.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+    <footer class="footer">
+        <div class="footer-row">
+            <div class="footer-row1"></div>
+        </div>
+        <div class="footer-row">
+            <div class="footer-row2">
+                <div class="footer-row2-content">
+                    <div class="footer-row2-content-items">
+                        <div class="footer-row2-content-items-left1">
+                            <img src="../img/bocongthuong.png" alt="">
+                        </div>
+                        <div class="footer-row2-content-items-left2">
+                            WEBSITE CÙNG HỆ THỐNG
+                        </div>
+                        <div class="footer-row2-content-items-left3"> 
+                            <img class="footer-row2-content-items-left3-img1" src="../img/hotdeal.png" alt="">
+                            <img class="footer-row2x-content-items-left3-img2" src="../img/yesgo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="footer-row2-content-items">
+                        <div class="footer-row2-content-items-right1">
+                            CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ MÊ KÔNG COM
+                        </div>
+                        <div class="footer-row2-content-items-right2">
+                            Địa chỉ: Tiểu Vương Quốc Bình Chánh <br>
+                            MST: 0303615027 do Sở Kế Hoạch Và Đầu Tư Tp.HCM cấp ngày 10/03/2011 <br>
+                            Tel: 028.73008182 - Fax: 028.39733234 - Email: <a style="text-decoration: none; color: #0066C0" href="">hotro@vinabook.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

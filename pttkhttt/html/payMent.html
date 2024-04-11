@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/payMentCSS.css">
+        <link rel="icon" href="../img/vnbLogo.jpg">
+        <title>Thanh Toán</title>
+    </head>
+    <body>
+        <div class="website">
+            <!-- phần header có navbar -->
+            <header class="header">
+                <nav class="header-navbar">
+                    <!-- các elements trên navbar -->
+                    <ul class="header-navbar-list">
+                        <li class="header-navbar-items">
+                            <a href=""><img src="../img/vinabookLogo.png" alt="Vinabook-Logo"></a>
+                        </li>
+                        <li class="header-navbar-items">
+                            <div class="header-navbar-items-search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Tìm kiếm tựa sách, tác giả">
+                                <button class="findBook-button">Tìm sách</button>
+                            </div>
+                        </li>
+                        <li class="header-navbar-items">
+                            <div class="header-navbar-items-Cart-SignIn-SignUp">
+                                <div class="header-navbar-items-Cart">
+                                    <a class="cart" href="#">
+                                        <div class="circle"></div>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                </div>
+                                <div class="header-navbar-items-SignIn-SignUp">
+                                    <a id="signin" href="#"><div class="header-navbar-items-SignIn">Đăng nhập</div></a>
+                                    <div class="header-navbar-items-separate"></div>
+                                    <a id="signup" href="#"><div class="header-navbar-items-SignUp">Đăng ký</div></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="container-top">
+                <div class="container-top-book-catalogue">
+                    <div class="container-top-book-catalogue-content">
+                        <div class="container-top-book-catalogue-content-left-dropdown">
+                            <input type="checkbox" id="dropcheck" class="dropcheck">
+                            <label for="dropcheck" class="dropbtn"><i class="fa-solid fa-bars"></i> Danh Mục Sách</label>
+                            <div class="dropdown-content">
+                                <ul class="container-top-dropDownList-and-banner-left-list">
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageBestSeller.html">Sách Bán Chạy</a>
+                                        </div>
+                                    </li>
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageVH.html">Sách Văn Học</a>
+                                        </div>
+                                    </li>
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageTTDS.html">Sách Thường Thức - Đời sống</a>
+                                        </div>
+                                    </li>
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageTHNN.html">Sách Tin Học - Ngoại Ngữ</a>
+                                        </div>
+                                    </li>
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageTT.html">Tiểu Thuyết</a>
+                                        </div>
+                                    </li>
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageGKGT.html">Sách Giáo Khoa - Giáo Trình</a>
+                                        </div>
+                                    </li>
+                                    <li class="container-top-dropDownList-and-banner-left-list-items">
+                                        <div class="container-top-dropDownList-and-banner-left-list-items-text">
+                                            <a href="../html/searchingPageCN.html">Sách Chuyên Ngành</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="container-top-book-catalogue-content-right">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>Hotline: 1900 704421</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="container">
+                <!-- <form class="container-row3-form" action="">
+                    <div class="container-row3-form-fullName">
+                        <strong>Họ và tên <span style="color: #D64830">*</span></strong>
+                        <input type="text" name="" id="" >
+                    </div>
+                    <div class="container-row3-form-phoneNumber">
+                        <strong>Điện thoại <span style="color: #D64830">*</span></strong>
+                        <input type="text" name="" id="" >
+                    </div>
+                    <div class="container-row3-form-address">
+                        <strong>Địa chỉ <span style="color: #D64830">*</span></strong>
+                        <input type="text" name="" id="" >
+                    </div>
+                    <div >
+
+                    </div>
+                    <div class="container-row3-form-shippingPrice">
+                        <p><i>Phí vận chuyển: Miễn phí</i></p>
+                    </div>
+                </form> -->
+                <div class="container-row1">
+                    <div class="container-row1-left">
+                        <div class="container-row1-title">
+                            <strong>THÔNG TIN NHẬN HÀNG</strong>
+                        </div>
+                        <form class="container-row3-form" action="">
+                            <div class="container-row3-form-items">
+                                <strong>Họ và tên <span style="color: #D64830">*</span></strong>
+                                <input type="text" name="" id="" >
+                            </div>
+                            <div class="container-row3-form-items">
+                                <strong>Điện thoại <span style="color: #D64830">*</span></strong>
+                                <input type="text" name="" id="" >
+                            </div>
+                            <div class="container-row3-form-items">
+                                <strong>Địa chỉ <span style="color: #D64830">*</span></strong>
+                                <input type="text" name="" id="" >
+                            </div>
+                            <div >
+    
+                            </div>
+                            <div class="container-row3-form-shippingPrice">
+                                <p><i>Phí vận chuyển: Miễn phí</i></p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container-row1-middle">
+                        <div class="container-row1-title">
+                            <strong>HÌNH THỨC THANH TOÁN</strong>
+                        </div>
+                        <div class="container-row1-middle-paymentMethods">
+                            <div class="container-row1-middle-paymentMethods-COD">
+                                <input type="radio" name="paymentMethods" value="cod" id="selectCOD" checked onclick="show()">
+                                <label for="selectCOD">Thanh toán bằng tiền mặt khi nhận hàng</label>
+                                <p>Nhân viên Giao hàng của Vinabook hoặc Bưu điện sẽ thu tiền mặt khi giao hàng cho Quý khách. 
+                                    <br>Trong trường hợp Quý khách nhờ người nhận giúp, vui lòng thông báo số tiền thanh toán cho người nhà.</p>
+                            </div>
+                            <div class="container-row1-middle-paymentMethods-ATM">
+                                <input type="radio" name="paymentMethods" value="atm" id="selectATM" onclick="show()">
+                                <label for="selectATM" name="atm">Thanh toán bằng thẻ ATM có Internet Banking</label>
+                                <div  id="content" class="container-row1-middle-paymentMethods-ATM-content">
+                                    <p>Vui lòng chọn ngân hàng:</p>
+                                    <div class="container-row1-middle-paymentMethods-ATM-content-img">
+                                        <img src="../img/agribank.jpg" alt="">
+                                        <img src="../img/ocb.png" alt="">
+                                        <img src="../img/sacombank.jpeg" alt="">
+                                        <img src="../img/scb.png" alt="">
+                                        <img src="../img/vietcombank.png" alt="">
+                                        <img src="../img/vietinbank.jpeg" alt="">
+                                    </div>
+                                    <p>Vui lòng nhập số tài khoản:</p>
+                                    <input type="text" name="" id="">
+                                </div>
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-row1-right">
+                        <div class="container-row2-right-payment">
+                            <div class="container-row2-right-row1">
+                                TÓM TẮT ĐƠN HÀNG
+                            </div>
+                            <div class="container-row2-right-row2">
+                                <div class="container-row2-right-row2-quantity">
+                                    <div class="container-row2-right-row2-quantity-left">
+                                        Sản phẩm
+                                    </div>
+                                    <div class="container-row2-right-row2-quantity-right">
+                                        <span id="bookname">Tên sách</span>x<span id="number">1</span>
+                                    </div>
+                                </div>
+                                <div class="container-row2-right-row2-shippingPrice">
+                                    <div class="container-row2-right-row2-shippingPrice-left">
+                                        Phí vận chuyển
+                                    </div>
+                                    <div class="container-row2-right-row2-shippingPrice-right">
+                                        Miễn phí
+                                    </div>
+                                </div>
+                                <div class="container-row2-right-row2-paymentMethods">
+                                    <div class="container-row2-right-row2-paymentMethods-txt">
+                                        Hình thức thanh toán
+                                    </div>
+                                    <div class="container-row2-right-row2-paymentMethods-COD">
+                                        COD
+                                    </div>
+                                    <div class="container-row2-right-row2-paymentMethods-ATM" style="display:none">
+                                        Internet Banking
+                                    </div>
+                                </div>
+                                <div class="container-row2-right-row2-total">
+                                    <div class="container-row2-right-row2-total-left">
+                                        <strong>TỔNG CỘNG</strong>
+                                    </div>
+                                    <div class="container-row2-right-row2-total-right">
+                                        <span id="totalprice">270.000</span> đ
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-row4">
+                    <div class="container-row4-backButton">
+                        <button>QUAY LẠI</button>
+                    </div>
+                    <div class="container-row4-nextButton">
+                        <button>ĐẶT HÀNG</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script>
+            function show() {
+                var optionCOD = document.querySelector('input[name="paymentMethods"][value="cod"]');
+                var optionATM = document.querySelector('input[name="paymentMethods"][value="atm"]');
+                var content = document.getElementById('content');
+                
+                if (optionATM.checked) {
+                    content.style.display = 'block'; // Hiển thị danh sách khi Option 2 được chọn
+                    document.querySelector('.container-row2-right-row2-paymentMethods-COD').style.display = 'none';
+                    document.querySelector('.container-row2-right-row2-paymentMethods-ATM').style.display = 'block';
+                } else {
+                    content.style.display = 'none'; // Ẩn danh sách khi Option 1 được chọn
+                    document.querySelector('.container-row2-right-row2-paymentMethods-COD').style.display = 'block';
+                    document.querySelector('.container-row2-right-row2-paymentMethods-ATM').style.display = 'none';
+                }
+            }
+        </script>
+    </body>
+    <footer class="footer">
+        <div class="footer-row">
+            <div class="footer-row2">
+                <div class="footer-row2-content">
+                    <div class="footer-row2-content-items">
+                        <div class="footer-row2-content-items-left1">
+                            <img src="../img/bocongthuong.png" alt="">
+                        </div>
+                        <div class="footer-row2-content-items-left2">
+                            WEBSITE CÙNG HỆ THỐNG
+                        </div>
+                        <div class="footer-row2-content-items-left3"> 
+                            <img class="footer-row2-content-items-left3-img1" src="../img/hotdeal.png" alt="">
+                            <img class="footer-row2-content-items-left3-img2" src="../img/yesgo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="footer-row2-content-items">
+                        <div class="footer-row2-content-items-right1">
+                            CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ MÊ KÔNG COM
+                        </div>
+                        <div class="footer-row2-content-items-right2">
+                            Địa chỉ: Tiểu Vương Quốc Bình Chánh <br>
+                            MST: 0303615027 do Sở Kế Hoạch Và Đầu Tư Tp.HCM cấp ngày 10/03/2011 <br>
+                            Tel: 028.73008182 - Fax: 028.39733234 - Email: <a style="text-decoration: none; color: #0066C0" href="">hotro@vinabook.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm khách hàng</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="container">
+        <form action="" class="customer-form">
+            <h2 class="customer-form-heading">
+                Thêm khách hàng
+            </h2>
+            <div class="form-group">
+                <label for="fullname">Họ tên*</label>
+                <div class="form-input">
+                    <input
+                            type="text"
+                            name="txtHoten"
+                            id="fullname"
+                            class="form-control"
+                            placeholder="VD: Nguyễn Phạm Quỳnh Hương"
+                    >
+                    <span class="form-message-name form-message"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+               <label for="phonenumber">Số điện thoại*</label>
+                <div class="form-input">
+                    <input
+                            type="text"
+                            name="txtSdt"
+                            id="phonenumber"
+                            class="form-control"
+                            placeholder="VD: 0123456789"
+                    >
+                    <span class="form-message-phone form-message"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <div class="form-input">
+                    <input
+                            type="email"
+                            name="txtEmail"
+                            id="email"
+                            class="form-control"
+                            placeholder="example@email.com"
+                    >
+                    <span class="form-message-email form-message"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ</label>
+                <div class="form-input">
+                    <input
+                            type="text"
+                            name="txtDiachi"
+                            id="address"
+                            class="form-control"
+                            placeholder="Nhập địa chỉ (không bắt buộc)"
+                    >
+                    <span class="form-message-address form-message"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu*</label>
+                <div class="form-input">
+                    <input
+                            type="text"
+                            name="txtMatkhau"
+                            id="password"
+                            class="form-control"
+                            placeholder="Click để tạo mật khẩu tự động!"
+                            onclick="generatePassword()"
+
+                    >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="role">Quyền tài khoản</label>
+                <select name="cboQuyentk" id="role">
+                    <option value="0">Admin</option>
+                    <option value="1">Chủ doanh nghiệp</option>
+                    <option value="3">Quản lý kho</option>
+                    <option value="4">Bán hàng</option>
+                    <option value="5">Khách hàng</option>
+                </select>
+            </div>
+            <div class="form-group status">
+                <label for="acc-status">Trạng thái</label>
+                <div id="acc-status">
+                    <div class="locked-status">
+                        <input
+                                type="radio"
+                                name="ckbTrangthai"
+                                id="active"
+                                class="form-control"
+                                value="Hoạt động"
+                                checked
+                        >
+                        <label for="active">Hoạt động</label>
+                    </div>
+                    <div class="active-status">
+                        <input
+                                type="radio"
+                                name="ckbTrangthai"
+                                id="locked"
+                                class="form-control"
+                        >
+                        <label for="locked">Bị khóa</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-btn">
+                <button id="close-form-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                    Đóng
+                </button>
+                <button id="save-form-btn">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Lưu
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

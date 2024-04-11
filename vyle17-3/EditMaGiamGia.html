@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Sửa mã giảm giá</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>Sản phẩm #1 đã hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Lê Ngọc Thảo Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="QuanLiKho.html"><i class="fas fa-desktop"></i>Nhà cung cấp</a></div>
+                <div class="item"><a href="SanPham.html"><i class="fas fa-th"></i>Sản phẩm</a></div>  
+                <div class="item"><a href="TheLoai.html"><i class="fas fa-th"></i>Danh mục</a></div>  
+                <div class="item"><a href="MaGiamGia.html" class="active"><i class="fas fa-th"></i>Mã giảm giá</a></div>  
+                <div class="item">
+                    <a>
+                        <i class="fas fa-table"></i>Nhập kho
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <!--dropdown-->
+                    <div class="sub-menu">
+                        <a href="PhieuNhapKho.html" class="sub-item">Phiếu nhập kho</a> <!--tao + xem lich su phieu nhap kho-->
+                        <a href="#" class="sub-item">Thống kê</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Sửa mã giảm giá</h1>
+            <hr>
+            <form class="coupon" action="#" method="post">
+            <!--coupon info-->
+            <div class="coupon-info">
+                    <div class="field">
+                        <label for="">Coupon</label>
+                        <input type="text" name="ten">
+                    </div>
+                    <div class="field">
+                        <label for="">Discount(%)</label>
+                        <input type="number" name="discount">
+                    </div>
+                    <div class="field">
+                        <label for="">Bắt đầu</label>
+                        <input type="date" name="batdau">
+                    </div>
+                    <div class="field">
+                        <label for="">Kết thúc</label>
+                        <input type="date" name="ketthuc">
+                    </div>
+            </div>
+            <hr>
+            <!--product apply-->
+            <h2>Sản phẩm áp dụng</h2>
+            <!--Start: Admin-controller-->
+            <div class="admin-controller">
+                <!--add new user-->
+                <div>
+                    <input type="checkbox" name="all" class="all">
+                </div>
+                <!-- <button type="button" class="create" onclick="togglePopup()"><i class="fa-solid fa-plus"></i>Thêm</button> -->
+                <!--search: name or id-->
+                <div class="right">
+                    <div class="srch">
+                        <input type="text" placeholder="Từ khóa tìm kiếm" name='kyw'>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <!--icon sorting: when hover a block display: A-Z-->
+                    <select name="" id="">
+                        <option value="-1">---Thể loại---</option>
+                        <option value="vanhoc">Văn học</option>
+                        <option value="thieunhi">Thiếu nhi</option>
+                    </select>
+                    <button type="submit" name="btnsearch">Xem</button>
+                </div>
+            </div>
+        <!--End: Admin-controller-->
+
+        <!--Start: Data Table-->
+        <table>
+            <!--noi dung tieu de-->
+            <tr class="title">
+                <th></th>
+                <th>ID</th>
+                <th>Sản phẩm</th> <!--hinh anh + ten sp-->
+                <th>Tác giả</th>
+                <th>Tồn kho</th>
+                <th>Thể loại</th>
+                <th>Giá bán</th>
+            </tr>
+            <!--thong tin users -->
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>
+                    <div class="product">
+                        <img src="duck.jpg" alt="">
+                        Khói trời lộng lẫy
+                    </div>
+                </td>
+                <td>Nguyễn Ngọc Tư</td>
+                <td>100</td>
+                <td>Văn học</td>
+                <td>100.000d</td>
+            </tr>
+    </table>
+        <!--End: Data Table-->
+        <!--Button-->
+        <button type="submit">Lưu</button>
+        </form>
+        </main>
+    </div>
+</body>
+</html>

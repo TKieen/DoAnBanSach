@@ -1,0 +1,597 @@
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul li {
+    list-style: none;
+}
+
+.container {
+    background-color: #fff;
+}
+/*--------------------------------------------*/
+/* phần này css navbar*/
+.header-navbar-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    background-color: #fff;
+}
+
+.header-navbar-items {
+    margin-right: 50px;
+    position: relative;
+}
+
+.header-navbar-items img{
+    width: 250px;
+}
+
+.header-navbar-items-SignIn-SignUp {
+    display: flex;
+    font-size: 13px;
+    position: absolute;
+    left: 60px;
+    width: 130px;
+    top: 5px;
+}
+
+.header-navbar-items-SignIn {
+    margin-right: 5px;
+}
+
+.header-navbar-items-SignIn:hover {
+    color: #696969;
+}
+
+.header-navbar-items-SignUp:hover {
+    color: #696969;
+}
+
+.header-navbar-items-SignUp {
+    text-decoration: none;
+}
+
+.header-navbar-items-Cart-SignIn-SignUp {
+    display: flex;
+    position: relative;
+}
+
+.circle {
+    background-color: none;
+    width: 43px;
+    height: 43px;
+    border-radius: 100px;
+    border: 1.5px solid #057A45;
+    position: absolute;
+    left: -7.5px;
+    bottom: -7px;
+}
+
+.header-navbar-items-Cart-SignIn-SignUp i {
+    font-size: 23px;
+    color: #057A45;
+}
+
+#signup {
+    text-decoration: none;
+    color: black;
+}
+
+#signin {
+    text-decoration: none;
+    color: black;
+}
+
+.header-navbar-items-separate {
+    display: block;
+    width: 0.5px;
+    background-color: #333;
+    margin-right: 5px;
+    height: 14px;
+    transform: translateY(1px);
+}
+
+/*chỗ này là css phần ô search*/
+.header-navbar-items-search {
+    position: relative;
+    margin-right: 30px;
+}
+.header-navbar-items-search input{
+    height: 32px;
+    width: 500px;
+    border-radius: 50px;
+    border: 1px solid #CCCCCC;
+    background-color: #F3F3F3;
+    padding-left: 45px;
+}
+
+.header-navbar-items-search i {
+    position: absolute;
+    left: 11px;
+    top: 8.5px;
+    color: #666665;
+    font-size: 17px;
+}
+
+.header-navbar-items-search .findBook-button {
+    position: absolute;
+    width: 75px;
+    right: 3px;
+    top: 3px;
+    padding: 5px 4px 5px 4px;
+    border-radius: 20px;
+    border: none;
+    background-color: #057A45;
+    color: #fff;
+    text-shadow: 1px 1px #6AB090;
+    cursor: pointer;
+}
+/*--------------------------------------------*/
+/* phần này css Line Danh Mục Sản Phẩm */
+.container-top {
+    background-color: #F2F5F7;
+}
+
+.container-top-book-catalogue {
+    width: 100%;
+    height: 45px;
+    background-color: #057A45;
+    display: block;
+}
+
+.container-top-book-catalogue-content {
+    width: 1080px;
+    margin: auto;
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-top-book-catalogue-content-left {
+    display: flex;
+    cursor: pointer;
+    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.container-top-book-catalogue-content-left p {
+    font-size: 15px;
+    color: #fff;
+}
+
+.container-top-book-catalogue-content-left i {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.container-top-book-catalogue-content-right {
+    display: flex;
+}
+
+.container-top-book-catalogue-content-right p {
+    font-size: 12px;
+    color: #fff;
+    margin-top: 4px;
+}
+
+.container-top-book-catalogue-content-right i {
+    font-size: 15px;
+    color: #fff;
+    margin-right: 5px;
+}
+/* Phần này CSS drop-down list*/
+
+.container-top-dropDownList-and-banner-left {
+    width: 245px;
+    border: 1px solid #A9A9A9;
+    background-color: #fff;
+    height: 100%;
+    padding-bottom: 5px;
+}
+
+.container-top-dropDownList-and-banner-left-list-items {
+    padding: 5px;
+    border-top: 0.5px solid #F1F1F1;
+    font-size: 12.5px;
+    color: #383838;
+}
+
+.container-top-dropDownList-and-banner-left-list-items-text {
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.dropDownContent {
+    margin-top: 12px;
+    display: none;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.show {display: block;}
+
+
+/* Phần này CSS content phía dưới*/
+.container-bottom {
+    height: 900px;
+    width: 1080px;
+    margin: auto;
+    display: flex;
+    background-color: #fff;
+}
+
+.container-bottom-left {
+    flex: 25%;
+}
+
+.container-bottom-left-filter {
+    background-color: #fff;
+    border: 0.5px solid #A9A9A9;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 7px;
+}
+
+.container-bottom-left-filter-category-content {
+    font-size: 13px;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px dashed #A9A9A9;
+    color: #383838;
+}
+.container-bottom-right {
+    flex: 75%;
+    padding-left: 30px;
+} 
+
+.container-bottom-left-filter-hr {
+    margin-bottom: 5px;
+}
+
+.container-bottom-left-filter-category-content1 {
+    margin-top: 8px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    border-bottom: 0.5px dashed #A9A9A9;
+    color: #383838;
+}
+
+
+.container-bottom-right-content {
+    margin-top: 70px;
+}
+
+.container-bottom-right-content-top {
+    border-bottom: 0.5px dashed #A9A9A9;
+    padding-bottom: 5px;
+    color: #008340;
+    font-size: 18px;
+}
+
+.container-bottom-right-content-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* start: product */
+.container-bottom-right-content-bottom-product {
+    display: block;
+    text-decoration: none;
+    width: 145px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container-bottom-right-content-bottom-product img {
+    display: block;
+    width: 100px;
+    height: 150px;
+    margin-bottom: 7px;
+}
+
+.container-bottom-right-content-bottom-product img:hover {
+    box-shadow: 0 0 5px #26545a;
+}
+
+.container-bottom-right-content-bottom-product-text1:hover {
+    color: #008340;
+}
+
+.container-bottom-right-content-bottom-product-text1 {
+    font-size: 13px;
+    margin-bottom: 7px;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container-bottom-right-content-bottom-product-text2 {
+    font-size: 10px;
+    color: #696969;
+    margin-bottom: 7px;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container-bottom-right-content-bottom-product-text2 .luotban{
+    color: #057A45;
+}
+
+.container-bottom-right-content-bottom-product-price {
+    color: #C02026;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.discount{
+    text-decoration: line-through;
+    color: #666665;
+}
+/* start: product */
+
+/* start: price filter */
+.container-bottom-left-filter-price-range i{
+    font-size: 12px;
+    color: #383838;
+}
+
+.container-bottom-left-filter-price-range-input {
+    margin-top: 5px;
+}
+
+.container-bottom-left-filter-price-range {
+    margin-top: 5px;
+}
+
+.container-bottom-left-filter-price-range-input input{
+    width: 100px;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.container-bottom-left-filter-price-range button{
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+    background-color: #057A45;
+    color: white;
+    border-radius: 3px;
+    margin: 10px auto;
+}
+
+.container-bottom-left-filter-price-range .alert{
+    color: red;
+}
+
+/* end: price filter */
+
+.container-bottom-left-filter-category-content a {
+    text-decoration: none;
+    color: #333;
+}
+
+.container-bottom-left-filter-category-content a:hover {
+    color: #666665;
+    text-decoration: underline;
+}
+
+.container-bottom-right-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-bottom-right-spaceUpper {
+    margin-top: 50px;
+}
+  
+.container-bottom-right-pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+  
+.container-bottom-right-pagination a.active {
+    background-color: #008340;
+    color: white;
+}
+  
+.container-bottom-right-pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+
+.container-top-book-catalogue {
+    width: 100%;
+    height: 45px;
+    background-color: #057A45;
+    display: block;
+}
+
+.container-top-book-catalogue-content {
+    width: 1080px;
+    margin: auto;
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-top-book-catalogue-content-left {
+    display: flex;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.container-top-book-catalogue-content-left p {
+    font-size: 15px;
+    color: #fff;
+}
+
+.container-top-book-catalogue-content-left i {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.container-top-book-catalogue-content-right {
+    display: flex;
+}
+
+.container-top-book-catalogue-content-right p {
+    font-size: 12px;
+    color: #fff;
+    margin-top: 4px;
+}
+
+.container-top-book-catalogue-content-right i {
+    font-size: 15px;
+    color: #fff;
+    margin-right: 5px;
+}
+
+/* Phần này css Banner với Drop-down List */
+/*-------------------------------*/
+/* Phần này css drop-down List*/
+.container-top-dropDownList-and-banner {
+    width: 1080px;
+    margin: auto;
+    display: flex;
+}
+
+.container-top-dropDownList-and-banner-left {
+    flex: 25%;
+    border: 1px solid #A9A9A9;
+    background-color: #fff;
+    height: 100%;
+    padding-bottom: 5px;
+}
+
+.container-top-dropDownList-and-banner-right {
+    flex: 80%;
+}
+
+.container-top-dropDownList-and-banner-left-list-items {
+    padding: 5px;
+    border-top: 0.5px solid #ECECEC;
+    font-size: 12.5px;
+    color: #383838;
+}
+
+.container-top-dropDownList-and-banner-left-list-items-text {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    position: relative;
+    display: block;
+    cursor:pointer;
+}
+
+.container-top-book-catalogue-content-left-dropdown {
+    position: relative;
+    display: inline-block;
+}
+ 
+.container-top-book-catalogue-content-left-dropdown i {
+    font-size: 17px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 7px 0px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropcheck {
+      position: absolute;
+      left: -9999px;
+}
+
+.dropcheck:checked ~ .dropdown-content {
+    display: block;
+    margin-top: 15px;
+}
+/*--------------------------------------------*/
+/* phần này css Footer */
+.footer-row2 {
+    background-color: #ECECEC;
+    height: 200px;
+    border-top: 3px solid #CCCCCC;
+    border-bottom: 3px solid #CCCCCC;
+}
+
+.footer-row2-content {
+    margin-left: 200px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.footer-row2-content-items-left1 img {
+    width: 200px;
+}
+
+.footer-row2-content-items-left2 {
+    font-size: 13px;
+    margin-left: 30px;
+}
+
+.footer-row2-content-items-left3 {
+    margin-top: 22px;
+}
+
+.footer-row2-content-items-left3-img1 {
+    margin-bottom: 17px; 
+    margin-right: 15px;
+    width: 150px;
+}
+
+.footer-row2-content-items {
+    margin-right: -40px;
+}
+
+.footer-row2-content-items-right1 {
+    font-size: 13px;
+}
+
+.footer-row2-content-items-right2 {
+    font-size: 11.5px;
+    margin-top: 7px;
+    color: #333;
+}
+/*--------------------------------------------*/

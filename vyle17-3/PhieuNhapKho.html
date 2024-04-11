@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div> 
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Le Ngoc Thao Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="QuanLiKho.html"><i class="fas fa-desktop"></i>Nha cung cap</a></div>
+                <div class="item"><a href="SanPham2.html"><i class="fas fa-th"></i>San pham</a></div>  
+                <div class="item">
+                    <a>
+                        <i class="fas fa-table"></i>Nhap kho
+                        <!--dropdown-->
+                        <!--dropdown arrow-->
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="PhieuNhapKho.html" class="sub-item active">Phieu nhap kho</a> <!--tao + xem lich su phieu nhap kho-->
+                        <a href="#" class="sub-item">Thong ke</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Phieu nhap kho</h1>
+            <!--Start: Admin-controller-->
+            <form class="admin-controller" action="#" method="post">
+                <!--add new user-->
+                <button type="button"><i class="fa-solid fa-plus"></i>Them</button>
+                <!--search: name or id-->
+            <div class="right">
+                <div class="srch">
+                    <input type="text" placeholder="Tu khoa tim kiem" name='kyw'>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <!--select box: user status-->
+                <div class="date">
+                    <div>
+                        <label for="from">Tu </label>
+                        <input type="date" name="from">
+                    </div>
+                    <div>
+                        <label for="to">den </label>
+                        <input type="date" name="to">
+                    </div>
+                </div>
+                <button type="submit" name="btnsearch">Xem</button>
+            </div>
+        </form>
+            <!--End: Admin-controller-->
+
+            <!--Start: Data table-->
+             <!--data table-->
+             <table>
+                    <!--noi dung tieu de-->
+                    <tr class="title">
+                        <th>ID</th>
+                        <th>Nha cung cap</th>
+                        <th>So luong</th>
+                        <th>Tong tien</th>
+                        <th>Ngay nhap kho</th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                        <th></th>
+                    </tr>
+                    <!--thong tin users -->
+                    <tr>
+                        <td>1</td>
+                        <td>Le Ngoc Thao Vy</td>
+                        <td>200</td>
+                        <td>1.000.000d</td>
+                        <td>03/07/2004</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                        <a href="#" class="action-button">
+                            <i class="fas fa-edit"></i>
+                            <div class="action-tooltip">Chỉnh sửa</div>
+                        </a>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-print"></i>
+                            <div class="action-tooltip">In</div>
+                        </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Le Ngoc Thao Vy</td>
+                        <td>200</td>
+                        <td>1.000.000d</td>
+                        <td>03/07/2004</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Chỉnh sửa</div>
+                            </a>
+                            <a href="#" class="action-button">
+                                <i class="fa-solid fa-print"></i>
+                                <div class="action-tooltip">In</div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Le Ngoc Thao Vy</td>
+                        <td>200</td>
+                        <td>1.000.000d</td>
+                        <td>03/07/2004</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Chỉnh sửa</div>
+                            </a>
+                            <a href="#" class="action-button">
+                                <i class="fa-solid fa-print"></i>
+                                <div class="action-tooltip">In</div>
+                            </a>
+                        </td>
+                    </tr>
+            </table>
+            <!--End: Data table-->
+
+            <!--Start: Add GRN-->
+            <div class="formPopup" id="frmAddCat">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmAddCat')"><i class="fa-solid fa-x"></i></button>
+                    <div class="expand">
+                        <h1>Tạo phiếu nhập kho</h1>
+                        <label for="ten">Nhà cung cấp</label>
+                        <select name="nhacungcap" id="nhacungcap">
+                            <option value="-1">---Chọn---</option>
+                            <option value="CTY Thinh Phat">CTY Thinh Phat</option>
+                        </select>
+                        <div class="buttons">
+                            <button type="submit" name="btnadd">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--End: Add GRN-->
+
+        </main>
+    </div>
+    <!--Start: Pagination-->
+    <div class="paging">
+            <a href="#">&lt;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">&gt;</a>
+    </div>
+            <!--End: Pagination-->
+</body>
+</html>

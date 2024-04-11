@@ -1,0 +1,20 @@
+Hàm querySelector() được sử dụng để lấy ra phần tử đầu tiên trong tài liệu HTML mà 
+phù hợp với một CSS selector cụ thể bạn cung cấp. Điều này có nghĩa là bạn có thể chọn 
+các phần tử dựa trên id, class, hoặc thẻ HTML và các thuộc tính khác.
+
+VD:
+    <div class="example">Phần tử 1</div>
+    <div class="example">Phần tử 2</div>
+    <div class="example">Phần tử 3</div>
+Thì sau khi sử dụng querySelector('.example'), biến firstExample sẽ chứa phần tử đầu tiên có class là "example",
+trong trường hợp này là <div class="example">Phần tử 1</div>.
+-----------------------------------------------------------------------------------------------------------------------------------------
+Với hàm setInterval() cho phép chúng ta thực hiện một hành động cụ thể sau mỗi khoảng thời 
+gian cố định. Hành động này sẽ được lặp đi lặp lại liên tục không dừng.
+
+
+
+
+
+
+

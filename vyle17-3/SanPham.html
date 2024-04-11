@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Sản phẩm</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>Sản phẩm #1 đã hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Lê Ngọc Thảo Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="QuanLiKho.html"><i class="fas fa-desktop"></i>Nhà cung cấp</a></div>
+                <div class="item"><a href="SanPham.html" class="active"><i class="fas fa-th"></i>Sản phẩm</a></div>  
+                <div class="item"><a href="TheLoai.html"><i class="fas fa-th"></i>Danh mục</a></div>  
+                <div class="item"><a href="MaGiamGia.html"><i class="fas fa-th"></i>Mã giảm giá</a></div>  
+                <div class="item">
+                    <a>
+                        <i class="fas fa-table"></i>Nhập kho
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <!--dropdown-->
+                    <div class="sub-menu">
+                        <a href="PhieuNhapKho.html" class="sub-item">Phiếu nhập kho</a> <!--tao + xem lich su phieu nhap kho-->
+                        <a href="#" class="sub-item">Thống kê</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Sản phẩm</h1>
+            <div class="category">
+                <a href="#">Tất cả</a>
+                <a href="#">Đang hoạt động</a>
+                <a href="#">Hết hàng</a>
+                <a href="#">Đã bị ẩn</a>
+            </div>
+            <!--Start: Admin-controller-->
+            <form class="admin-controller" action="#" method="post">
+                    <!--add new user-->
+                <button type="button" onclick="togglePopup('frmAddProduct')"><i class="fa-solid fa-plus"></i>Thêm</button>
+                <!--search: name or id-->
+                <div class="srch">
+                    <input type="text" placeholder="Nhập tên hoặc mã" name='kyw'>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <select name="theloai" id="">
+                    <option value="-1">---Thể loại---</option>
+                    <option value="vanhoc">Văn học</option>
+                    <option value="thieunhi">Thiếu nhi</option>
+                </select>
+                <!--icon sorting: when hover a block display: A-Z-->
+                <label for="">Giá </label>
+                <input type="text" name="tonkhofrom">
+                <label for="">đến</label>
+                <input type="text" name="tonkhoto">
+                <label for="">Tồn kho </label>
+                <button class="sort">
+                    <i class="fa-solid fa-sort-down"></i>
+                    <div class="note">Tăng dần</div>
+                </button>
+                <button class="sort">
+                    <i class="fa-solid fa-sort-up"></i>
+                    <div class="note">Giảm dần</div>
+                </button>
+                <button type="submit" name="btnsearch">Xem</button>
+            </form>
+            <!--End: Admin-controller-->
+
+            <!--Start: Data table-->
+            <table>
+                    <!--noi dung tieu de-->
+                    <tr class="title">
+                        <th>ID</th>
+                        <th>Sản phẩm</th> <!--hinh anh + ten sp-->
+                        <th>Tác giả</th>
+                        <th>Tồn kho</th>
+                        <th>Thể loại</th>
+                        <th>Giá bán</th>
+                        <th>Trạng thái</th> 
+                        <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                    </tr>
+                    <!--thong tin users -->
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class="product">
+                                <img src="duck.jpg" alt="">
+                                Khói trời lộng lẫy
+                            </div>
+                        </td>
+                        <td>Nguyễn Ngọc Tư</td>
+                        <td>100</td>
+                        <td>Văn học</td>
+                        <td>100.000d</td>
+                        <td><span class="status red">Bị ẩn</span></td>
+                        <td>
+                        <a href="#" class="action-button" onclick="togglePopup('frmProduct')">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiết</div>
+                        </a>
+                            <a href="#" class="action-button" onclick="togglePopup('frmEditProduct')">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Chỉnh sửa</div>
+                            </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-trash-alt"></i>
+                                <div class="action-tooltip">Xóa</div>
+                            </a>
+                        </td>
+                    </tr>
+            </table>
+            <!--End: Data table-->
+
+            <!--Start: Add Product-->
+            <div class="formPopup" id="frmAddProduct">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmAddProduct')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                        <label for="input_file" class="change_button">Thêm</label>
+                        <input type="file" id="input_file" accept="image/*">
+                    </div>
+                    <div class="info">
+                    <h1>Thêm sản phẩm</h1>
+                    <div class="cols">
+                    <div class="left">
+                        <div class="field">
+                            <label for="tuasach">Tựa sách</label>
+                            <input type="text" name="tuasach">
+                        </div>
+                        <div class="field">
+                            <label for="nxb">Nhà xuất bản</label>
+                            <input type="text" name="nxb">
+                        </div>
+                        <div class="field">
+                            <label for="nhacungcap">Nhà cung cấp</label>
+                            <select name="nhacungcap" id="">
+                                <option value="-1">---Chon---</option>
+                                <option value="">Công ty Phương Nam</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="field">
+                            <label for="tacgia">Tác giả</label>
+                            <input type="text" name="tacgia">
+                        </div>
+                        <div class="field">
+                            <label for="namxuatban">Năm xuất bản</label>
+                            <input type="text" name="namxuatban">
+                        </div>
+                        <div class="field">
+                            <label for="giaban">Giá bán</label>
+                            <input type="text" name="giaban">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="mota">Mô tả</label>
+                    <textarea name="mota" id="" cols="50" rows="5"></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="submit" name="btnadd">Thêm</button>
+                </div>
+            </div>
+                </form>
+            </div>
+            <!--End: Add Product-->
+
+            <!--Start: Product Detail-->
+            <div class="formPopup" id="frmProduct">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmProduct')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                    </div>
+                    <div class="info">
+                    <h1>Chi tiết sản phẩm</h1>
+                    <div class="cols">
+                        <div class="left">
+                            <div class="field">
+                                <label for="tuasach">Tựa sách</label>
+                                <input type="text" name="tuasach">
+                            </div>
+                            <div class="field">
+                                <label for="nxb">Nhà xuất bản</label>
+                                <input type="text" name="nxb">
+                            </div>
+                            <div class="field">
+                                <label for="nhacungcap">Nhà cung cấp</label>
+                                <select name="nhacungcap" id="">
+                                    <option value="-1">---Chon---</option>
+                                    <option value="">Công ty Phương Nam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="field">
+                                <label for="tacgia">Tác giả</label>
+                                <input type="text" name="tacgia">
+                            </div>
+                            <div class="field">
+                                <label for="namxuatban">Năm xuất bản</label>
+                                <input type="text" name="namxuatban">
+                            </div>
+                            <div class="field">
+                                <label for="giaban">Giá bán</label>
+                                <input type="text" name="giaban">
+                            </div>
+                        </div>
+                    </div>
+                <div class="status">
+                    <div>
+                        <label for="trangthai">Hoạt động</label>
+                        <input type="radio" name="trangthai" value="1">
+                    </div>
+                    <div>
+                        <label for="trangthai">Bị ẩn</label>
+                        <input type="radio" name="trangthai" value="0">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="mota">Mô tả</label>
+                    <textarea name="mota" id="" cols="50" rows="5"></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="submit" name="btnadd" class="edit">Chỉnh sửa</button>
+                </div>
+            </div>
+                </form>
+            </div>
+            <!--End: Product Detail-->
+
+            <!--Start: Edit Product-->
+            <div class="formPopup" id="frmEditProduct">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmEditProduct')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                        <label for="input_file" class="change_button">Thay đổi</label>
+                        <input type="file" id="input_file" accept="image/*">
+                    </div>
+                    <div class="info">
+                    <h1>Sửa sản phẩm</h1>
+                    <div class="cols">
+                        <div class="left">
+                            <div class="field">
+                                <label for="tuasach">Tựa sách</label>
+                                <input type="text" name="tuasach">
+                            </div>
+                            <div class="field">
+                                <label for="nxb">Nhà xuất bản</label>
+                                <input type="text" name="nxb">
+                            </div>
+                            <div class="field">
+                                <label for="nhacungcap">Nhà cung cấp</label>
+                                <select name="nhacungcap" id="">
+                                    <option value="-1">---Chon---</option>
+                                    <option value="">Công ty Phương Nam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="field">
+                                <label for="tacgia">Tác giả</label>
+                                <input type="text" name="tacgia">
+                            </div>
+                            <div class="field">
+                                <label for="namxuatban">Năm xuất bản</label>
+                                <input type="text" name="namxuatban">
+                            </div>
+                            <div class="field">
+                                <label for="giaban">Giá bán</label>
+                                <input type="text" name="giaban">
+                            </div>
+                        </div>
+                    </div>
+                <div class="status">
+                    <div>
+                        <label for="trangthai">Hoạt động</label>
+                        <input type="radio" name="trangthai" value="1">
+                    </div>
+                    <div>
+                        <label for="trangthai">Bị ẩn</label>
+                        <input type="radio" name="trangthai" value="0">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="mota">Mô tả</label>
+                    <textarea name="mota" id="" cols="50" rows="5"></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="submit" name="btnadd">Lưu</button>
+                </div>
+            </div>
+                </form>
+            </div>
+            <!--End: Edit Product-->
+
+        </main>
+    </div>
+    <!--Start: Pagination-->
+    <div class="paging">
+            <a href="#">&lt;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">&gt;</a>
+    </div>
+            <!--End: Pagination-->
+</body>
+</html>

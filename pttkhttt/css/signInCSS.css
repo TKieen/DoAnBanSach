@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/*--------------------------------------------*/
+/* phần này css navbar*/
+.header-navbar-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    background-color: #fff;
+}
+
+.header-navbar-items {
+    margin-right: 50px;
+    position: relative;
+}
+
+.header-navbar-items img{
+    width: 250px;
+}
+
+.header-navbar-items-SignIn-SignUp {
+    display: flex;
+    font-size: 13px;
+    position: absolute;
+    left: 60px;
+    width: 130px;
+    top: 5px;
+}
+
+.header-navbar-items-SignIn {
+    margin-right: 5px;
+}
+
+.header-navbar-items-SignIn:hover {
+    color: #696969;
+}
+
+.header-navbar-items-SignUp:hover {
+    color: #696969;
+}
+
+.header-navbar-items-SignUp {
+    text-decoration: none;
+}
+
+.header-navbar-items-Cart-SignIn-SignUp {
+    display: flex;
+    position: relative;
+}
+
+.circle {
+    background-color: none;
+    width: 43px;
+    height: 43px;
+    border-radius: 100px;
+    border: 1.5px solid #057A45;
+    position: absolute;
+    left: -7.5px;
+    bottom: -7px;
+}
+
+.header-navbar-items-Cart-SignIn-SignUp i {
+    font-size: 23px;
+    color: #057A45;
+}
+
+#signup {
+    text-decoration: none;
+    color: black;
+}
+
+#signin {
+    text-decoration: none;
+    color: black;
+}
+
+.header-navbar-items-separate {
+    display: block;
+    width: 0.5px;
+    background-color: #333;
+    margin-right: 5px;
+    height: 14px;
+    transform: translateY(1px);
+}
+
+/*chỗ này là css phần ô search*/
+.header-navbar-items-search {
+    position: relative;
+    margin-right: 30px;
+}
+.header-navbar-items-search input{
+    height: 32px;
+    width: 500px;
+    border-radius: 50px;
+    border: 1px solid #CCCCCC;
+    background-color: #F3F3F3;
+    padding-left: 45px;
+}
+
+.header-navbar-items-search i {
+    position: absolute;
+    left: 11px;
+    top: 8.5px;
+    color: #666665;
+    font-size: 17px;
+}
+
+.header-navbar-items-search .findBook-button {
+    position: absolute;
+    width: 75px;
+    right: 3px;
+    top: 3px;
+    padding: 5px 4px 5px 4px;
+    border-radius: 20px;
+    border: none;
+    background-color: #057A45;
+    color: #fff;
+    text-shadow: 1px 1px #6AB090;
+    cursor: pointer;
+}
+
+.header-navbar {
+    margin-bottom: 20px;
+}
+/*--------------------------------------------*/
+/* phần này css form Đăng ký */
+.container {
+    margin: auto;
+    width: 700px;
+    height: 500px;
+}
+
+.container-row1-items {
+    list-style: none;
+    font-size: 13px;
+    margin: 10px 5px 0px 0px;
+    color: #696969;
+}
+
+.container-row1-items i {
+    font-size: 9px;
+}
+
+.container-row1 {
+    display: flex;
+    margin-left: 12px;
+}
+
+.container-row2 {
+    margin-left: 7px;
+    margin-top: -5px;
+}
+
+.signIn-box {
+    border: 0.5px solid #CDCDCD;
+    width: 500px;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 5px;
+}
+
+.signIn-box-row3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.signIn-box-row3-form-items {
+    margin-bottom: 15px;
+}
+
+.signIn-box-row3-form-items strong{
+    font-weight: 500;
+    width: 100px;
+    display: inline-block;
+    font-size: 13px;
+    color: #383838;
+}
+
+.signIn-box-row3-form-items input {
+    height: 30px;
+    border: 0.5px solid #CDCDCD;
+    border-radius: 3px;
+    width: 180px;
+    font-size: 12px;
+    padding-left: 5px;
+    color: #383838;
+}
+
+.signIn-box-row2 {
+    border-top: 1px dashed #CDCDCD;
+    margin: 2px 30px 0 30px;
+
+}
+
+.container-row1-items-hr {
+    border-top: 1px dashed #CDCDCD;
+    margin-top: 2px;
+}   
+
+
+.gender {
+    margin: 0 5px 5px 5px;
+}
+
+input[type=radio] {
+    width: 13px;
+    height: 13px;
+}
+
+.signIn-box-row1 {
+    margin: 10px 10px 0 30px;
+    color: #087B44;
+    font-size: 22px;
+}
+
+.signIn-box-row3-right-button button {
+    padding: 8px 20px 8px 20px;
+    background-color: #057A45;
+    border: 0.5px solid #006400;
+    border-radius: 3px;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.signIn-box-row3-right-button button:hover {
+    background-color: #228B22;
+}
+
+.signIn-box-row4 {
+    font-size: 12px;
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    color: #696969;
+}
+
+.signIn-box-row5 {
+    font-size: 12px;
+    margin-left: 150px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    color: #696969;
+}
+
+.signIn-box-row3-form-forgotPassword {
+    text-align: right;
+    font-size: 12px;
+}
+
+.signIn-box-row3-form-forgotPassword a {
+    text-decoration: none;
+    color: #0066C0;
+}
+
+.signIn-box-row3-form-forgotPassword a:hover {
+    text-decoration: underline;
+    color: #6495ED;
+}
+
+.signIn-box-row3-form-errorMssg {
+    font-size: 11px;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+/*--------------------------------------------*/
+/*--------------------------------------------*/
+/* phần này css Footer */
+.footer-row2 {
+    background-color: #ECECEC;
+    height: 200px;
+    border-top: 3px solid #CCCCCC;
+    border-bottom: 3px solid #CCCCCC;
+}
+
+.footer-row2-content {
+    margin-left: 200px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.footer-row2-content-items-left1 img {
+    width: 200px;
+}
+
+.footer-row2-content-items-left2 {
+    font-size: 13px;
+    margin-left: 30px;
+}
+
+.footer-row2-content-items-left3 {
+    margin-top: 22px;
+}
+
+.footer-row2-content-items-left3-img1 {
+    margin-bottom: 17px; 
+    margin-right: 15px;
+    width: 150px;
+}
+
+.footer-row2-content-items {
+    margin-right: -40px;
+}
+
+.footer-row2-content-items-right1 {
+    font-size: 13px;
+}
+
+.footer-row2-content-items-right2 {
+    font-size: 11.5px;
+    margin-top: 7px;
+    color: #333;
+}
+/*--------------------------------------------*/

@@ -1,0 +1,81 @@
+<mxfile host="app.diagrams.net" modified="2024-03-25T04:09:44.496Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" version="24.0.7" etag="D4QazmRuuY2jJrEmRi4J" type="device">
+  <diagram id="JagFlaobKEfYhnArVGD1" name="Page-1">
+    <mxGraphModel dx="1130" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-1" value="Sản phẩm" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="260" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-2" value="Tiếp nhận đơn hàng" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="365" y="80" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-3" value="Xác nhận đơn hàng thành công" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="360" y="370" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-4" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2z-_gvQrzGJfHIL5hvcp-3" target="2z-_gvQrzGJfHIL5hvcp-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="360" as="sourcePoint" />
+            <mxPoint x="450" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-5" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2z-_gvQrzGJfHIL5hvcp-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="150" as="sourcePoint" />
+            <mxPoint x="420" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-6" value="Khách hàng" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="255" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-7" value="Người bán hàng" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="255" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2z-_gvQrzGJfHIL5hvcp-6" target="2z-_gvQrzGJfHIL5hvcp-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="260" as="sourcePoint" />
+            <mxPoint x="450" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-9" value="Yêu cầu mua hàng" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2z-_gvQrzGJfHIL5hvcp-8">
+          <mxGeometry x="-0.2076" y="1" relative="1" as="geometry">
+            <mxPoint x="9" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-12" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2z-_gvQrzGJfHIL5hvcp-2" target="2z-_gvQrzGJfHIL5hvcp-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="360" as="sourcePoint" />
+            <mxPoint x="450" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-19" value="Xác nhận mua hàng" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2z-_gvQrzGJfHIL5hvcp-12">
+          <mxGeometry x="-0.1463" y="-1" relative="1" as="geometry">
+            <mxPoint x="22" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2z-_gvQrzGJfHIL5hvcp-3" target="2z-_gvQrzGJfHIL5hvcp-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="360" as="sourcePoint" />
+            <mxPoint x="450" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-14" value="Phản hồi đặt hàng thành công&lt;br&gt;cho khách hàng" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2z-_gvQrzGJfHIL5hvcp-13">
+          <mxGeometry x="-0.0924" relative="1" as="geometry">
+            <mxPoint x="-12" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2z-_gvQrzGJfHIL5hvcp-7" target="2z-_gvQrzGJfHIL5hvcp-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="360" as="sourcePoint" />
+            <mxPoint x="450" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2z-_gvQrzGJfHIL5hvcp-17" value="Xác nhận đơn hàng&lt;br&gt;của khách hàng" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2z-_gvQrzGJfHIL5hvcp-16">
+          <mxGeometry x="-0.0606" y="-3" relative="1" as="geometry">
+            <mxPoint x="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

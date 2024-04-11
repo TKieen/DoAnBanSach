@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="phieunhapkho.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Le Ngoc Thao Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="QuanLiKho.html"><i class="fas fa-desktop"></i>Nha cung cap</a></div>
+                <div class="item"><a href="SanPham2.html"><i class="fas fa-th"></i>San pham</a></div>  
+                <div class="item">
+                    <a>
+                        <i class="fas fa-table"></i>Nhap kho
+                        <!--dropdown-->
+                        <!--dropdown arrow-->
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="PhieuNhapKho.html" class="sub-item active">Phieu nhap kho</a> <!--tao + xem lich su phieu nhap kho-->
+                        <a href="#" class="sub-item">Thong ke</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Tạo Phiếu nhập kho</h1>
+            <form action="" class="inventory">
+            <div class="general">
+                <div class="item">
+                    <div class="field">
+                        <label for="">Mã số #</label>
+                        <div class="info">1</div>
+                    </div>
+                    <div class="field">
+                        <label for="">Ngày lập phiếu</label>
+                        <div class="info">03/07/2004</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="field">
+                        <label for="">Người lập phiếu</label>
+                        <div class="info">Nguyễn Hùng Mạnh</div>
+                    </div>
+                    <div class="field">
+                        <label for="">Nhà cung cấp</label>
+                        <div class="info">CTY Thịnh Phát</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="field">
+                        <label for="">Tổng SL</label>
+                        <div class="info">100</div>
+                    </div>
+                    <div class="field">
+                        <label for="">Tổng tiền</label>
+                        <div class="info">1.000.000đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--create new product-->
+            <div class="admin-controller">
+                <button type="button"><i class="fa-solid fa-plus"></i>Thêm</button>
+            </div>
+            <!--alert (optional)-->
+
+            <!--Start: Data table-->
+             <table>
+                <thead class="title">
+                    <th>Tên sách</th> <!--chỉ cho người dùng select, ko cho tự điền vào form-->
+                    <th>SL</th>
+                    <th>Đơn giá nhập</th>
+                    <th>Đơn giá bìa</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!--tim kiem ten sach va sach duoc cung cap boi nha cung cap-->
+                        <td class="srch-product">
+                            <input type="text" name="srch_product">
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </td>
+                        <td>
+                            <input type="number" name="sl" >
+                        </td>
+                        <!--gia nhap, gia bia phai duoc them luc tao san pham-->
+                        <!--gererate auto-->
+                        <td>
+                            <div class="gianhap">100.000d</div>
+                        </td>
+                        <td>
+                            <div class="giabia">100.000d</div>
+                        </td>
+                        <td>
+                            <div class="thanhtien">100.000d</div>
+                        </td>
+                        <td>
+                            <button type="button" class="cancel">
+                            <i class="fa-solid fa-x"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="add-new-line">
+                        <td colspan="6"><a href=""><i class="fa-solid fa-plus"></i> Thêm dòng</a></td>
+                    </tr>
+                </tbody>
+             </table>
+            <!--End: Data table-->
+            <button type="submit" class="complete">Hoàn tất</button>
+        </form>
+        </main>
+    </div>
+</body>
+</html>

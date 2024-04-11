@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/*--------------------------------------------*/
+/* phần này css Footer */
+.footer-row2 {
+    background-color: #ECECEC;
+    height: 200px;
+    border-top: 3px solid #CCCCCC;
+    border-bottom: 3px solid #CCCCCC;
+}
+
+.footer-row2-content {
+    margin-left: 200px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.footer-row2-content-items-left1 img {
+    width: 200px;
+}
+
+.footer-row2-content-items-left2 {
+    font-size: 13px;
+    margin-left: 30px;
+}
+
+.footer-row2-content-items-left3 {
+    margin-top: 22px;
+}
+
+.footer-row2-content-items-left3-img1 {
+    margin-bottom: 17px; 
+    margin-right: 15px;
+    width: 150px;
+}
+
+.footer-row2-content-items {
+    margin-right: -40px;
+}
+
+.footer-row2-content-items-right1 {
+    font-size: 13px;
+}
+
+.footer-row2-content-items-right2 {
+    font-size: 11.5px;
+    margin-top: 7px;
+    color: #333;
+}
+/*--------------------------------------------*/

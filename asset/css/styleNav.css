@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/*--------------------------------------------*/
+/* phần này css navbar*/
+.header-navbar-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    background-color: #fff;
+}
+
+.header-navbar-items {
+    margin-right: 50px;
+    position: relative;
+}
+
+.header-navbar-items img{
+    width: 250px;
+}
+
+.header-navbar-items-SignIn-SignUp {
+    display: flex;
+    font-size: 13px;
+    position: absolute;
+    left: 60px;
+    width: 150px;
+    top: 5px;
+}
+
+.header-navbar-items-SignIn {
+    margin-right: 5px;
+}
+
+.header-navbar-items-SignIn:hover {
+    color: #696969;
+}
+
+.header-navbar-items-SignUp:hover {
+    color: #696969;
+}
+
+.header-navbar-items-SignUp {
+    text-decoration: none;
+}
+
+.header-navbar-items-Cart-SignIn-SignUp {
+    display: flex;
+    position: relative;
+}
+
+.circle {
+    background-color: none;
+    width: 43px;
+    height: 43px;
+    border-radius: 100px;
+    border: 1.5px solid #057A45;
+    position: absolute;
+    left: -7.5px;
+    bottom: -7px;
+}
+
+.header-navbar-items-Cart-SignIn-SignUp i {
+    font-size: 23px;
+    color: #057A45;
+}
+
+#signup {
+    text-decoration: none;
+    color: black;
+}
+
+#signin {
+    text-decoration: none;
+    color: black;
+}
+
+.header-navbar-items-separate {
+    display: block;
+    width: 0.5px;
+    background-color: #333;
+    margin-right: 5px;
+    height: 14px;
+    transform: translateY(1px);
+}
+
+/*chỗ này là css phần ô search*/
+.header-navbar-items-search {
+    position: relative;
+    margin-right: 30px;
+}
+.header-navbar-items-search input{
+    height: 32px;
+    width: 500px;
+    border-radius: 50px;
+    border: 1px solid #CCCCCC;
+    background-color: #F3F3F3;
+    padding-left: 45px;
+}
+
+.header-navbar-items-search i {
+    position: absolute;
+    left: 11px;
+    top: 8.5px;
+    color: #666665;
+    font-size: 17px;
+}
+
+.header-navbar-items-search .findBook-button {
+    position: absolute;
+    width: 75px;
+    right: 3px;
+    top: 3px;
+    padding: 5px 4px 5px 4px;
+    border-radius: 20px;
+    border: none;
+    background-color: #057A45;
+    color: #fff;
+    text-shadow: 1px 1px #6AB090;
+    cursor: pointer;
+}

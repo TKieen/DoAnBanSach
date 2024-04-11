@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div class="notice-mes">
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                        <div class="notice-mes">
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                        <div class="notice-mes">
+                            <img src="duck.jpg" alt="">
+                            <p>San pham SP1000 da het hang</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Le Ngoc Thao Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href=""><i class="fas fa-desktop"></i>Don hang</a></div>
+                <div class="item"><a href=""><i class="fas fa-th"></i>Khach hang</a></div>  
+                <div class="item">
+                    <a href="">
+                        <i class="fas fa-table"></i>Thong ke
+                        <!--dropdown-->
+                        <!--dropdown arrow-->
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="" class="sub-item">Doanh thu</a>
+                        <a href="" class="sub-item">Loi nhuan</a>
+                        <a href="" class="sub-item">Don hang</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Don hang</h1>
+            <div class="category">
+                <a href="DonHang.html">Tat ca <span>(1)</span></a>
+                <a href="test2.html">Cho duyet <span>(1)</span></a>
+                <a href="#">Dang giao <span>(1)</span></a>
+                <a href="#">Da giao <span>(1)</span></a>
+                <a href="#">Bi huy <span>(1)</span></a>
+            </div>
+            <!--Start: Admin-controller-->
+            <form class="admin-controller" action="#" method="post">
+                    <!--add new user-->
+                    <div class="empty"></div>
+                <!-- <button class="create"><i class="fa-solid fa-plus"></i>Thêm</button> -->
+                <!--search: name or id-->
+                <div class="right">
+                    <div class="srch">
+                        <input type="text" placeholder="Tu khoa tim kiem" name='kyw'>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <!--icon sorting: when hover a block display: A-Z-->
+                    <div class="date">
+                        <div>
+                            <label for="from">Tu</label>
+                            <input type="date" name="from">
+                        </div>
+                        <div>
+                            <label for="to">den</label>
+                            <input type="date" name="to">
+                        </div>
+                    </div>
+                    <button class="filter" type="submit" name="btnsearch">Xem</button>
+                </div>
+            </form>
+            <!--End: Admin-controller-->
+
+            <!--Start: Data table-->
+             <!--data table-->
+             <table>
+                    <!--noi dung tieu de-->
+                    <tr>
+                        <th>ID</th>
+                        <th>Ngay tao don</th>
+                        <th>Khach hang</th> <!--hinh anh + ten sp-->
+                        <th>Thanh toan</th>
+                        <th>Trang thai</th> 
+                        <th>Tong tien</th>
+                        <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                    </tr>
+                    <!--thong tin users -->
+                    <tr>
+                        <td>1</td>
+                        <td>03/07/2004</td>
+                        <td>Nguyen Ngoc Tu</td>
+                        <td><input type="checkbox" checked disabled></td>
+                        <td><span class="status blue">Cho duyet</span></td>
+                        <td>100.000d</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Cap nhat</div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>03/07/2004</td>
+                        <td>Nguyen Ngoc Tu</td>
+                        <td><input type="checkbox" checked disabled></td>
+                        <td><span class="status yellow">Dang giao</span></td>
+                        <td>100.000d</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Cap nhat</div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>03/07/2004</td>
+                        <td>Nguyen Ngoc Tu</td>
+                        <td><input type="checkbox" disabled></td>
+                        <td><span class="status green">Da giao</span></td>
+                        <td>100.000d</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Cap nhat</div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>03/07/2004</td>
+                        <td>Nguyen Ngoc Tu</td>
+                        <td><input type="checkbox"disabled></td>
+                        <td><span class="status red">Bi huy</span></td>
+                        <td>100.000d</td>
+                        <td>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <div class="action-tooltip">Chi tiet</div>
+                        </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Cap nhat</div>
+                            </a>
+                        </td>
+                    </tr>
+            </table>
+            <!--End: Data table-->
+        </main>
+    </div>
+    <!--Start: Pagination-->
+    <div class="paging">
+            <a href="#">&lt;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">&gt;</a>
+    </div>
+            <!--End: Pagination-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+                //*** show notification ***
+                //upload notice-items
+                //toggle
+                var menu1 = document.getElementsByClassName("sub-menu-wrap")[0];
+                document.getElementsByClassName('notification')[0].onclick=function(){
+                    if(menu1.style.display=='block')
+                        menu1.style.display='none';
+                    else menu1.style.display='block';
+                }
+            })
+    </script>
+</body>
+</html>

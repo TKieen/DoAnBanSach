@@ -1,0 +1,586 @@
+/* css cua  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: white;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Start: header*/
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);;
+    padding: 5px 5px;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+header ul a{
+    text-decoration: none;
+    color: black;
+}
+
+header ul a:hover{
+    color: blue;
+}
+
+/* header logo */
+header .logo{
+    width: 200px;
+}
+
+/*notification*/
+.notification{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notification i:hover{
+    color: blue;
+}
+
+.notification .num{
+    position: absolute;
+    top: -3px;
+    right: -1px;
+    text-align: center;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.notification .sub-menu-wrap{
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    padding: 10px;
+    display: none;
+    transition: 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+.notification .sub-menu-wrap .sub-menu{
+    padding: 10px;
+    height: 200px;
+    overflow: auto;
+    z-index: 1; /*added*/
+    position: relative;/*added*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.notification .sub-menu div{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    transition: 0.08s;
+}
+
+.notification .sub-menu img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.notification .sub-menu div:hover{
+    background-color: #ddd;
+}
+
+/* account */
+.account{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.account span{
+    margin-left: 8px;
+}
+/* End: header */
+
+/* Start: side bar*/
+aside{
+    position: relative;
+    display: inline-block;
+}
+
+.menu-btn{
+    position: absolute;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.side-bar{
+    background-color: white;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    display: none;
+    transition: 0.6s ease ;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+aside:hover .side-bar{
+    display: block;
+}
+
+.side-bar .menu{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.side-bar .menu .item{
+    position: relative;
+}
+
+.side-bar a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 5px 30px;
+    line-height: 60px;
+}
+
+.side-bar a.active{
+    background-color: #ddd;
+}
+
+.side-bar a:hover{
+    background-color: #ddd;
+}
+
+.side-bar .item i{
+    margin-right: 15px;
+}
+
+.side-bar .item a .dropdown{
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.side-bar .item .sub-menu{
+    display: none;
+    overflow: hidden;
+}
+
+.side-bar .item:hover .sub-menu{
+    display: block;
+}
+
+.side-bar .sub-menu .active{
+    background-color: gold;
+}
+
+.side-bar .sub-menu .sub-item:hover{
+    background-color: gold;
+}
+/* End: side bar */
+
+/* Start: main section*/
+main{
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 20px 20px 20px;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0px 0 20px 10px;
+}
+
+/* Dashboard */
+.rows{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell{
+    width: 20%;
+    height: 150px;
+    border: none;
+    background-color: lightcoral;
+    margin: 10px;
+    position: relative;
+    padding: 20px;
+}
+
+.cell .qty{
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+}
+
+.cell .title{
+    background-color: transparent;
+    position: absolute;
+    bottom: 10px;
+    font-size: 25px;
+    color: white;
+}
+/* Start: category*/
+.category{
+    height: 60px;
+    width: 100%;
+    padding: 10px 0 30px 0;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.category a{
+    color: orange;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: 3px solid transparent;
+    transition: 0.5s ease;
+}
+
+.category a:hover{
+    border-bottom: 3px solid darkorchid;
+    transform: translateX(3px);
+}
+
+.category span{
+    font-size: 14px;
+    margin-left: 2px;
+}
+/* End: category */
+
+/* Start: admin controller */
+.admin-controller{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-controller .right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* search */
+.admin-controller .srch{
+    position: relative;
+    margin-right: 30px;
+}
+
+.admin-controller .srch input{
+    width: 200px;
+    padding: 0 10px 0 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    height: 20px;
+}
+
+.admin-controller .srch input:focus{
+    outline: none;
+}
+
+.admin-controller .srch i{
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+
+/* select */
+.admin-controller select{
+    margin-right: 10px;
+    padding: 5px;
+}
+
+/* date */
+.admin-controller .date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-controller .date div{
+    margin-right: 10px;
+}
+
+.admin-controller input[type='date']{
+    margin-left: 10px;
+}
+
+/* sorting */
+.admin-controller .sort .note{
+    display: none;
+    position: absolute;
+    top: 100%; /* Hiển thị bảng phía dưới biểu tượng */
+    left: 0;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.admin-controller .sort:hover .note{
+    display: block;
+}
+
+/* button */
+.admin-controller button{
+    color: black;
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    margin: 0 5px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.admin-controller button[type="button"]{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.admin-controller button[type="button"] i{
+    margin-right: 3px;
+}
+
+.admin-controller button[type="submit"]{
+    width: 60px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.admin-controller button:hover{
+    background-color: gold;
+}
+/* End: admin-controller */
+
+/* Start: table*/
+table{
+    margin: 10px 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+tr:nth-child(even){
+    background-color:#E9F6FF;
+}
+
+.title{
+    font-size: 18px;
+    background-color: #E5D4FF;
+}
+
+td, th{
+    padding: 5px 10px;
+    text-align: center;
+}
+
+table .product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table .product img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+table input[type='checkbox']{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+table .status{
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}
+
+.red{
+    background-color: lightcoral;
+}
+
+.green{
+    background-color: lightgreen;
+}
+
+.yellow{
+    background-color: lightgoldenrodyellow;
+}
+
+.blue{
+    background-color: lightskyblue;
+}
+
+/*action-button*/
+.action-button {
+	color: black;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px; /* Khoảng cách giữa các biểu tượng */
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+.action-tooltip {
+    display: none;
+    position: absolute;
+    top: 100%; /* Hiển thị bảng phía dưới biểu tượng */
+    left: 0;
+    background-color: #D0A2F7;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.action-button:hover{
+	color: red;
+}
+
+.action-button:hover .action-tooltip {
+    display: block; /* Hiển thị bảng khi hover vào biểu tượng */
+}
+/* End: table */
+
+/* Start: Coupon */
+.coupon-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.coupon h2{
+    font-weight: 300;
+    margin: 10px 0 20px 25px;
+}
+
+.coupon .all{
+    margin-left: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.coupon button{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    float: right;
+    border-radius: 3px;
+    background-color: gold;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* End: Coupon */
+
+/* Start: paging*/
+.paging{
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paging a{
+    display: block;
+    width: 30px;
+    text-decoration: none;
+    color: black;
+    border-radius: 3px;
+    border: none;
+    padding: 3px 2px;
+    margin: 0 5px;
+    font-weight: 550;
+}
+
+.paging a:not(.active):hover{
+    background-color: #ddd;
+}
+
+.paging a.active{
+    background-color: #85c4f1;
+}
+/* End: paging */
+
+
+

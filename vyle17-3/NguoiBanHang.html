@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Người bán hàng</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>Sản phẩm #1 đã hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Lê Ngọc Thảo Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="NguoiBanHang.html" class="active"><i class="fas fa-desktop"></i>Đơn hàng</a></div>
+                <div class="item"><a href="KhachHang.html"><i class="fas fa-th"></i>Khách hàng</a></div>  
+                <div class="item">
+                    <a href="">
+                        <i class="fas fa-table"></i>Thống kê
+                        <!--dropdown-->
+                        <!--dropdown arrow-->
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="" class="sub-item">Doanh thu</a>
+                        <a href="" class="sub-item">Lợi nhuận</a>
+                        <a href="" class="sub-item">Đơn hàng</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Đơn hàng</h1>
+            <div class="category">
+                <a href="NguoiBanHang.html" class="active">Tất cả <span>(1)</span></a>
+                <a href="#">Chờ duyệt <span>(1)</span></a>
+                <a href="#">Đang giao <span>(1)</span></a>
+                <a href="#">Đã giao <span>(1)</span></a>
+                <a href="#">Đã hủy <span>(1)</span></a>
+            </div>
+            <!--Start: Admin-controller-->
+            <form class="admin-controller" action="#" method="post">
+                    <!--add new user-->
+                <div class="empty"></div>
+                <!-- <button type="button" class="create" onclick="togglePopup()"><i class="fa-solid fa-plus"></i>Thêm</button> -->
+                <!--search: name or id-->
+                <div class="right">
+                    <div class="srch">
+                        <input type="text" placeholder="Từ khóa tìm kiếm" name='kyw'>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <!--icon sorting: when hover a block display: A-Z-->
+                    <div class="date">
+                        <div>
+                            <label for="from">Từ</label>
+                            <input type="date" name="from">
+                        </div>
+                        <div>
+                            <label for="to">đến</label>
+                            <input type="date" name="to">
+                        </div>
+                    </div>
+                    <button type="submit" name="btnsearch">Xem</button>
+                </div>
+            </form>
+            <!--End: Admin-controller-->
+
+            <!--Start: Data table-->
+             <table>
+                <!--noi dung tieu de-->
+                <tr class="title">
+                    <th>ID</th>
+                    <th>Ngày tạo</th>
+                    <th>Khách hàng</th> <!--hinh anh + ten sp-->
+                    <th>Thanh toán</th>
+                    <th>Trạng thái</th> 
+                    <th>Tổng tiền</th>
+                    <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                </tr>
+                <!--thong tin users -->
+                <tr>
+                    <td>1</td>
+                    <td>03/07/2004</td>
+                    <td>Lê Ngọc Thảo Vy</td>
+                    <!--thanh toan online: thanh toan khi dat don hang-->
+                    <!--thanh toan offline: thanh toan khi nhan hang (khi trang thai don hang la da giao thi thanh toan duoc check)-->
+                    <td><input type="checkbox" disabled></td> 
+                    <td><span class="status green">Đã giao</span></td>
+                    <td>100.000d</td>
+                    <td>
+                    <button class="action-button" onclick="togglePopup('frmOrder')">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div class="action-tooltip">Chi tiết</div>
+                    </button>
+                    <button class="action-button" onclick="togglePopup('frmUpdateOrder')">
+                        <i class="fas fa-edit"></i>
+                        <div class="action-tooltip">Cập nhật</div>
+                    </button>
+                    <button class="action-button">
+                        <i class="fa-solid fa-ban"></i>
+                        <div class="action-tooltip">Hủy đơn</div>
+                    </button>
+                    </td>
+                </tr>
+            </table>
+            <!--End: Data table-->
+            
+            <!--Start: Order Detail-->
+            <div class="formPopup" id="frmOrder">
+                <form action="#" method="post" class="updateOrderFrm">
+                    <button type="button" class="close" onclick="togglePopup('frmOrder')"><i class="fa-solid fa-x"></i></button>
+                    <div class="detail">
+                    <h1>Chi tiết đơn hàng</h1>
+                    <table>
+                        <!--noi dung tieu de-->
+                        <tr class="title">
+                            <th>ID</th>
+                            <th>Sản phẩm</th> <!--hinh anh + ten sp-->
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                        </tr>
+                        <!--thong tin users -->
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="product">
+                                    <img src="duck.jpg" alt="">
+                                    Khói trời lộng lẫy
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>100.000d</td>
+                            <td>100.000d</td>
+                            <td>
+                            <a href="#" class="action-button" onclick="togglePopup('frmProduct')">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <div class="action-tooltip">Chi tiết</div>
+                            </a>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <hr>
+                    <div class="info">
+                    <div class="cols">
+                    <div class="left">
+                        <div class="field">
+                            <label for="khachhang">Khách hàng</label>
+                            <input type="text" name="khachhang" disabled>
+                        </div>
+                        <div class="field">
+                            <label for="dienthoai">Điện thoại</label>
+                            <input type="text" name="dienthoai" disabled>
+                        </div>
+                        <div class="field">
+                            <label for="diachigiao">Địa chỉ giao</label>
+                            <input type="text" name="diachigiao" disabled>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="field">
+                            <label for="ngaydat">Ngày tạo</label>
+                            <input type="text" name="ngaydat" disabled>
+                        </div>
+                        <div class="field">
+                            <label for="tongtien">Tổng tiền</label>
+                            <input type="text" name="tongtien" disabled>
+                        </div>
+                        <div class="field">
+                            <label for="nhacungcap">Hình thức thanh toán</label>
+                            <input type="text" name="thanhtoan" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="status">
+                    <label for="trangthai">Trạng thái</label>
+                    <select name="trangthai" id="">
+                        <option value="choduyet">Chờ giao</option>
+                        <option value="danggiao">Đang giao</option>
+                        <option value="dagiao">Đã giao</option>
+                        <option value="dahuy">Đã hủy</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button type="submit" name="btnadd" class="edit">Chỉnh sửa</button>
+                </div>
+            </div>
+                </form>
+            </div>
+            <!--End: Order Detail-->
+
+            <!--Start: Update Order Detail-->
+            <div class="formPopup" id="frmUpdateOrder">
+                <form action="#" method="post" class="updateOrderFrm">
+                    <button type="button" class="close" onclick="togglePopup('frmUpdateOrder')"><i class="fa-solid fa-x"></i></button>
+                    <div class="detail">
+                        <h1>Chi tiết đơn hàng</h1>
+                        <table>
+                            <!--noi dung tieu de-->
+                            <tr class="title">
+                                <th>ID</th>
+                                <th>Sản phẩm</th> <!--hinh anh + ten sp-->
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                                <th></th> <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                            </tr>
+                            <!--thong tin users -->
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <div class="product">
+                                        <img src="duck.jpg" alt="">
+                                        Khói trời lộng lẫy
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td>100.000d</td>
+                                <td>100.000d</td>
+                                <td>
+                                <a href="#" class="action-button" onclick="togglePopup('frmProduct')">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <div class="action-tooltip">Chi tiết</div>
+                                </a>
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+                <hr>
+                        <div class="info">
+                        <div class="cols">
+                        <div class="left">
+                            <div class="field">
+                                <label for="khachhang">Khách hàng</label>
+                                <input type="text" name="khachhang" disabled>
+                            </div>
+                            <div class="field">
+                                <label for="dienthoai">Điện thoại</label>
+                                <input type="text" name="dienthoai" disabled>
+                            </div>
+                            <div class="field">
+                                <label for="diachigiao">Địa chỉ giao</label>
+                                <input type="text" name="diachigiao" disabled>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="field">
+                                <label for="ngaydat">Ngày tạo</label>
+                                <input type="text" name="ngaydat" disabled>
+                            </div>
+                            <div class="field">
+                                <label for="tongtien">Tổng tiền</label>
+                                <input type="text" name="tongtien" disabled>
+                            </div>
+                            <div class="field">
+                                <label for="nhacungcap">Hình thức thanh toán</label>
+                                <input type="text" name="thanhtoan" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <label for="trangthai">Trạng thái</label>
+                        <select name="trangthai" id="">
+                            <option value="choduyet">Chờ giao</option>
+                            <option value="danggiao">Đang giao</option>
+                            <option value="dagiao">Đã giao</option>
+                            <option value="dahuy">Đã hủy</option>
+                        </select>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" name="btnadd" class="edit">Chỉnh sửa</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!--End: Update Order Detail-->
+
+            <!--Start: Product Detail-->
+            <div class="formPopup" id="frmProduct">
+                <form action="#" method="post">
+                    <button type="button" class="close" onclick="togglePopup('frmProduct')"><i class="fa-solid fa-x"></i></button>
+                    <div class="change_img">
+                        <img src="duck.jpg" alt="userAvatar" id="product_pic">
+                    </div>
+                    <div class="info">
+                    <h1>Chi tiết sản phẩm</h1>
+                    <div class="cols">
+                        <div class="left">
+                            <div class="field">
+                                <label for="tuasach">Tựa sách</label>
+                                <input type="text" name="tuasach">
+                            </div>
+                            <div class="field">
+                                <label for="nxb">Nhà xuất bản</label>
+                                <input type="text" name="nxb">
+                            </div>
+                            <div class="field">
+                                <label for="nhacungcap">Nhà cung cấp</label>
+                                <select name="nhacungcap" id="">
+                                    <option value="-1">---Chon---</option>
+                                    <option value="">Công ty Phương Nam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="field">
+                                <label for="tacgia">Tác giả</label>
+                                <input type="text" name="tacgia">
+                            </div>
+                            <div class="field">
+                                <label for="namxuatban">Năm xuất bản</label>
+                                <input type="text" name="namxuatban">
+                            </div>
+                            <div class="field">
+                                <label for="giaban">Giá bán</label>
+                                <input type="text" name="giaban">
+                            </div>
+                        </div>
+                    </div>
+                <div class="status">
+                    <div>
+                        <label for="trangthai">Hoạt động</label>
+                        <input type="radio" name="trangthai" value="1">
+                    </div>
+                    <div>
+                        <label for="trangthai">Bị ẩn</label>
+                        <input type="radio" name="trangthai" value="0">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="mota">Mô tả</label>
+                    <textarea name="mota" id="" cols="50" rows="5"></textarea>
+                </div>
+            </div>
+                </form>
+            </div>
+            <!--End: Product Detail-->
+
+        </main>
+    </div>
+    <!--Start: Pagination-->
+    <div class="paging">
+            <a href="#">&lt;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">&gt;</a>
+    </div>
+            <!--End: Pagination-->
+</body>
+</html>

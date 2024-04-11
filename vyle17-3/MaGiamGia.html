@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/1acf2d22a5.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Mã giảm giá</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <ul>
+            <!--thong bao-->
+            <li class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <!--dung de number-->
+                <div class="num"></div>
+                <div class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <!--notice message-->
+                        <!--js generate automatically-->
+                        <div>
+                            <img src="duck.jpg" alt="">
+                            <p>Sản phẩm #1 đã hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="account"><img src="duck.jpg" alt=""><span>Lê Ngọc Thảo Vy</span></a></li>
+            <li>| <a href="">Đăng xuất</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <!--Start: Aside bar-->
+        <aside>
+            <!--menu button-->
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!--sidebar-->
+        <div class="side-bar">
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="QuanLiKho.html"><i class="fas fa-desktop"></i>Nhà cung cấp</a></div>
+                <div class="item"><a href="SanPham.html"><i class="fas fa-th"></i>Sản phẩm</a></div>  
+                <div class="item"><a href="TheLoai.html"><i class="fas fa-th"></i>Danh mục</a></div>  
+                <div class="item"><a href="MaGiamGia.html" class="active"><i class="fas fa-th"></i>Mã giảm giá</a></div>  
+                <div class="item">
+                    <a>
+                        <i class="fas fa-table"></i>Nhập kho
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <!--dropdown-->
+                    <div class="sub-menu">
+                        <a href="PhieuNhapKho.html" class="sub-item">Phiếu nhập kho</a> <!--tao + xem lich su phieu nhap kho-->
+                        <a href="#" class="sub-item">Thống kê</a>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        </aside>
+        <!--End: Aside bar-->
+        <main class="content">
+            <h1>Mã giảm giá</h1>
+            <!--Start: Admin-controller-->
+            <form class="admin-controller" action="#" method="post">
+                <!--add new user-->
+            <a href="AddMaGiamGia.html"><button type="button"><i class="fa-solid fa-plus"></i>Thêm</button></a>
+            <!--search: name or id-->
+            <div class="right">
+                <div class="srch">
+                    <input type="text" placeholder="Từ khóa tìm kiếm" name='kyw'>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <button type="submit" name="btnsearch">Xem</button>
+            </div>
+        </form>
+            <!--End: Admin-controller-->
+
+            <!--Start: Data table-->
+             <table>
+                    <!--noi dung tieu de-->
+                    <tr class="title">
+                        <th>ID</th>
+                        <th>Coupon</th>
+                        <th>Discount(%)</th>
+                        <th>Bắt đầu</th>
+                        <th>Kết thúc</th>
+                        <!-- Actions gồm thêm, sửa, khóa (không cho người dùng đăng nhập)-->
+                        <th></th>
+                    </tr>
+                    <!--thong tin users -->
+                    <tr>
+                        <td>1</td>
+                        <td>Khuyến mãi đầu hè</td>
+                        <td>9</td>
+                        <td>03/07/2023</td>
+                        <td>29/7/2023</td>
+                        <td>
+                            <a href="EditMaGiamGia.html" class="action-button">
+                                <i class="fas fa-edit"></i>
+                                <div class="action-tooltip">Chỉnh sửa</div>
+                            </a>
+                            <a href="#" class="action-button">
+                                <i class="fas fa-trash-alt"></i>
+                                <div class="action-tooltip">Xóa</div>
+                            </a>
+                        </td>
+                    </tr>
+            </table>
+            <!--End: Data table-->
+        </main>
+    </div>
+</body>
+</html>
