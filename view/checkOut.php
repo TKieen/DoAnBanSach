@@ -14,7 +14,18 @@
                                 <div class="container-row3-form">
                                     <div class="container-row3-form-items">
                                         <strong>Địa chỉ nhận hàng <span style="color: #D64830">*</span></strong>
-                                        <input type="text" id="diachinhan" name="diachinhan" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố">
+                                        <div class="container-row3-form-items-layout">
+                                            <select name="tinhdiachi" id="tinhdiachi">
+                                                <option value="" disabled selected>Tỉnh/Thành phố</option>
+                                            </select>
+                                            <select name="huyendiachi" id="huyendiachi">
+                                                <option value="" disabled selected>Quận/Huyện</option>
+                                            </select>
+                                            <select name="xaphuongdiachi" id="xaphuongdiachi">
+                                                <option value="" disabled selected>Xã/Phường</option>
+                                            </select>
+                                            <input type="text" id="diachinhan" name="diachinhan" placeholder="Số nhà, đường">
+                                        </div>
                                     </div>
                                 </div>                                 
                                 <!-- </form> -->
