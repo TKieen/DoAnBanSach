@@ -7,10 +7,6 @@
     font-family: 'Roboto', sans-serif;
 }
   
-.form-box {
-    width: 1080px;
-}
-
 img{
     width: 200px;
     margin: 20px 0 0 30px;
@@ -29,6 +25,7 @@ img{
     align-items: center; 
     transition: .2s ease;
     overflow: hidden;
+    
 }
 
 .wrapper .form-box{
@@ -122,3 +119,5 @@ a:hover{
     color: #0E185F;
     text-decoration: underline;
 }
+
+

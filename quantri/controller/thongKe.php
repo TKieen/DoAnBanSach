@@ -7,6 +7,7 @@
         $result = getAll($sql);
         return count($result);
     }
+    
     function DoanhThu_getTongTien($startDate, $endDate) {
         $sql = "SELECT tongtien FROM donhang WHERE ngaytao >='".dateFormatMYSQLI($startDate)."' AND ngaytao <='".dateFormatMYSQLI($endDate)."'";
         $result = getAll($sql);

@@ -18,6 +18,7 @@
                                         if(isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
                                             $i = 0; //biến dùng để lưu index của sản phẩm trong giỏ hàng
                                             foreach ($_SESSION['cart'] as $item) {
+                                                $tonkho = getTonKhoByID($item[0])['tonkho'];
                                                 $linkdel = "index.php?page=delcart&delcart=true&index=".$i; //delete-item
                                                 echo '
                                                     <div class="container-row2-left-productList-productCard-row2-items">
@@ -31,17 +32,18 @@
                                                                 </div>
                                                                 <div class="container-row2-left-productList-productCard-row2-items1-detail4">
                                                                     <input type="button" class="minus qty-form updateQty" data-index="'.$i.'" value="-" onclick="updateQuantity(this)">
-                                                                    <input type="text" name="input-qty" class="input-qty" min="1" data-index="'.$i.'" value="'.$item[5].'" onkeyup="validateInputQty(this)">
-<input type="button" class="plus qty-form updateQty" data-index="'.$i.'" value="+" onclick="updateQuantity(this)">
+                                                                    <input type="text" name="input-qty" class="input-qty" min="1" max="'.$tonkho.'" data-index="'.$i.'" value="'.$item[5].'" onkeyup="validateInputQty(this)">
+                                                                    <input type="button" class="plus qty-form updateQty" data-index="'.$i.'" value="+" onclick="updateQuantity(this)">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="container-row2-left-productList-productCard-row2-items2">
-                                                            <div class="container-row2-left-productList-productCard-row2-items2-quantityPrice">
-                                                                <span class="del-price">
-                                                                    <del>'.number_format($item[3], 0, ',','.').'VNĐ'.'</del>
-                                                                </span>
-                                                                <span class="product-price">'.number_format($item[4], 0, ',','.').' VNĐ'.'</span>
+                                                            <div class="container-row2-left-productList-productCard-row2-items2-quantityPrice">';
+                                                                if($item[3] != $item[4])
+                                                                    echo '<span class="del-price">
+                                                                        <del>'.number_format($item[3], 0, ',','.').'VNĐ'.'</del>
+                                                                    </span>';
+                                                                echo'<span class="product-price">'.number_format($item[4], 0, ',','.').' VNĐ'.'</span>
                                                             </div>
                                                             <div>
                                                                 <button class="del-from-cart-btn">

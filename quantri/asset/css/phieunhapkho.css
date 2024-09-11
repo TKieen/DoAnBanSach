@@ -1,0 +1,223 @@
+/* general */
+.general{
+    margin: 20px 0 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: beige;
+    border: 0.5px solid black;
+    padding: 20px 10px;
+}
+
+.general .field{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.general .field label{
+    width: 120px;
+    text-align: left;
+    margin-right: 5px;
+}
+/* general */
+
+/* buttons-inventory controller */
+.controller button{
+    background-color: lightgrey;
+    color: black;
+}
+/* buttons-inventory controller */
+/* inventory */
+.inventory table{
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.inventory table th{
+    border: 0.5px solid grey;
+}
+
+.inventory table tr{
+    border: 0.5px solid grey;
+}
+
+tr:nth-child(even){
+    background-color:white;
+}
+/* inventory */
+
+/* srch-product */
+.srch-product {
+    position: relative;
+}
+
+.srch-product button{
+    width: 30px;
+    height: 27px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: lightgrey;
+    cursor: pointer;
+    position: absolute;
+    right: 76px;
+    top: 6px;
+    color: #333;
+}
+
+.srch-product input {
+    width: 230px;
+    height: 30px;
+    padding-left: 7px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    color: #333;
+}
+/* srch-product */
+
+/* cancel button */
+.inventory .deleteBtn{
+    background-color: lightblue;
+    color: blue;
+    font-weight: 500px;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* cancel button */
+
+/* add-new-item */
+table .add-new-line a{
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+/* add-new-item */
+
+/* complete button */
+.inventory .complete{
+    float: right;
+    background-color: #387ADF;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+/* complete button */
+
+.quantity input{
+    width: 60px;
+    height: 30px;
+    padding-left: 7px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+.gianhap input {
+    width: 100px;
+    height: 30px;
+    padding-left: 7px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+.result-box {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    left: 76px;
+    z-index: 999;
+}
+
+
+.result-box ul {
+    border: 1px solid #999;
+    padding: 5px 0px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+}
+
+.result-box-items {
+    padding: 8px 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.result-box-items:hover {
+    background-color: #ccc;
+}
+
+/*** WARNING ***/
+/* search product */
+#myInput {
+    box-sizing: border-box;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #myInput:focus {outline: 3px solid #ddd;}
+  
+  .dropdown-content {
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+/* search product */
+
+/* row-template */
+.template{
+    display: none;
+}
+/* row-template */
+
+/* button */
+.buttons-inventory{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3px;
+}
+
+.buttons-inventory button{
+    display: inline-block;
+    padding: 4px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.buttons-inventory:not(.controller) button{
+    background-color: blue;
+    color: white;
+}
+/* button */

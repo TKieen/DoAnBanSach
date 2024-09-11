@@ -3,72 +3,54 @@
     extract($result); 
 ?>
 <div class="container">
-    <!--Start: Aside bar-->
-    <aside>
-        <!--menu button-->
-    <div class="menu-btn">
-        <i class="fas fa-bars"></i>
-    </div>
-    <!--sidebar-->
-    <div class="side-bar">
-        <!--Menu items-->
-        <div class="menu">
-            <div class="item"><a href="?page=supplier" class="active"><i class="fas fa-desktop"></i>Nhà cung cấp</a></div>
-            <div class="item"><a href="?page=product"><i class="fas fa-th"></i>Sản phẩm</a></div>  
-            <div class="item"><a href="?page=category"><i class="fas fa-th"></i>Danh mục</a></div>  
-            <div class="item"><a href="?page=discount"><i class="fas fa-th"></i>Mã giảm giá</a></div>  
-            <div class="item">
-                <a>
-                    <i class="fas fa-table"></i>Nhập kho
-                    <i class="fas fa-angle-right dropdown"></i>
-                </a>
-                <!--dropdown-->
-                <div class="sub-menu">
-                    <a href="PhieuNhapKho.html" class="sub-item">Phiếu nhập kho</a> <!--tao + xem lich su phieu nhap kho-->
-                    <a href="#" class="sub-item">Thống kê</a>
-                </div>
-            </div>      
-        </div>
-    </div>
-    </aside>
-    <!--End: Aside bar-->
     <main class="content">
         <h1>Sản phẩm</h1>
-        <div class="category">
-            <a href="#">Tất cả</a>
-            <a href="#">Đang hoạt động</a>
-            <a href="#">Hết hàng</a>
-            <a href="#">Đã bị ẩn</a>
-        </div>
+        <form action="?page=searchProduct2" method="post">
+        <input type="hidden" name="admin-controller-product">
+            <div class="category">
+                <button name="all"> Tất cả </button>
+                <button name="db"> Đang bán </button>
+                <button name="hh"> Hết hàng </button>
+                <button name="ba"> Đã bị ẩn </button>
+            </div>
+        </form>
         <!--Start: Admin-controller-->
-        <form class="admin-controller" action="#" method="post">
+        <form class="admin-controller" action="?page=searchProduct1" method="post">
+        <input type="hidden" name="admin-controller-product">
                 <!--add new user-->
-            <button type="button" class="open_add_form"><i class="fa-solid fa-plus"></i>Thêm</button>
+            <button type="button" class="open_add_form_product"><i class="fa-solid fa-plus"></i>Thêm</button>
             <!--search: name or id-->
             <div class="srch">
-                <input type="text" placeholder="Nhập tên hoặc mã" name='kyw'>
+                <input type="text" placeholder="Nhập idSach, tên sách ..." name='kyw'>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <select name="theloai" id="">
-                <option value="-1">---Thể loại---</option>
-                <option value="vanhoc">Văn học</option>
-                <option value="thieunhi">Thiếu nhi</option>
+            <select name="idTL">
+                <option value="-1">---Chọn---</option>
+                <?php
+                    $category = getAllCategory();
+                    foreach($category as $item){
+                        extract($item);
+                ?>
+                    <option value="<?=$idTL?>"><?=$tenTL?></option>
+                <?php
+                    }
+                ?>
             </select>
             <!--icon sorting: when hover a block display: A-Z-->
-            <label for="">Giá </label>
-            <input type="text" name="tonkhofrom">
+            <label for="">Giá từ </label>
+            <input type="text" name="priceFrom" class="priceFrom">
             <label for="">đến</label>
-            <input type="text" name="tonkhoto">
+            <input type="text" name="priceTo" class="priceTo">
+            <button type="submit" name="btnsearch">Lọc</button>
             <label for="">Tồn kho </label>
-            <button class="sort">
-                <i class="fa-solid fa-sort-down"></i>
+            <button name="sort" class="sort" value="asc">
+                <i class="fa-solid fa-sort-up"></i>
                 <div class="note">Tăng dần</div>
             </button>
-            <button class="sort">
-                <i class="fa-solid fa-sort-up"></i>
+            <button name="sort" class="sort" value="desc">
+                <i class="fa-solid fa-sort-down"></i>
                 <div class="note">Giảm dần</div>
             </button>
-            <button type="submit" name="btnsearch">Xem</button>
         </form>
         <!--End: Admin-controller-->
 
@@ -87,7 +69,7 @@
                 <!--thong tin users -->
                 <?php 
                     //chia mang result thanh tung trang
-                    $num_per_page = 2; //total records each page
+                    $num_per_page = 5; //total records each page
                     $curr_page = getPage();
                     $start = ($curr_page-1)*$num_per_page; //start divide for this page
                     $total_records = count($result);
@@ -108,23 +90,30 @@
                     <td><?=$giaban?>đ</td>
                     <td>
                         <?php  
-                        if($trangthai===0)
+                        if($trangthai==0)
                             echo '<span class="status red">Bị ẩn</span></td>';
                         else echo '<span class="status green">Đang bán</span></td>'
                         ?>
                     <td>
-                        <a href="#" class="action-button open_view_form">
+                        <a href="#" class="action-button open_view_form_product">
                             <i class="fa-solid fa-circle-info"></i>
                             <div class="action-tooltip">Chi tiết</div>
                         </a>
-                        <a href="#" class="action-button open_edit_form">
+                        <a href="#" class="action-button open_edit_form_product">
                             <i class="fas fa-edit"></i>
                             <div class="action-tooltip">Chỉnh sửa</div>
                         </a>
-                        <a href="#" class="action-button delete">
-                            <i class="fas fa-trash-alt"></i>
-                            <div class="action-tooltip">Xóa</div>
-                        </a>
+                        <?php 
+                            if($trangthai != 0)
+                                echo 
+                                '<a href="#" class="action-button lock_product">
+                                <i class="fa-solid fa-unlock"></i>
+                                <div class="action-tooltip">Khóa</div></a>';
+                            else echo 
+                                '<a href="#" class="action-button unlock_product">
+                                <i class="fa-solid fa-lock"></i>
+                                <div class="action-tooltip">Mở</div></a>';
+                        ?>
                     </td>
                 </tr>
                 <?php
@@ -139,19 +128,19 @@
                 $total_pages = ceil($total_records/$num_per_page);
 
                 if($curr_page>1)
-                    echo '<a href="index.php?page=product&index='.($curr_page-1).'">&lt;</a>';
-                else echo '<a href="index.php?page=product&index=1">&lt;</a>';
+                    echo '<a href="index.php?page='.$pageTitle.'&index='.($curr_page-1).'">&lt;</a>';
+                else echo '<a href="index.php?page='.$pageTitle.'&index=1">&lt;</a>';
 
                 for($i=1; $i<=$total_pages; $i++){
                     if($curr_page==$i)
-                        echo '<a href="index.php?page=product&index='.$i.'" class="active">'.$i.'</a>';
-                    else echo '<a href="index.php?page=product&index='.$i.'">'.$i.'</a>';
+                        echo '<a href="index.php?page='.$pageTitle.'&index='.$i.'" class="active">'.$i.'</a>';
+                    else echo '<a href="index.php?page='.$pageTitle.'&index='.$i.'">'.$i.'</a>';
                 }
 
                 //kiem tra neu currentpage la trang dau tien thi giu nguyen
                 if($curr_page<$total_pages)
-                    echo '<a href="index.php?page=product&index='.($curr_page+1).'">&gt;</a>';
-                else echo '<a href="index.php?page=product&index='.$total_pages.'">&gt;</a>';
+                    echo '<a href="index.php?page='.$pageTitle.'&index='.($curr_page+1).'">&gt;</a>';
+                else echo '<a href="index.php?page='.$pageTitle.'&index='.$total_pages.'">&gt;</a>';
             ?>
         </div>
         <!--End: Pagination-->

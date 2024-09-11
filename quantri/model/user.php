@@ -1,44 +1,55 @@
 <?php
     function getAllUser(){
-        $sql='select * from User';
+        $sql='select * from taikhoan';
         return getAll($sql);
     }
 
     function getUserByID($id){
-        $sql = 'select * from User where ID='.$id;
+        $sql = 'select * from taikhoan where idTK='.$id;
         return getOne($sql);
     }
 
     function isExist($email, $dienthoai){
-        $sql = 'select ID from User where email= "'.$email.'" or dienthoai= "'.$dienthoai.'"';
-       return getOne($sql)!=null;
+        $sql = 'select idTK from taikhoan where email= "'.$email.'" or dienthoai= "'.$dienthoai.'"';
+        return getOne($sql)!=null;
+    }
+
+    // ton tai mot tai khoan trung email, dienthoai tru tai khoan hien tai
+    function isExist_update($id, $email, $dienthoai){
+        $sql = 'select idTK from taikhoan where (email= "'.$email.'" or dienthoai= "'.$dienthoai.'") and idTK!='.$id;
+        return getOne($sql)!=null;
     }
     
-    function addUser($avatar, $ten, $email, $dienthoai, $diachi, $phanquyen, $trangthai){
-        $sql='insert into User(avatar, ten, email, dienthoai, diachi, phanquyen, trangthai) values ("'.$avatar.'","'.$ten.'","'.$email.'","'.$dienthoai.'","'.$diachi.'",'.$phanquyen.','.$trangthai.')';
+    function addUser($ten, $email, $dienthoai, $phanquyen,$matkhau){
+        $sql='insert into taikhoan(tenTK, email, dienthoai, phanquyen, trangthai, matkhau) values ("'.$ten.'","'.$email.'","'.$dienthoai.'","'.$phanquyen.'",1,"'.$matkhau.'")';
         insert($sql);
     }
 
-    function editUser($id,$picProfile,$ten, $email, $dienthoai, $diachi, $phanquyen){
+    function editUser($id,$ten, $email, $dienthoai, $phanquyen, $trangthai){
         $sql = 
-        'UPDATE User 
-        SET avatar = "'.$picProfile.'",
-        ten = "'.$ten.'",
+        'UPDATE taikhoan
+        SET tenTK = "'.$ten.'",
         email = "'.$email.'",
         dienthoai = "'.$dienthoai.'",
-        diachi = "'.$diachi.'",
-        phanquyen = '.$phanquyen.'
-        WHERE id = '.$id;
+        phanquyen = "'.$phanquyen.'",
+        trangthai = '.$trangthai.'
+        WHERE idTK = '.$id;
         edit($sql);
     }
 
-    function deleteUser($id){
-        $sql='DELETE FROM User WHERE id='.$id;
-        delete($sql);
+    function lockUser($id){
+        $sql = 
+        'UPDATE taikhoan
+        SET trangthai = 0
+        WHERE idTK = '.$id;
+        edit($sql);
     }
 
-    function searchUser($ten){
-        $sql='SELECT * FROM User WHERE ten LIKE "%'.$ten.'%"';
-        return getAll($sql);
+    function unlockUser($id){
+        $sql = 
+        'UPDATE taikhoan
+        SET trangthai = 1
+        WHERE idTK = '.$id;
+        edit($sql);
     }
 ?>

@@ -5,7 +5,7 @@
         $tongtien =  (int)$_POST['totalPrice'];
 
         //insert đơn hàng vào database
-        $orderId = createOrder($diachinhan, $tongtien, date('Y-m-d'), date('Y-m-d'));
+        $orderId = createOrder($_SESSION['user']['id'], $diachinhan, $tongtien, date('Y-m-d'), date('Y-m-d'));
         //insert chi tiết đơn hàng vào database
         $tongsanpham = 0;
         for ($i=0; $i < sizeof($_SESSION['cart']); $i++) { 

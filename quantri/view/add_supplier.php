@@ -1,39 +1,30 @@
 <!--Start: Add User-->
-<div class="formPopup" id="add-modal">
-    <form id="add-form" method="post" enctype="multipart/form-data" method="post">
-        <button type="button" class="close-btn"><i class="fa-solid fa-x"></i></button>
-        <div class="change_img">
-            <img src="../../uploads/uploads_supplier/person.png" alt="userAvatar" id="add_pic">
-            <label for="add_file" class="change_button">Thêm</label>
-            <input type="file" id="add_file" name="input_file" accept="image/*">
-        </div>
-        <div class="info">
+<div class="formPopup" id="add-modal-supplier">
+    <form id="add-form-supplier" method="post" enctype="multipart/form-data" method="post">
+        <button type="button" class="close-btn close-btn-supplier"><i class="fa-solid fa-x"></i></button>
+        <div class="expand">
             <h1>Thêm nhà cung cấp</h1>
-            <div class="cols">
-                <div class="left">
-                    <div class="field">
-                        <label for="ten">Nhà cung cấp</label>
-                        <input type="text" name="ten">
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="text" name="email">
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="field">
-                        <label for="dienthoai">Điện thoại</label>
-                        <input type="text" name="dienthoai">
-                    </div>
-                    <div class="field">
-                        <label for="diachi">Địa chỉ</label>
-                        <input type="text" name="diachi">
-                    </div>
-                </div>
+            <hr>
+            <div class="field">
+                <label for="ten" class="attribute">Nhà cung cấp</label>
+                <input type="text" name="ten">
             </div>
+            <div class="field">
+                <label for="email" class="attribute">Email</label>
+                <input type="text" name="email">
+            </div>
+            <div class="field">
+                <label for="dienthoai" class="attribute">Điện thoại</label>
+                <input type="text" name="dienthoai">
+            </div>
+            <div class="field">
+                <label for="diachi" class="attribute">Địa chỉ</label>
+                <input type="text" name="diachi">
+            </div>
+            <hr>
             <div class="alert"></div>
             <div class="buttons">
-                <input type="hidden" name="add_data" value="submit">
+                <input type="hidden" name="add_data_supplier" value="submit">
                 <button type="submit" name="btnadd">Thêm</button>
             </div>
         </div>

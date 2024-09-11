@@ -1,20 +1,40 @@
 <?php
-//not include controller
-include '../../config/config.php';
+include '../../lib/session.php';
 include '../../lib/connect.php';
 require '../model/user.php';
 
-include_once '../inc/header.php';
+$aside = "";
+$quyentaikhoan = "Admin";
 if(isset($_GET['page'])&&($_GET['page']!=="")){
     switch(trim($_GET['page'])){
         case 'home':
             $result = getAllUser();
+            $pageTitle = "user";
             require_once '../view/user.php';
+            break;
+
+        case 'searchUser':
+            $pageTitle = "searchUser";
+            if(isset($_POST['admin-controller-user'])){
+                require_once '../controller/filterUser.php';
+            }
+            else $result = $_SESSION['searchResult'];
+            require_once '../view/user.php';
+            break;
+        
+        case 'editInfo':
+            require_once "../controller/editInfo.php";
+            break;
+
+        case 'signOut':
+            admin_login_session_unset();
+            header("Location:../index.php?page=home");
             break;
 
         default:
         //require homepage
         $result = getAllUser();
+        $pageTitle = "user";
         require_once '../view/user.php';
         break;
     }
@@ -22,8 +42,9 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
 else{
     //require homepage
     $result = getAllUser();
+    $pageTitle = "user";
     require_once '../view/user.php';
 }
-include_once '../inc/footer_admin.php';
+
     
 ?>

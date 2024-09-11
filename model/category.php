@@ -11,8 +11,9 @@ function getCategoryById($id){
     $sql.=' and idTL = '.$id;
     return getOne($sql);
 }
-function getAllResultAndCategory() {
-    $result = getLimitProductBestSeller(12);
-    $category = getAllCategory_KH();
-}
+
+// function getAllResultAndCategory() {
+//     $result = getLimitProductBestSeller(12);
+//     $category = getAllCategory_KH();
+// }
 ?>

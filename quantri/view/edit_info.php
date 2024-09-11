@@ -1,5 +1,5 @@
 <?php
-    include_once 'inc/header_editInfo.php';
+    include_once '../inc/header_editInfo.php';
     //extract($result); 
 ?>
 <div class="container">
@@ -20,5 +20,5 @@
     </div>
 </div>
 <?php
-    include_once 'inc/footer_supplier.php';
+    include_once '../inc/footer_supplier.php';
 ?>

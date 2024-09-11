@@ -1,6 +1,5 @@
 <?php
     include_once "inc/header_signUp.php";
-    extract($result);
 ?>
         <div class="container">
             <ul class="container-row">
@@ -45,7 +44,7 @@
                                     <strong>Xác nhận mật khẩu<span style="color: #D64830">*</span></strong><input type="password" name="r_password" id="tt" required>
                                 </div>
                                 <div class="signIn-box-row3-form-items">
-                                    <strong>Điện thoại</strong><input type="text" name="phone" id="" pattern="[0]+[0-9]{9}" required title="Nhập số điện thoại có 10 chữ số bắt đầu từ số 0">
+                                    <strong>Điện thoại<span style="color: #D64830">*</span></strong><input type="text" name="phone" id="" pattern="[0]+[0-9]{9}" required title="Nhập số điện thoại có 10 chữ số bắt đầu từ số 0">
                                 </div>
                                 <div class="signIn-box-row3-form-errorMssg" style="display:none" id="empty">
                                     Vui lòng không để trống các thông tin bắt buộc.
@@ -60,7 +59,16 @@
                 </div>
             </ul>
         </div>
-
+<?php
+	if(isset($alert) && $alert!=""){
+		echo
+		'<script>
+		window.addEventListener("load", () => {
+			alert("'.$alert.'");
+		  });
+		</script>';
+	}
+?>
 <?php
     include_once "inc/footer.php";
 ?>

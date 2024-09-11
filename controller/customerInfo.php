@@ -14,18 +14,32 @@
 
         $email = $_POST['email'];
         if (isset($email) && !empty($email)) {
-            $sql = "UPDATE taikhoan SET email='".$email."' WHERE email='".$_SESSION['user']['email']."' LIMIT 1";
+            $sql = "SELECT email FROM taikhoan where email='".$email."' and idTK !='".$_SESSION['user']['id']."'";
             $sql_run = mysqli_query($conn, $sql);
-            //Nếu email được chỉnh sửa, cập nhật lại session user
-            login_session_set_email($email);
-            echo "<meta http-equiv='refresh' content='0'>";
+            if (mysqli_num_rows($sql_run) === 0) {
+                $sql = "UPDATE taikhoan SET email='".$email."' WHERE email='".$_SESSION['user']['email']."' LIMIT 1";
+                $sql_run = mysqli_query($conn, $sql);
+                //Nếu email được chỉnh sửa, cập nhật lại session user
+                login_session_set_email($email);
+                echo "<meta http-equiv='refresh' content='0'>";
+            }
+            else {
+                echo "<script>alert('Email đã tồn tại')</script>";
+            }
         }
 
         $phone = $_POST['phone'];
         if (isset($phone) && !empty($phone)) {
-            $sql = "UPDATE taikhoan SET dienthoai='".$phone."' WHERE email='".$_SESSION['user']['email']."' LIMIT 1";
+            $sql = "SELECT dienthoai FROM taikhoan where dienthoai='".$phone."' and idTK !='".$_SESSION['user']['id']."'";
             $sql_run = mysqli_query($conn, $sql);
-            echo "<meta http-equiv='refresh' content='0'>";
+            if (mysqli_num_rows($sql_run) === 0) {
+                $sql = "UPDATE taikhoan SET dienthoai='".$phone."' WHERE email='".$_SESSION['user']['email']."' LIMIT 1";
+                $sql_run = mysqli_query($conn, $sql);
+                echo "<meta http-equiv='refresh' content='0'>";
+            }
+            else {
+                echo "<script>alert('Số điện thoại đã tồn tại')</script>";
+            }
         }
         header("Location:index.php?page=customerInfo");
 

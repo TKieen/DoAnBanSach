@@ -74,7 +74,7 @@
                     </li>
                     <li>
                         <strong>Giá bìa:</strong>
-                        <span><?=$giabia?></span>
+                        <span><?=number_format($giabia,0,"",".")?>đ</span>
                     </li>
                     
                 </ul>
@@ -84,12 +84,12 @@
                         <span><?=$nxb?></span>
                     </li>
                     <li>
-                        <strong>Ngày phát hành:</strong>
+                        <strong>Năm phát hành:</strong>
                         <span><?=$namxb?></span>
                     </li>
                     <li>
                         <strong>Giá bán:</strong>
-                        <span><?=$giaban?></span>
+                        <span><?=number_format($giaban,0,"",".")?>đ</span>
                     </li>
                 </ul>
             </div>

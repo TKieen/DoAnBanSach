@@ -1,13 +1,24 @@
 <?php
-function getOneOrderByIdTK($idTK){
+function getOrderByIdTK($idTK){
     $sql=
-    'select donhang.trangthai as trangthaiDH, sach.trangthai as trangthaiSach, hinhanh, donhang.idDH as idDonHang, 
-    tuasach, tacgia, soluong, gialucdat, tongtien 
-    from donhang inner join CTdonhang on donhang.idDH = CTdonhang.idDH
-    inner join sach on CTdonhang.idSach = sach.idSach where 1';
-    $sql.=' and idTK = '.$idTK;
-    $sql.=' and sach.trangthai != 0';
-    return getOne($sql);
+    'SELECT 
+    MIN(donhang.idDH) AS idDonHang,
+    donhang.trangthai AS trangthaiDH,
+    sach.trangthai AS trangthaiSach, 
+    hinhanh AS hinhanh, 
+    tuasach AS tuasach, 
+    tacgia AS tacgia, 
+    soluong AS soluong, 
+    gialucdat AS gialucdat, 
+    tongtien AS tongtien 
+    FROM donhang INNER JOIN CTdonhang ON donhang.idDH = CTdonhang.idDH
+    INNER JOIN sach ON CTdonhang.idSach = sach.idSach 
+    WHERE 
+        idTK = '.$idTK.'
+    GROUP BY 
+        donhang.idDH;
+    ';
+    return getAll($sql);
 }
 
 function getDetailOrderByIdDH($idDH){
@@ -41,10 +52,10 @@ function lastOrderID(){
 }
 
 // huong
-function createOrder($diachi, $tongtien, $ngaytao, $ngaycapnhat) {
+function createOrder($idTK, $diachi, $tongtien, $ngaytao, $ngaycapnhat) {
     // Chỉnh sửa: thay đổi dữ liệu idTK
     $sql = "INSERT INTO donhang (idTK, diachigiao, tongtien, trangthai, ngaytao, ngaycapnhat)
-            VALUES  (1, '$diachi', $tongtien, 'cho', '$ngaytao', '$ngaycapnhat')
+            VALUES  ($idTK, '$diachi', $tongtien, 'cho', '$ngaytao', '$ngaycapnhat')
     ";
     insert($sql);
 

@@ -27,6 +27,7 @@
     top: 50%;
     left: 50%;
     background-color: white;
+    font-size: 17px;
 }
 
 /* updateOrderFrm include 2 parts: product details and user's info,
@@ -36,6 +37,12 @@
     display: flex;
     /* height: 70%; */
     transform: translate(-50%, -50%);
+}
+
+.order_info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .formPopup .updateOrderFrm{
@@ -114,25 +121,37 @@
     margin-right: 20px;
 }
 
-.formPopup .field input, .formPopup select{
-    display: block;
+.formPopup .field{
+    margin-top: 5px;
+}
+
+.formPopup .field input[type="text"],.field input[type="password"], .formPopup select{
     border-radius: 4px;
     height: 30px;
     width: 230px;
     padding: 5px;
-    margin: 3px;
+    margin-top: 3px;
+    font-size: 16px;
+}
+
+.formPopup .attribute{
+    display: inline-block;
+    width: 130px;
+    text-align: right;
 }
 
 .formPopup .expand{
     width: 100%;
     text-align: left;
+    font-size: 16px;
 }
 
-.formPopup .expand input{
-    width: 80%;
+.formPopup .expand input, .formPopup .expand select{
+    width: 200px;
     height: 30px;
     margin-left: 20px;
     padding: 5px;
+    font-size: 16px;
 }
 
 .formPopup .info textarea{
@@ -143,16 +162,16 @@
 }
 
 /* status */
-.info .status{
-    margin: 3px 0;
+.status{
+    margin: 4px 0;
 }
 
-.info .status div{
+.status div{
     display: inline-block;
-    margin-right: 20px;
+    margin: 0 20px;
 }
 
-.info .status input{
+.status input[type="radio"]{
     display: inline-block;
     height: 15px;
     width: 15px;
@@ -177,6 +196,16 @@
     background-color: transparent;
     border-bottom: 2px solid black;
 }
+
+/* alert */
+.formPopup .alert{
+    margin-top: 5px;
+}
+
+.formPopup .alert span{
+    padding: 3px;
+}
+/* alert */
 
 /* button */
 .buttons{
@@ -206,5 +235,9 @@
 .buttons button:hover{
     transform: translateY(-1px);
     background-color: lightskyblue;
+}
+
+hr{
+    margin: 10px;
 }
 /***End: FormFill***/

@@ -1,15 +1,19 @@
 <?php
-    $errors = [ 'email' => ['isEmpty' => '', 'invalid' => '', 'existed' => ''], 
+    $errors = [ 'email' => ['isEmpty' => '', 'invalid' => '', 'existed' => ''],
+        'phone' => ['existed' => ''],
         'password' => ['isEmpty' => ''],
         'r_password' => ['isEmpty' => '', 'unmatched' => ''], 
         'fullname' => ['required' => '']
     ];
+    $alert = "";
 
     if(isset($_POST['sign_up'])) {
 
         $errors['email']['isEmpty'] =  check_isEmpty($_POST['email']);
         $errors['email']['invalid'] = check_email_is_valid($_POST['email']);
         $errors['email']['existed'] = check_email_is_existed($_POST['email']);
+
+        $errors['phone']['existed'] = check_phone_is_existed($_POST['phone']);
         
         $errors['password']['isEmpty'] =  check_isEmpty($_POST['password']);
 
@@ -50,15 +54,9 @@
                 echo "<script>alert('{$notif}')</script>";
                 header('Location:?page=signIn');
             }
-            else {
-                $notif = 'Đã có lỗi xảy ra, vui lòng thử lại sau';
-            }
-            $result = getLimitProductBestSeller(12);
-            $category = getAllCategory_KH();
-            //require_once 'view/home.php';     
         }
+        $alert = "Thông tin không hợp lệ. Vui lòng kiểm tra lại.";
     }
-    $result = getLimitProductBestSeller(12);
     $category = getAllCategory_KH();
     require "view/signUp.php";
 ?>

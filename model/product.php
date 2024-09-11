@@ -9,8 +9,7 @@ function getAllProductBestSeller(){
 }
 
 function getProductById($id){
-    $sql='select * from sach where 1';
-    $sql.=' and idSach = '.$id;
+    $sql='select * from sach where idSach = '.$id;
     return getOne($sql);
 }
 
@@ -75,5 +74,10 @@ function filterCategoryProduct($thingToSearchVal, $minPrice, $maxPrice){
     $sql.=' and giaban <= '.$maxPrice;
     $sql.=' order by giaban ASC';
     return getAll($sql);
+}
+
+function getTonKhoByID($id){
+    $sql = 'SELECT tonkho FROM sach WHERE idSach='.$id;
+    return getOne($sql);
 }
 ?>

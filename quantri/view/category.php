@@ -2,46 +2,17 @@
     include_once '../inc/header.php';
     extract($result); 
 ?>
-    <div class="container">
-        <!--Start: Aside bar-->
-        <aside>
-            <!--menu button-->
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
-        <!--sidebar-->
-        <div class="side-bar">
-            <!--Menu items-->
-            <div class="menu">
-            <div class="item"><a href="?page=supplier" class="active"><i class="fas fa-desktop"></i>Nhà cung cấp</a></div>
-            <div class="item"><a href="?page=product"><i class="fas fa-th"></i>Sản phẩm</a></div>  
-            <div class="item"><a href="?page=category"><i class="fas fa-th"></i>Danh mục</a></div>  
-            <div class="item"><a href="?page=discount"><i class="fas fa-th"></i>Mã giảm giá</a></div>  
-                <div class="item">
-                    <a>
-                        <i class="fas fa-table"></i>Nhập kho
-                        <i class="fas fa-angle-right dropdown"></i>
-                    </a>
-                    <!--dropdown-->
-                    <div class="sub-menu">
-                        <a href="PhieuNhapKho.html" class="sub-item">Phiếu nhập kho</a> <!--tao + xem lich su phieu nhap kho-->
-                        <a href="#" class="sub-item">Thống kê</a>
-                    </div>
-                </div>      
-            </div>
-        </div>
-        </aside>
-        <!--End: Aside bar-->
         <main class="content">
             <h1>Thể loại</h1>
             <!--Start: Admin-controller-->
-            <form class="admin-controller" action="#" method="post">
+            <form class="admin-controller" action="?page=searchCategory" method="post">
+            <input type="hidden" name="admin-controller-category">
                 <!--add new user-->
-            <button type="button" class="open_add_form"><i class="fa-solid fa-plus"></i>Thêm</button>
+            <button type="button" class="open_add_form_category"><i class="fa-solid fa-plus"></i>Thêm</button>
             <!--search: name or id-->
             <div class="right">
                 <div class="srch">
-                    <input type="text" placeholder="Từ khóa tìm kiếm" name='kyw'>
+                    <input type="text" placeholder="Nhập id, tên thể loại" name='kyw'>
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <button type="submit" name="btnsearch">Xem</button>
@@ -61,7 +32,7 @@
                     </tr>
                     <?php 
                         //chia mang result thanh tung trang
-                        $num_per_page = 2; //total records each page
+                        $num_per_page = 5; //total records each page
                         $curr_page = getPage();
                         $start = ($curr_page-1)*$num_per_page; //start divide for this page
                         $total_records = count($result);
@@ -76,18 +47,25 @@
                         <td><?=$tenTL?></td>
                         <td>
                             <?php 
-                            if($trangthai===0) echo '<span class="status red">Bị hủy</span></td>';
+                            if($trangthai==0) echo '<span class="status red">Bị ẩn</span></td>';
                             else echo '<span class="status green">Hoạt động</span></td>'
                         ?>
                         <td>
-                            <a href="#" class="action-button open_edit_form">
+                            <a href="#" class="action-button open_edit_form_category">
                                 <i class="fas fa-edit"></i>
                                 <div class="action-tooltip">Chỉnh sửa</div>
                             </a>
-                            <a href="#" class="action-button delete">
-                                <i class="fas fa-trash-alt"></i>
-                                <div class="action-tooltip">Xóa</div>
-                            </a>
+                            <?php 
+                                if($trangthai!=0)
+                                    echo 
+                                    '<a href="#" class="action-button lock_category">
+                                    <i class="fa-solid fa-unlock"></i>
+                                    <div class="action-tooltip">Khóa</div></a>';
+                                else echo 
+                                    '<a href="#" class="action-button unlock_category">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <div class="action-tooltip">Mở</div></a>';
+                            ?>
                         </td>
                     </tr>
                 <?php
@@ -102,19 +80,19 @@
                     $total_pages = ceil($total_records/$num_per_page);
 
                     if($curr_page>1)
-                        echo '<a href="index.php?page=category&index='.($curr_page-1).'">&lt;</a>';
-                    else echo '<a href="index.php?page=category&index=1">&lt;</a>';
+                        echo '<a href="index.php?page='.$pageTitle.'&index='.($curr_page-1).'">&lt;</a>';
+                    else echo '<a href="index.php?page='.$pageTitle.'&index=1">&lt;</a>';
 
                     for($i=1; $i<=$total_pages; $i++){
                         if($curr_page==$i)
-                            echo '<a href="index.php?page=category&index='.$i.'" class="active">'.$i.'</a>';
-                        else echo '<a href="index.php?page=category&index='.$i.'">'.$i.'</a>';
+                            echo '<a href="index.php?page='.$pageTitle.'&index='.$i.'" class="active">'.$i.'</a>';
+                        else echo '<a href="index.php?page='.$pageTitle.'&index='.$i.'">'.$i.'</a>';
                     }
 
                     //kiem tra neu currentpage la trang dau tien thi giu nguyen
                     if($curr_page<$total_pages)
-                        echo '<a href="index.php?page=category&index='.($curr_page+1).'">&gt;</a>';
-                    else echo '<a href="index.php?page=category&index='.$total_pages.'">&gt;</a>';
+                        echo '<a href="index.php?page='.$pageTitle.'&index='.($curr_page+1).'">&gt;</a>';
+                    else echo '<a href="index.php?page='.$pageTitle.'&index='.$total_pages.'">&gt;</a>';
                 ?>
             </div>
             <!--End: Pagination-->
@@ -126,7 +104,7 @@
         ?>
         <!-- End: Pop-up form -->
     </main>
-</div>
+
 <?php
     include_once '../inc/footer_category.php';
 ?>

@@ -1,7 +1,6 @@
 <?php
     include_once "inc/header_orderConfirm.php";
 ?>
-
 <div class="container">
     <div class="container-content">
         <i class="fa-solid fa-circle-check"></i>

@@ -394,8 +394,12 @@ ul li {
     
 }
 
-.container-content-right-row3-Orders-status-item2 {
+.container-content-right-row3-Orders-status-item2 .green{
     color: #057A45;
+}
+
+.container-content-right-row3-Orders-status-item2 .red{
+    color: red;
 }
 
 .container-content-right-row3-Orders-status-item2 i {

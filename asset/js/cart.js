@@ -30,7 +30,7 @@ function updateQuantity(element) {
     if(element.classList.contains('minus') && (qtyValue > inputQty.min)) {
         qtyValue--;
     }
-    else if(element.classList.contains('plus')) {
+    else if(element.classList.contains('plus') && (qtyValue < inputQty.max)) {
         qtyValue++;
     }
 

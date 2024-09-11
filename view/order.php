@@ -1,15 +1,12 @@
 <?php
     include_once 'inc/header_order.php';
-    extract($result);
-    $gialucdat = number_format($gialucdat,0,"",".");
-    $tongtien = number_format($tongtien,0,"",".");
 ?>
 <div class="container-bottom">
     <div class="container-content-left">
         <div class="container-content-left-user">
-            <b>VYLE</b>
+            <b><?php echo $_SESSION['user']['name'];?></b>
         </div>
-        <a class="container-content-left-userInfo">
+        <a href="?page=customerInfo" class="container-content-left-userInfo">
             <i class="fa-regular fa-user"></i>
             Thông tin cá nhân
         </a>
@@ -20,6 +17,12 @@
     </div>
     <div class="container-content-right">
         <div class="container-content-right-row3"> <!-- productList -->
+        <?php 
+            foreach($result as $item){
+                extract($item);
+                $gialucdat = number_format($gialucdat,0,"",".");
+                $tongtien = number_format($tongtien,0,"",".");
+        ?>
             <div class="container-content-right-row3-Orders">
                 <div class="container-content-right-row3-Orders-status">
                     <div class="container-content-right-row3-Orders-status-item1">
@@ -28,19 +31,16 @@
                     <div class="container-content-right-row3-Orders-status-item2">
                         
                         <?php
-                            if($trangthaiDH == 0) echo '<span class="green"><i class="fa-solid fa-truck"></i> Đang chờ duyệt</span>';
-                            else if($trangthaiDH == 1) echo '<span class="green"><i class="fa-solid fa-truck"></i> Đang vận chuyển</span>';
-                            else if($trangthaiDH == 2) echo '<span class="green"><i class="fa-solid fa-truck"></i> Đã giao thành công</span>';
-                            else if($trangthaiDH == 3) echo '<span class="red"><i class="fa-solid fa-truck"></i> Hủy bởi bạn</span>';
-                            else if($trangthaiDH == 4) echo '<span class="red"><i class="fa-solid fa-truck"></i> Hủy bởi người bán</span>';
+                            if($trangthaiDH == 'cho') echo '<span class="green"><i class="fa-solid fa-truck"></i> Đang chờ duyệt</span>';
+                            else if($trangthaiDH == 'vc') echo '<span class="green"><i class="fa-solid fa-truck"></i> Đang vận chuyển</span>';
+                            else if($trangthaiDH == 'ht') echo '<span class="green"><i class="fa-solid fa-truck"></i> Đã giao thành công</span>';
+                            else if($trangthaiDH == 'huykh') echo '<span class="red"><i class="fa-solid fa-truck"></i> Hủy bởi bạn</span>';
+                            else if($trangthaiDH == 'huynv') echo '<span class="red"><i class="fa-solid fa-truck"></i> Hủy bởi người bán</span>';
                         ?>
                     </div>
                 </div>
                 
                 <div class="container-content-right-row3-Orders-product">
-                <?php
-                    if($trangthaiSach !== 0){
-                ?>
                     <div class="container-content-right-row3-Orders-productImg">
                         <img src="uploads/uploads_product/<?=$hinhanh?>" alt="">
                     </div>
@@ -58,20 +58,9 @@
                             <?=$gialucdat?>đ
                         </div>
                         <div class="container-content-right-row3-Orders-productDetail-detail">
-                            <a href="?page=orderDetail&idDH=<?=$idDonHang?>">Xem thêm</a>
+                            <a href="?page=customerOrderDetail&idDH=<?=$idDonHang?>">Xem thêm</a>
                         </div>
                     </div>
-                <?php
-                    }
-                    else{
-                ?>
-                    <div class="container-content-right-row3-Orders-productDetail error">
-                        Sản phẩm đã bị ẩn
-                    </div>
-                <?php
-                    }
-                ?>
-
                 </div>
                 <div class="container-content-right-row3-Orders-totalPrice">
                     <div class="container-content-right-row3-Orders-totalPrice-text">
@@ -82,6 +71,9 @@
                     </div>
                 </div>
             </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </div>

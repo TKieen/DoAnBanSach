@@ -26,6 +26,7 @@
                 foreach($result as $item){
                     extract($item);
                     $giaban = number_format($giaban,0,"",".");
+                    $giabia = number_format($giabia,0,"",".");
             ?>
             <a class="container-bottom-right-content-bottom-product" href="?page=productDetail&idSach=<?=$idSach?>&idTL=<?=$idTL?>">
                 <img src="uploads/uploads_product/<?=$hinhanh?>" alt="">
@@ -40,7 +41,6 @@
                 </div>
                 <?php
                     if($giaban != $giabia){
-                        $giabia = number_format($giabia,0,"",".");
                         echo 
                         '<div class="container-bottom-right-content-bottom-product-price discount">'.$giabia.'đ</div>';
                     }
@@ -55,7 +55,7 @@
         </div>
     </div>
     <div class="container-bottom-content2-seeMore">
-        <span class="seeMoreTxt"> <a href="?page=bestseller">Xem thêm &gt;&gt;</a></span>
+        <span class="seeMoreTxt"> <a href="?page=search&category=bestseller">Xem thêm &gt;&gt;</a></span>
     </div>
 </section>
 <?php

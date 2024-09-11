@@ -17,7 +17,7 @@
                 <div class="container-bottom-right-content-bottom">
                 <?php 
                     //chia mang result thanh tung trang
-                    $num_per_page = 2; //total records each page
+                    $num_per_page = 5; //total records each page
                     $curr_page = getPage();
                     $start = ($curr_page-1)*$num_per_page; //start divide for this page
                     $total_records = count($result);
@@ -68,7 +68,7 @@
                         else echo '<a href="?page=search'.$pageTitle.'&index='.$i.'">'.$i.'</a>';
                     }
 
-                    if($curr_page>1)
+                    if($curr_page<$total_pages)
                         echo '<a href="?page=search'.$pageTitle.'&index='.($curr_page+1).'">&raquo;</a>';
                     else echo '<a href="?page=search'.$pageTitle.'&index='.$total_pages.'">&raquo;</a>';
                 ?>

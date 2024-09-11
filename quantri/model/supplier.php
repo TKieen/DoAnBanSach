@@ -1,39 +1,64 @@
 <?php
     function getAllSupplier(){
-        $sql='select * from nhacungcap';
+        $sql='SELECT * FROM nhacungcap';
+        return getAll($sql);
+    }
+
+    function getAllSupplierActive(){
+        $sql='SELECT * FROM nhacungcap WHERE trangthai = 1';
         return getAll($sql);
     }
 
     function getSupplierByID($id){
-        $sql = 'select * from nhacungcap where idNCC='.$id;
+        $sql = 'SELECT * FROM nhacungcap WHERE idNCC='.$id;
         return getOne($sql);
     }
 
     function getSupplierName($id){
-        $sql = 'select tenNCC from nhacungcap where idNCC='.$id;
+        $sql = 'SELECT tenNCC FROM nhacungcap WHERE idNCC='.$id;
         return getOne($sql);
     }
 
     function isSupplierExist($email, $dienthoai){
-        $sql = 'select idNCC from nhacungcap where email= "'.$email.'" or dienthoai= "'.$dienthoai.'"';
+        $sql = 'SELECT idNCC FROM nhacungcap WHERE email= "'.$email.'" or dienthoai= "'.$dienthoai.'"';
+       return getOne($sql)!=null;
+    }
+
+    function isSupplierExist_update($id, $email, $dienthoai){
+        $sql = 'SELECT idNCC FROM nhacungcap WHERE (email= "'.$email.'" or dienthoai= "'.$dienthoai.'") and idNCC!='.$id;
        return getOne($sql)!=null;
     }
     
-    function addSupplier($hinhanh, $tenNCC, $email, $dienthoai, $diachi, $trangthai){
-        $sql='insert into nhacungcap(hinhanh, tenNCC, email, dienthoai, diachi, trangthai) values ("'.$hinhanh.'","'.$tenNCC.'","'.$email.'","'.$dienthoai.'","'.$diachi.'",'.$trangthai.')';
+    function addSupplier($tenNCC, $email, $dienthoai, $diachi){
+        $sql='INSERT INTO nhacungcap(tenNCC, email, dienthoai, diachi, trangthai) VALUES ("'.$tenNCC.'","'.$email.'","'.$dienthoai.'","'.$diachi.'",1)';
         insert($sql);
     }
 
-    function editSupplier($idNCC,$hinhanh,$tenNCC, $email, $dienthoai, $diachi, $trangthai){
+    function editSupplier($idNCC,$tenNCC, $email, $dienthoai, $diachi, $trangthai){
         $sql = 
         'UPDATE nhacungcap
-        SET hinhanh = "'.$hinhanh.'",
-        hinhanh = "'.$tenNCC.'",
+        SET tenNCC = "'.$tenNCC.'",
         email = "'.$email.'",
         dienthoai = "'.$dienthoai.'",
         diachi = "'.$diachi.'",
         trangthai = '.$trangthai.'
         WHERE idNCC = '.$idNCC;
+        edit($sql);
+    }
+
+    function lockSupplier($id){
+        $sql = 
+        'UPDATE nhacungcap
+        SET trangthai = 0
+        WHERE idNCC = '.$id;
+        edit($sql);
+    }
+
+    function unlockSupplier($id){
+        $sql = 
+        'UPDATE nhacungcap
+        SET trangthai = 1
+        WHERE idNCC = '.$id;
         edit($sql);
     }
 ?>

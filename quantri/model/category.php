@@ -1,27 +1,38 @@
 <?php
     function getAllCategory(){
-        $sql='select * from theloai';
+        $sql='SELECT * FROM theloai';
+        return getAll($sql);
+    }
+
+    function getAllCategoryActive(){
+        $sql='SELECT * FROM theloai WHERE trangthai = 1';
         return getAll($sql);
     }
 
     function getCategoryByID($idTL){
-        $sql = 'select * from theloai where idTL='.$idTL;
+        $sql = 'SELECT * FROM theloai WHERE idTL='.$idTL;
         return getOne($sql);
     }
 
     function getCategoryName($id){
-        $sql = 'select tenTL from theloai where idTL='.$id;
+        $sql = 'SELECT tenTL FROM theloai WHERE idTL='.$id;
         return getOne($sql);
     }
 
     function isCategoryExist($tenTL){
         $tenTL = strtolower($tenTL);
-        $sql = 'select idTL from theloai where tenTL= "'.$tenTL.'"';
+        $sql = 'SELECT idTL FROM theloai WHERE tenTL= "'.$tenTL.'"';
+       return getOne($sql)!=null;
+    }
+
+    function isCategoryExist_update($idTL, $tenTL){
+        $tenTL = strtolower($tenTL);
+        $sql = 'SELECT idTL FROM theloai WHERE tenTL= "'.$tenTL.'" and idTL!='.$idTL;
        return getOne($sql)!=null;
     }
     
     function addCategory($tenTL){
-        $sql='insert into theloai(tenTL, trangthai) values ("'.$tenTL.'",1)';
+        $sql='INSERT INTO theloai(tenTL, trangthai) VALUES ("'.$tenTL.'",1)';
         insert($sql);
     }
 
@@ -35,5 +46,26 @@
         trangthai = '.$trangthai.'
         WHERE idTL = '.$idTL;
         edit($sql);
+    }
+
+    function lockCategory($id){
+        $sql = 
+        'UPDATE theloai
+        SET trangthai = 0
+        WHERE idTL = '.$id;
+        edit($sql);
+    }
+
+    function unlockCategory($id){
+        $sql = 
+        'UPDATE theloai
+        SET trangthai = 1
+        WHERE idTL = '.$id;
+        edit($sql);
+    }
+
+    function getTrangThaiCategoryByID($idTL){
+        $sql = 'SELECT trangthai, tenTL FROM theloai WHERE idTL='.$idTL;
+        return getOne($sql);
     }
 ?>

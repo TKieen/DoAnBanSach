@@ -1,35 +1,28 @@
 <!--Start: User Detail-->
-<div class="formPopup" id="view-modal">
-    <form action="#" method="post" id="view-form">
-        <button type="button" class="close-btn"><i class="fa-solid fa-x"></i></button>
-        <div class="change_img">
-            <img src="#" alt="userAvatar" id="view_pic">
-        </div>
-        <div class="info">
+<div class="formPopup" id="view-modal-supplier">
+    <form action="#" method="post" id="view-form-supplier">
+        <button type="button" class="close-btn close-btn-supplier"><i class="fa-solid fa-x"></i></button>
+        <div class="expand">
             <h1>Chi tiết nhà cung cấp</h1>
-            <div class="cols">
-                <div class="left">
-                    <div class="field">
-                        <label for="ten">Nhà cung cấp</label>
-                        <input type="text" name="ten" disabled>
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" disabled>
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="field">
-                        <label for="dienthoai">Điện thoại</label>
-                        <input type="text" name="dienthoai" disabled>
-                    </div>
-                    <div class="field">
-                        <label for="diachi">Địa chỉ</label>
-                        <input type="text" name="diachi" disabled>
-                    </div>
-                </div>
+            <hr>
+            <div class="field">
+                <label for="ten" class="attribute">Nhà cung cấp</label>
+                <input type="text" name="ten" disabled>
+            </div>
+            <div class="field">
+                <label for="email" class="attribute">Email</label>
+                <input type="text" name="email" disabled>
+            </div>
+            <div class="field">
+                <label for="dienthoai" class="attribute">Điện thoại</label>
+                <input type="text" name="dienthoai" disabled>
+            </div>
+            <div class="field">
+                <label for="diachi" class="attribute">Địa chỉ</label>
+                <input type="text" name="diachi" disabled>
             </div>
             <div class="status">
+                <label for="trangthai" class="attribute">Trạng thái: </label>
                 <div>
                     <label for="trangthai">Hoạt động</label>
                     <input type="radio" name="trangthai" value="1" disabled>

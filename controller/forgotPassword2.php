@@ -2,6 +2,7 @@
     if (isset($_POST['submit_verify'])) {
         $maxacnhan = $_POST['maxacnhan'];
         if ($maxacnhan === $_SESSION['reset_password']['verify_code']) {
+            $_SESSION['reset_password']['verified'] = true;
             header("Location:index.php?page=forgotPassword3");
         }
         else {

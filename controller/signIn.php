@@ -7,15 +7,18 @@
         $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
         if (mysqli_num_rows($result) > 0) {
             if(password_verify($inputPassword, $user['matkhau'])){
-                if ( $user['trangthai'] == 1) {
+                if ($user['trangthai'] == 1 and ($user['phanquyen'] == "KH" or $user['phanquyen'] == "DN")) {
                     login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
-                //$result = getLimitProductBestSeller(12);
-                //$category = getAllCategory_KH();
-                echo "<script>alert('Đăng nhập thành công')</script>";
-                header("Location:index.php?page=home"); 
+                    //$result = getLimitProductBestSeller(12);
+                    //$category = getAllCategory_KH();
+                    echo "<script>alert('Đăng nhập thành công')</script>";
+                    header("Location:index.php?page=home"); 
                 }
-                else {
-                    echo "<script>alert('Tài khoản đã bị khóa, vui lòng liên hệ với quản trị viên để biết thêm thông tin chi tiết')</script>";
+                else if ($user['trangthai'] == 0) {
+                    echo "<script>alert('Tài khoản đã bị khóa, vui lòng liên hệ với tổng đài để biết thêm thông tin chi tiết')</script>";
+                }
+                else{
+                    echo "<script>alert('Bạn không có phân quyền để truy cập trang web cho khách hàng, hãy truy cập vào trang web dành cho quản trị viên')</script>";
                 }
             }  
             else {

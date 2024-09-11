@@ -1,5 +1,4 @@
 <?php
-include '../../config/config.php';
 include '../../lib/connect.php';
 require '../model/product.php';
 require '../model/supplier.php';
@@ -7,7 +6,7 @@ require '../model/category.php';
 require '../model/discount.php';
 
 /* add-data */
-if(isset($_POST['add_data'])){
+if(isset($_POST['add_data_product'])){
     //avata
     $images = $_FILES['input_file']['name'];
     $tmp_dir = $_FILES['input_file']['tmp_name'];
@@ -26,14 +25,15 @@ if(isset($_POST['add_data'])){
 
     $tuasach = $_POST['tuasach'];
     $nxb = $_POST['nxb'];
-    $idNCC = $_POST['idNCC'];
+    if(isset($_POST['idNCC'])) $idNCC = $_POST['idNCC'];
+    else $idNCC = $_POST['idNCC_hidden'];
     $giabia = $_POST['giabia'];
+    $giaban = $giabia;
     $tacgia = $_POST['tacgia'];
     $namxb = $_POST['namxb'];
-    $giaban = $_POST['giaban'];
     $idTL = $_POST['idTL'];
     $mota = $_POST['mota'];
-    if(!isProductExist($tuasach, $tacgia, $nxb, $namxb)){
+    if(!isProductExist($tuasach,$namxb)){
         addProduct($picProfile, $tuasach, $tacgia, $nxb, $namxb, $idNCC, $giabia, $giaban, $idTL, $mota);
         echo json_encode(array('success'=>true));
     }
@@ -42,15 +42,37 @@ if(isset($_POST['add_data'])){
 /* add-data */
 
 /* edit-data */
-if(isset($_POST['edit_data'])){
+if(isset($_POST['edit_data_product'])){
     $result = getProductByID($_POST['product_id']);
+    $theloai = getTrangThaiCategoryByID($result['idTL']);
+    $result['trangthaiTL'] = $theloai['trangthai'];
+    $result['tenTL'] = $theloai['tenTL'];
     if($result['idMGG'] == NULL) $result['idMGG']=-1;
+
+    //option for discount
+    $options = "";
+    $discount = null;
+    if($result['idMGG']!=-1){
+        $discount = getDiscountByID($result['idMGG']);
+        extract($discount);
+        $options .= '<option value="'.$idMGG.'">'.$phantram.'</option>';
+    }
+    else{
+        $options = '<option value="-1">Không có</option>';
+        $discount = getAllDiscountWaiting();
+        foreach($discount as $item){
+            extract($item);
+            $options .= '<option value="'.$idMGG.'">'.$phantram.'</option>';
+        }
+    }
+    
+    $result['optionsMGG'] = $options;
     echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 }
 /* edit-data */
 
 /* update-data */
-if(isset($_POST['update_data'])){
+if(isset($_POST['update_data_product'])){
     //avata
     $images = $_FILES['input_file']['name'];
     $tmp_dir = $_FILES['input_file']['tmp_name'];
@@ -69,9 +91,7 @@ if(isset($_POST['update_data'])){
     $id = $_POST['product_id'];
     $tuasach = $_POST['tuasach'];
     $nxb = $_POST['nxb'];
-    $idNCC = $_POST['idNCC'];
     $giabia = $_POST['giabia'];
-    $giaban = $_POST['giaban'];
     $tacgia = $_POST['tacgia'];
     $namxb = $_POST['namxb'];
     $idTL = $_POST['idTL'];
@@ -79,13 +99,16 @@ if(isset($_POST['update_data'])){
     $idMGG = $_POST['idMGG'];
     if($idMGG == -1) $idMGG = NULL;
     $trangthai = $_POST['trangthai'];
-    editProduct($id, $picProfile, $tuasach, $tacgia, $nxb, $namxb, $idNCC, $giabia, $giaban, $idTL, $idMGG, $mota, $trangthai);
-    echo json_encode(array('success'=>true));
+    if(!isProductExist_update($id, $tuasach,$namxb)){
+        editProduct($id, $picProfile, $tuasach, $tacgia, $nxb, $namxb, $giabia, $idTL, $idMGG, $mota, $trangthai);
+        echo json_encode(array('success'=>true));
+    }
+    else echo json_encode(array('success'=>false));
 }
 /* update-data */
 
 /* view-data */
-if(isset($_POST['view_data'])){
+if(isset($_POST['view_data_product'])){
     $result = getProductByID($_POST['product_id']);
 
     // tenNCC
@@ -107,5 +130,34 @@ if(isset($_POST['view_data'])){
     echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 }
 /* view-data */
+
+/* lock-data */
+if(isset($_POST['lock_product'])){
+    lockProduct($_POST['product_id']);
+    echo json_encode(array('success'=>true));
+}
+/* lock-data */
+
+/* lock-data */
+if(isset($_POST['unlock_product'])){
+    unlockProduct($_POST['product_id']);
+    echo json_encode(array('success'=>true));
+}
+/* lock-data */
+
+/* info-product */
+if(isset($_POST['product_info'])){
+    $result = getProductByID($_POST['product_id']);
+    echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+}
+/* info-product */
+
+/* get_product_by_supplier */
+if(isset($_POST['get_product_by_supplier'])){
+    $result = getAllProductBySupplierID($_POST['supplier_id']);
+    echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+}
+/* get_product_by_supplier */
+
 
 ?>

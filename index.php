@@ -1,5 +1,4 @@
 <?php
-include 'config/config.php';
 include 'lib/connect.php';
 require 'model/product.php';
 require 'model/category.php';
@@ -24,14 +23,6 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
         
         case 'productDetail':
             require_once "controller/productDetail.php";
-            break;
-
-        case 'order':
-            require_once "controller/order.php";
-            break;
-
-        case 'orderDetail':
-            require_once "controller/orderDetail.php";
             break;
 
         case 'cancelOrder':

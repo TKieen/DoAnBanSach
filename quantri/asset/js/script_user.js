@@ -2,24 +2,25 @@
 $(document).ready(function() {
 
     /* Start: add form */
-    $('.open_add_form').click(function() {
+    $('.open_add_form_user').click(function() {
         // Display the form as a pop-up
-       $('#add-modal').show();
+       $('#add-modal-user').show();
    });
 
-    $('#add-form').submit(function(event) {
+    $('#add-form-user').submit(function(event) {
         // Prevent the default form submission
         event.preventDefault();
         
         // validate form
-        var ten = $('#add-form input[name="ten"]').val();
-        var email = $('#add-form input[name="email"]').val();
-        var dienthoai = $('#add-form input[name="dienthoai"]').val();
-        var phanquyen = $('#add-form select[name="phanquyen"]').val();
-        var alert = formValidateUser(ten, email, dienthoai, phanquyen);
+        var ten = $('#add-form-user input[name="ten"]').val();
+        var email = $('#add-form-user input[name="email"]').val();
+        var dienthoai = $('#add-form-user input[name="dienthoai"]').val();
+        var phanquyen = $('#add-form-user select[name="phanquyen"]').val();
+        var matkhau = $('#add-form-user input[name="matkhau"]').val();
+        var alert = formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen);
         if(alert ===''){
             // Serialize form data
-            var formData = new FormData( $('#add-form')[0]);
+            var formData = new FormData( $('#add-form-user')[0]);
             // AJAX request to handle form submission
             $.ajax({
                 url: '../controller/user.php', // URL to handle form submission
@@ -28,6 +29,7 @@ $(document).ready(function() {
                 processData: false,
                 contentType: false,
                 success: function(response) {
+                    console.log(response);
                     const obj = JSON.parse(response);
                     if(obj.success)
                         $('.alert').html('<span class="green">Thêm thành công</span>');
@@ -40,48 +42,44 @@ $(document).ready(function() {
     /* End: add form */
     
     /* Start: edit form */
-    $('.open_edit_form').click(function(e) {
+    $('.open_edit_form_user').click(function(e) {
         e.preventDefault();
         var user_id = $(this).closest('tr').find('.user_id').text();
         $.ajax({
             url: '../controller/user.php', // Replace with the actual PHP endpoint to fetch user details
             type: 'POST',
             data: {
-                'edit_data': true,
+                'edit_data_user': true,
                 'user_id': user_id,
             },
             success: function(response){
                 const obj = JSON.parse(response);
-                var img = "../../uploads/uploads_user/"+obj.avatar;
-                $('#edit-form #update_pic').attr('src', img);
-                $('#edit-form input[name="curr_img"]').val(obj.avatar);
-                $('#edit-form input[name="id"]').val(obj.ID);
-                $('#edit-form input[name="ten"]').val(obj.ten);
-                $('#edit-form input[name="email"]').val(obj.email);
-                $('#edit-form input[name="dienthoai"]').val(obj.dienthoai);
-                $('#edit-form input[name="diachi"]').val(obj.diachi);
-                $('#edit-form select[name="phanquyen"]').val(obj.phanquyen);
-                $('#edit-form input[name="trangthai"][value="'+(obj.trangthai)+'"]').prop("checked",true);
+                $('#edit-form-user input[name="user_id"]').val(obj.idTK);
+                $('#edit-form-user input[name="ten"]').val(obj.tenTK);
+                $('#edit-form-user input[name="email"]').val(obj.email);
+                $('#edit-form-user input[name="dienthoai"]').val(obj.dienthoai);
+                $('#edit-form-user select[name="phanquyen"]').val(obj.phanquyen);
+                $('#edit-form-user input[name="trangthai"][value="'+(obj.trangthai)+'"]').prop("checked",true);
                 // // Display the edit form as a pop-up
-                $('#edit-modal').show();
+                $('#edit-modal-user').show();
             },
         });
     });
 
     /* update data */
-    $('#edit-form').submit(function(event) {
+    $('#edit-form-user').submit(function(event) {
         // Prevent the default form submission
         event.preventDefault();
         
         // validate form
-        var ten = $('#edit-form input[name="ten"]').val();
-        var email = $('#edit-form input[name="email"]').val();
-        var dienthoai = $('#edit-form input[name="dienthoai"]').val();
-        var phanquyen = $('#edit-form select[name="phanquyen"]').val();
+        var ten = $('#edit-form-user input[name="ten"]').val();
+        var email = $('#edit-form-user input[name="email"]').val();
+        var dienthoai = $('#edit-form-user input[name="dienthoai"]').val();
+        var phanquyen = $('#edit-form-user select[name="phanquyen"]').val();
         var alert = formValidateUser(ten, email, dienthoai, phanquyen);
         if(alert ===''){
         // Serialize form data
-        var formData = new FormData( $('#edit-form')[0]);
+        var formData = new FormData( $('#edit-form-user')[0]);
         // AJAX request to handle form submission
         $.ajax({
             url: '../controller/user.php', // URL to handle form submission
@@ -90,8 +88,10 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(response) {
+                console.log(response);
                 const obj = JSON.parse(response);
                 if(obj.success) $('.alert').html('<span class="green">Cập nhật thành công</span>');
+                else $('.alert').html('<span class="red">Người này đã tồn tại do trùng email hoặc số điện thoại</span>');
             },
         });
     }
@@ -100,29 +100,26 @@ $(document).ready(function() {
     /* End: edit form */
 
     /* Start: view form */
-    $('.open_view_form').click(function(e) {
+    $('.open_view_form_user').click(function(e) {
         e.preventDefault();
         var user_id = $(this).closest('tr').find('.user_id').text();
         $.ajax({
             url: '../controller/user.php', // Replace with the actual PHP endpoint to fetch user details
             type: 'POST',
             data: {
-                'view_data': true,
+                'view_data_user': true,
                 'user_id': user_id,
             },
             success: function(response){
                 console.log(response);
                 const obj = JSON.parse(response);
-                var img = "../../uploads/uploads_user/"+obj.avatar;
-                $('#view-form #view_pic').attr('src', img);
-                $('#view-form input[name="ten"]').val(obj.ten);
-                $('#view-form input[name="email"]').val(obj.email);
-                $('#view-form input[name="dienthoai"]').val(obj.dienthoai);
-                $('#view-form input[name="diachi"]').val(obj.diachi);
-                $('#view-form select[name="phanquyen"]').val(obj.phanquyen);
-                $('#view-form input[name="trangthai"][value="'+(obj.trangthai)+'"]').prop("checked",true);
+                $('#view-form-user input[name="ten"]').val(obj.tenTK);
+                $('#view-form-user input[name="email"]').val(obj.email);
+                $('#view-form-user input[name="dienthoai"]').val(obj.dienthoai);
+                $('#view-form-user select[name="phanquyen"]').val(obj.phanquyen);
+                $('#view-form-user input[name="trangthai"][value="'+(obj.trangthai)+'"]').prop("checked",true);
                 // // Display the edit form as a pop-up
-                $('#view-modal').show();
+                $('#view-modal-user').show();
             },
 
         });
@@ -130,15 +127,58 @@ $(document).ready(function() {
     /* End: view form */
 
     // Event listener for close button clicks
-    $('.close-btn').click(function() {
+    $('.close-btn-user').click(function() {
         // Hide the edit form modal
         $('.alert').html('');
-        $('#add-modal').hide();
-        $('#update_file').val('');
-        $('#edit-modal').hide();
-        $('#view-modal').hide();
+        $('#add-modal-user').hide();
+        $('#edit-modal-user').hide();
+        $('#view-modal-user').hide();
         var curr_page = $('.curr_page').val();
         window.location.href="index.php?page=user&index="+curr_page;
     });
+
+    /* Start: lock */
+    $('.lock_user').click(function() {
+        // Display the form as a pop-up
+        var user_id = $(this).closest('tr').find('.user_id').text();
+        $.ajax({
+            url: '../controller/user.php', // Replace with the actual PHP endpoint to fetch user details
+            type: 'POST',
+            data: {
+                'lock_user': true,
+                'user_id': user_id,
+            },
+            success: function(response){
+                const obj = JSON.parse(response);
+                if(obj.success){
+                    var curr_page = $('.curr_page').val();
+                    window.location.href="index.php?page=user&index="+curr_page;
+                }
+            },
+        });
+   });
+    /* End: lock */
+
+    /* Start: unlock */
+    $('.unlock_user').click(function() {
+        // Display the form as a pop-up
+        var user_id = $(this).closest('tr').find('.user_id').text();
+        $.ajax({
+            url: '../controller/user.php', // Replace with the actual PHP endpoint to fetch user details
+            type: 'POST',
+            data: {
+                'unlock_user': true,
+                'user_id': user_id,
+            },
+            success: function(response){
+                const obj = JSON.parse(response);
+                if(obj.success){
+                    var curr_page = $('.curr_page').val();
+                    window.location.href="index.php?page=user&index="+curr_page;
+                }
+            },
+        });
+   });
+    /* End: unlock */
 });
 

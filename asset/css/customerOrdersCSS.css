@@ -335,13 +335,16 @@ ul li {
     padding-right: 15px;
 }
 
-
 .container-content-right{
     flex: 82%;
     border-radius: 10px;
     margin-left: 30px;
     padding-left: 10px;
     padding-right: 15px;
+}
+
+.container-content-left-user {
+    float: right;
 }
 
 .container-content-left-userInfo {

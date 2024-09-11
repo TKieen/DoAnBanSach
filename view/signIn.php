@@ -1,5 +1,3 @@
-
-
 <?php
     include_once "inc/header_signIn.php";
     extract($result);

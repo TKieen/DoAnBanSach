@@ -12,6 +12,7 @@
         }
         else return false;
     }
+    
     function check_email_is_existed($inputEmail) {
         $sql = "SELECT * FROM taikhoan WHERE email= '".$inputEmail."' LIMIT 1";
         $row = mysqli_query($GLOBALS['conn'], $sql);
@@ -21,6 +22,17 @@
         }
         else return false;
     }
+
+    function check_phone_is_existed($inputPhone) {
+        $sql = "SELECT * FROM taikhoan WHERE dienthoai= '".$inputPhone."' LIMIT 1";
+        $row = mysqli_query($GLOBALS['conn'], $sql);
+        $count = mysqli_num_rows($row);
+        if ($count > 0) {
+            return true;
+        }
+        else return false;
+    }
+
     function check_password_is_unmatched($inputPW, $inputR_PW) {
         if($inputPW !== $inputR_PW) {
             return true;

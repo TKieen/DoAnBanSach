@@ -1,0 +1,395 @@
+/* css cua  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: white;
+    background-size: cover;
+    background-position: center;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Start: header*/
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);;
+    padding: 5px 5px;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+header ul a{
+    text-decoration: none;
+    color: black;
+}
+
+header ul a:hover{
+    color: blue;
+}
+
+/* header logo */
+header .logo{
+    width: 200px;
+}
+
+/* account */
+.account{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.account span{
+    margin-left: 8px;
+}
+/* End: header */
+
+/* Start: side bar*/
+aside{
+    position: relative;
+    display: inline-block;
+}
+
+.menu-btn{
+    position: absolute;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.side-bar{
+    background-color: white;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    display: none;
+    transition: 0.6s ease ;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+aside:hover .side-bar{
+    display: block;
+}
+
+.side-bar .menu{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.side-bar .menu .item{
+    position: relative;
+}
+
+.side-bar a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 5px 30px;
+    line-height: 40px;
+}
+
+.side-bar a.active{
+    background-color: #ddd;
+}
+
+.side-bar a:hover{
+    background-color: #ddd;
+}
+
+.side-bar .item i{
+    margin-right: 15px;
+}
+
+.side-bar .item a .dropdown{
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.side-bar .item .sub-menu{
+    display: none;
+    overflow: hidden;
+}
+
+.side-bar .item:hover .sub-menu{
+    display: block;
+}
+
+.side-bar .sub-menu .active{
+    background-color: gold;
+}
+
+.side-bar .sub-menu .sub-item:hover{
+    background-color: gold;
+}
+/* End: side bar */
+
+/* Start: main section*/
+main{
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 20px 20px 20px;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0px 0 20px 10px;
+}
+
+/* =================== PHẦN THỐNG KÊ =================== */
+/* Chọn thời gian thống kê */
+.form-controller {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.form-controller .form-group {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.form-controller .form-group label {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.form-controller .form-group select {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+}
+
+.form-controller .form-group select:hover {
+    border-color: #007bff;
+    cursor: pointer;
+}
+
+.thongke-button {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: white;
+    margin-right: 10px;
+}
+
+.thongke-button i {
+    margin-right: 5px;
+}
+
+.thongke-button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+/* Chọn thời gian thống kê - HẾT*/
+
+/* Bảng thống kê */
+#thongke-container {
+    margin: 0 auto;
+}
+
+#thongke-container.nhapkho {
+    color: #362137;
+}
+
+#thongke-container.doanhthu {
+    color: #092735;
+}
+
+#thongke-container.loinhuan {
+    color: #3A4331;
+}
+
+.thongke-table {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.thongke-table.nhapkho {
+    border: 1px solid #362137;
+}
+
+.thongke-table.doanhthu {
+    border: 1px solid #092735;
+}
+
+.thongke-table.loinhuan {
+    border: 1px solid #3A4331;
+}
+
+.thongke-table .title {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.thongke-table .title.nhapkho {
+    background-color: #D9C0DA;
+}
+
+.thongke-table .title.doanhthu {
+    background-color: #DAE9F7;
+}
+
+.thongke-table .title.loinhuan {
+    background-color: #C8D6C0;
+}
+
+.thongke-table .title span {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.thongke-table .title th {
+    padding: 5px 0;
+}
+
+.thongke-table .title.nhapkho th {
+    border: 1px solid #362137;
+}
+
+.thongke-table .title.doanhthu th {
+    border: 1px solid #092735;
+}
+
+.thongke-table .title.loinhuan th {
+    border: 1px solid #3A4331;
+}
+
+.thongke-table .table-data td {
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.thongke-table .table-data.nhapkho td {
+    border: 1px solid #362137;
+}
+
+.thongke-table .table-data.doanhthu td {
+    border: 1px solid #092735;
+}
+
+.thongke-table .table-data.loinhuan td {
+    border: 1px solid #3A4331;
+}
+
+.thongke-table .table-data td.algin-right {
+    text-align: right;
+}
+
+.table-data.sum-row .sum {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.table-data #sum-cell {
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+}
+
+.table-data #sum-cell.nhapkho {
+    background-color: #543456;
+}
+
+.table-data #sum-cell.doanhthu {
+    background-color: #153D63;
+}
+
+.table-data #sum-cell.loinhuan {
+    background-color: #627254;
+}
+
+.numberInWords {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.numberInWords-title {
+    font-weight: 600;
+}
+/* Bảng thống kê - HẾT*/
+
+/* In thống kê */
+.thongke-button.print-btn {
+    color: white;
+    margin: 30px 0;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.thongke-button.print-btn.nhapkho {
+    background-color: #6e4f70;
+}
+
+.thongke-button.print-btn.doanhthu {
+    background-color: #2f4e6e;
+}
+
+.thongke-button.print-btn.loinhuan {
+    background-color: #658847;
+}
+
+.thongke-button.print-btn.nhapkho:hover {
+    background-color: #362137;
+}
+
+.thongke-button.print-btn.doanhthu:hover {
+    background-color: #153D63;
+}
+
+.thongke-button.print-btn.loinhuan:hover {
+    background-color: #627254;
+}
+/* In thống kê - HẾT */
+
+/* =================== PHẦN THỐNG KÊ - HẾT =================== */

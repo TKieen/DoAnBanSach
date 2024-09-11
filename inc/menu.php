@@ -22,7 +22,11 @@
                         <li class="header-navbar-items">
                             <div class="header-navbar-items-Cart-SignIn-SignUp">
                                 <div class="header-navbar-items-Cart">
-                                    <a class="cart" href="?page=cart">
+                                    <?php
+                                        if(empty($_SESSION['user']['name']))
+                                            echo '<a class="cart" href="?page=signIn">';
+                                        else echo '<a class="cart" href="?page=cart">';
+                                    ?>
                                         <div class="circle"></div>
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>

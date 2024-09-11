@@ -1,32 +1,17 @@
 <?php
-include '../../config/config.php';
 include '../../lib/connect.php';
 require '../model/customer.php';
+require '../model/user.php';
 
 /* add-data */
-if(isset($_POST['add_data'])){
-    //avata
-    $images = $_FILES['input_file']['name'];
-    $tmp_dir = $_FILES['input_file']['tmp_name'];
-    $imageSize = $_FILES['input_file']['size'];
-
-    if($imageSize===0){
-        $picProfile="person.png";
-    }
-    else{
-    $upload_dir='../../uploads/uploads_user/';
-    $imgExt=strtolower(pathinfo($images,PATHINFO_EXTENSION));
-    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf');
-    $picProfile = rand(1000, 1000000).'.'.$imgExt;
-    move_uploaded_file($tmp_dir, $upload_dir.$picProfile);
-    }
-
+if(isset($_POST['add_data_customer'])){
     $ten = $_POST['ten'];
     $email = $_POST['email'];
     $dienthoai = $_POST['dienthoai'];
-    $diachi = $_POST['diachi'];
+    $p = $_POST['matkhau'];
+    $p_hash = password_hash($p, PASSWORD_DEFAULT);
     if(!isExist($email, $dienthoai)){
-        addUser($picProfile, $ten, $email, $dienthoai, $diachi, 4, 1);
+        addUser($ten, $email, $dienthoai, "KH", $p_hash);
         echo json_encode(array('success'=>true));
     }
     else echo json_encode(array('success'=>false));
@@ -34,49 +19,45 @@ if(isset($_POST['add_data'])){
 /* add-data */
 
 /* edit-data */
-if(isset($_POST['edit_data'])){
+if(isset($_POST['edit_data_customer'])){
     $result = getUserByID($_POST['user_id']);
     echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 }
 /* edit-data */
 
 /* update-data */
-if(isset($_POST['update_data'])){
-    //avata
-    $images = $_FILES['input_file']['name'];
-    $tmp_dir = $_FILES['input_file']['tmp_name'];
-    $imageSize = $_FILES['input_file']['size'];
-
-    if($imageSize===0){ //khong thay doi
-        $picProfile=$_POST['curr_img'];
-    }
-    else{
-        $upload_dir='../../uploads/uploads_user/';
-        $imgExt=strtolower(pathinfo($images,PATHINFO_EXTENSION));
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf');
-        $picProfile = rand(1000, 1000000).'.'.$imgExt;
-        move_uploaded_file($tmp_dir, $upload_dir.$picProfile);
-    }
-    $id = $_POST['id'];
+if(isset($_POST['update_data_customer'])){
+    $id = $_POST['user_id'];
     $ten = $_POST['ten'];
     $email = $_POST['email'];
     $dienthoai = $_POST['dienthoai'];
-    $diachi = $_POST['diachi'];
     $trangthai = $_POST['trangthai'];
-    editUser($id,$picProfile,$ten,$email,$dienthoai,$diachi,4,$trangthai);
-    echo json_encode(array('success'=>true));
+    if(!isExist_update($id, $email, $dienthoai)){
+        editUser($id,$ten,$email,$dienthoai,"KH",$trangthai);
+        echo json_encode(array('success'=>true));
+    }
+    else echo json_encode(array('success'=>false));
 }
 /* update-data */
 
 /* view-data */
-if(isset($_POST['view_data'])){
+if(isset($_POST['view_data_customer'])){
     $result = getUserByID($_POST['user_id']);
     echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 }
 /* view-data */
 
-if(isset($_POST['delete_data'])){
-    $result = getUserByID($_POST['user_id']);
-    deleteUser($id);
+/* lock-data */
+if(isset($_POST['lock_customer'])){
+    lockUser($_POST['user_id']);
+    echo json_encode(array('success'=>true));
 }
+/* lock-data */
+
+/* lock-data */
+if(isset($_POST['unlock_customer'])){
+    unlockUser($_POST['user_id']);
+    echo json_encode(array('success'=>true));
+}
+/* lock-data */
 ?>
