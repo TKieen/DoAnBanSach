@@ -20,7 +20,18 @@
             </div>
             <div class="field">
                 <label for="diachi" class="attribute">Địa chỉ</label>
-                <input type="text" name="diachi">
+                <div class="column">
+                    <select name="tinhdiachi" id="tinhdiachi">
+                        <option value="" disabled selected>Tỉnh/Thành phố</option>
+                    </select>
+                    <select name="huyendiachi" id="huyendiachi">
+                        <option value="" disabled selected>Quận/Huyện</option>
+                    </select>
+                    <select name="xaphuongdiachi" id="xaphuongdiachi">
+                        <option value="" disabled selected>Xã/Phường</option>
+                    </select>
+                    <input type="text" name="diachi">
+                </div>
             </div>
             <div class="status">
                 <label for="trangthai" class="attribute">Trạng thái: </label>
