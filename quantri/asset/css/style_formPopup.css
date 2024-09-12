@@ -123,15 +123,23 @@
 
 .formPopup .field{
     margin-top: 5px;
+    display: flex;
+    flex-direction: start;
+}
+.formPopup .field .column{
+    display: inline-block;
+    width: 300px;
+    height: max-content;
 }
 
-.formPopup .field input[type="text"],.field input[type="password"], .formPopup select{
+.formPopup .field input[type="text"],.field input[type="password"], .formPopup select, .formPopup .field select{
     border-radius: 4px;
     height: 30px;
-    width: 230px;
+    width: 300px;
     padding: 5px;
     margin-top: 3px;
     font-size: 16px;
+    margin-left: 20px;
 }
 
 .formPopup .attribute{
@@ -146,7 +154,7 @@
     font-size: 16px;
 }
 
-.formPopup .expand input, .formPopup .expand select{
+.formPopup .expand input{
     width: 200px;
     height: 30px;
     margin-left: 20px;
