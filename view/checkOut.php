@@ -2,7 +2,7 @@
     extract($result);
     include_once "inc/header_checkout.php";
 ?>
-<form action="?page=orderHandler" method="post">
+<form id='order-form' action="?page=orderHandler" method="post">
     <section class="container">
         <div class="container-row1">
             <div class="container-row1-left">
