@@ -7,7 +7,7 @@ function getProvinces() {
     while ($row = mysqli_fetch_assoc($result)) {
         $data[] = array(
             "id" => $row["province_id"],
-            "name" => utf8_encode($row["province_name"]),
+            "name" => $row["province_name"]
         );
     }
     return $data;
@@ -24,7 +24,7 @@ function getDistricts($provinceId) {
     while ($row = $result->fetch_assoc()) {
         $data[] = [
             'id' => $row['district_id'],
-            'name' => utf8_encode($row['district_name'])
+            'name' => $row['district_name']
         ];
     }
     return $data;
@@ -43,7 +43,7 @@ function getWards($districtId) {
     while ($row = $result->fetch_assoc()) {
         $data[] = [
             'id' => $row['ward_id'],
-            'name' => utf8_encode($row['ward_name'])
+            'name' => $row['ward_name']
         ];
     }
     return $data;
