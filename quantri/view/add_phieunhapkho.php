@@ -18,6 +18,13 @@
                             <?=$tenNCC?>
                         </div>
                     </div>
+                    <div class="field">
+                        <label for="">Nhân viên:</label>
+                        <div class="info">
+                            <input type="hidden" name="idNV" value="<?=$idNV?>">
+                            
+                        </div>
+                    </div>
                 </div>
                 <div class="item">
                     <div class="field">
