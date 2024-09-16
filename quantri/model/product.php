@@ -13,8 +13,15 @@
         return getOne($sql);
     }
 
-    function isProductExist($tuasach, $namxb){
-        $sql = 'select idSach from sach where tuasach= "'.$tuasach.'" and namxb='.$namxb;
+    function isProductExist($tuasach, $namxb, $tacgia, $giaban, $giabia, $idNCC, $nxb){
+        $sql = 'select idSach from sach 
+        where tuasach= "'.$tuasach.'" 
+        and namxb='.$namxb.'
+        and tacgia = "'.$tacgia.'"
+        and giaban = '.$giaban.'
+        and giabia = '.$giabia.'
+        and idNCC = '.$idNCC.'
+        and nxb = "'.$nxb.'"';
        return getOne($sql)!=null;
     }
 
@@ -28,15 +35,10 @@
         insert($sql);
     }
 
-    function editProduct($idSach, $hinhanh, $tuasach,  $tacgia, $nxb, $namxb, $giabia, $idTL, $idMGG, $mota, $trangthai){
+    function editProduct($idSach, $hinhanh, $idTL, $idMGG, $mota, $trangthai){
         $sql = 
         'UPDATE Sach
-        SET hinhanh = "'.$hinhanh.'",
-        tuasach = "'.$tuasach.'",
-        tacgia = "'.$tacgia.'",
-        nxb = "'.$nxb.'",
-        namxb = '.$namxb.',
-        giabia = '.$giabia.',';
+        SET hinhanh = "'.$hinhanh.'",';
         if($idMGG === NULL) $sql.='idMGG = NULL,';
         else $sql.='idMGG = '.$idMGG.',';
         $sql.='

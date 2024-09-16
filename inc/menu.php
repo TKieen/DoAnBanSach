@@ -1,4 +1,5 @@
 <?php
+    $category = getAllCategory_KH();
    extract($category);
 ?>
 <body>

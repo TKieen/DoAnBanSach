@@ -30,11 +30,11 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
             break;
         
         case 'signIn':
-            require_once "controller/signIn.php";
+            require_once "view/signIn.php";
             break;
 
         case 'signUp':
-            require_once "controller/signUp.php";
+            require_once "view/signUp.php";
             break;
 
         case 'signOut':
@@ -42,18 +42,18 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
             break;
 
         case "forgotPassword1":
-            require_once "controller/forgotPassword1.php";
+            require_once "view/forgotPasswordPage1.php";
             break;
             
         case 'forgotPassword2':
-            require_once "controller/forgotPassword2.php";
+            require_once "view/forgotPasswordPage2.php";
             break;
         case 'forgotPassword3':
-            require_once "controller/forgotPassword3.php";
+            require_once "view/forgotPasswordPage3.php";
             break;
 
         case 'customerInfo':
-            require_once "controller/customerInfo.php";
+            require_once "view/customerInfo.php";
             break;
             
         case 'customerOrders':
@@ -97,4 +97,5 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
 else{
     header("Location:index.php?page=home");
 }
+
 ?>

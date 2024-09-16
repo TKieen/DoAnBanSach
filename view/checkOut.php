@@ -16,13 +16,13 @@
                             <strong>Địa chỉ nhận hàng <span style="color: #D64830">*</span></strong>
                             <div class="container-row3-form-items-layout">
                                 <select name="tinhdiachi" id="tinhdiachi">
-                                    <option value="" disabled selected>Chọn Tỉnh/Thành phố</option>
+                                    <option value="" selected>Chọn Tỉnh/Thành phố</option>
                                 </select>
                                 <select name="huyendiachi" id="huyendiachi">
-                                    <option value="" disabled selected>Chọn Quận/Huyện</option>
+                                    <option value="" selected>Chọn Quận/Huyện</option>
                                 </select>
                                 <select name="xaphuongdiachi" id="xaphuongdiachi">
-                                    <option value="" disabled selected>Chọn Xã/Phường</option>
+                                    <option value="" selected>Chọn Xã/Phường</option>
                                 </select>
                                 <input type="text" id="diachinhan" name="diachinhan" placeholder="Số nhà, đường">
                             </div>

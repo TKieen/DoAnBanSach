@@ -1,6 +1,5 @@
 <?php
     include_once "inc/header_signIn.php";
-    extract($result);
 ?>
     <div class="container">
             <ul class="container-row">
@@ -33,20 +32,21 @@
                     </div>
                     <div class="signIn-box-row3">
                         <div class="signIn-box-row3-form">
-                            <form action="?page=signIn" method="POST">
+                            <form id="signIn-form" method="POST"  enctype="multipart/form-data">
                                 <div class="signIn-box-row3-form-items">
-                                    <strong>Email<span style="color: #D64830">*</span></strong><input type="text" name="email" id="email">
+                                    <strong>Email<span style="color: #D64830">*</span></strong><input type="text" name="email" id="email" required>
                                 </div>
                                 <div class="signIn-box-row3-form-items">
-                                    <strong>Mật khẩu<span style="color: #D64830">*</span></strong><input type="password" name="password" id="email">
+                                    <strong>Mật khẩu<span style="color: #D64830">*</span></strong><input type="password" name="password" id="password" required>
                                 </div>
-                                <div class="signIn-box-row3-form-errorMssg" style='display:none' id="empty">
-                                    Vui lòng không để trống tài khoản và mật khẩu.
-                                </div>
+                                <div class="alert"></div>
                                 <div class="signIn-box-row3-form-forgotPassword">
                                     <i>Bạn đã <a href="?page=forgotPassword1">quên mật khẩu?</a></i>
                                 </div>
-                                <div class="signIn-box-row3-right-button"> <button type="submit" name="sign_in" id="btn-signin" onclick="return validate_FormSignin()"> ĐĂNG NHẬP</button></div>
+                                <div class="signIn-box-row3-right-button"> 
+                                    <input type="hidden" name="sign_in">
+                                    <button type="submit" name="sign_in" id="btn-signin"> ĐĂNG NHẬP</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                 </div>
             </ul>
         </div>
-    <script>
+    <!-- <script>
         function validate_FormSignin() {
             let x = document.getElementById('email').value;
             if (x === '') {
@@ -66,7 +66,9 @@
                 document.getElementById('empty').style.display = 'none';
             }
         }
-    </script>
+    </script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="asset/js/signIn.js"></script>
     <?php
         include_once "inc/footer.php";
     ?>

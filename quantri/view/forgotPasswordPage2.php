@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--đổi title khi nhấn registerLink-->
-    <title class="title">Đăng nhập</title>
+    <title class="title">Quên mật khẩu</title>
     <link rel="stylesheet" href="asset/css/style_LoginAdmin.css">
-    <script src="../asset/js/"></script>
 </head>
+<style>
+    .form-box h3 {
+        text-align: center;
+    }
+</style>
 <body>
     <img src="asset/img/logo.png" alt="vinabook">
     <div class="wrapper">
         <div class=" form-box login">
-            <h1>Đăng nhập</h1>
-            <form  id="signIn-form" method="POST" enctype="multipart/form-data">
-                <input type="email" name="email" placeholder="Email" required> 
-                <input type="password" name="password" placeholder="Mật khẩu" required>
+            <h3>Vui lòng nhập vào mã xác thực đã được gửi qua email của bạn.</h3>
+            <form id="forgotPwd2-form" method="POST">
+                <input type="text" name="maxacnhan" placeholder="Mã xác thực" required> 
                 <div class="alert"></div>
-                <input type="hidden" name="sign_in">
-                <button type="submit" name="sign_in">ĐĂNG NHẬP</button>
-                <div>Bạn đã <a href="?page=forgotPassword1">quên mật khẩu</a> ?</div>
+                <input type="hidden" name="forgot-pwd-2">
+                <button type="submit" name="submit_verify">Xác nhận</button>
             </form>
         </div>
     </div>

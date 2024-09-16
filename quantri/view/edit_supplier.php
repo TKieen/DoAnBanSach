@@ -8,30 +8,19 @@
             <input type="hidden" name="supplier_id">
             <div class="field">
                 <label for="ten" class="attribute">Họ và tên</label>
-                <input type="text" name="ten">
+                <input type="text" name="ten" disabled>
             </div>
             <div class="field">
                 <label for="email" class="attribute">Email</label>
-                <input type="text" name="email">
+                <input type="text" name="email" disabled>
             </div>
             <div class="field">
                 <label for="dienthoai" class="attribute">Điện thoại</label>
-                <input type="text" name="dienthoai">
+                <input type="text" name="dienthoai" disabled>
             </div>
             <div class="field">
                 <label for="diachi" class="attribute">Địa chỉ</label>
-                <div class="column">
-                    <select name="tinhdiachi" id="tinhdiachi">
-                        <option value="" disabled selected>Tỉnh/Thành phố</option>
-                    </select>
-                    <select name="huyendiachi" id="huyendiachi">
-                        <option value="" disabled selected>Quận/Huyện</option>
-                    </select>
-                    <select name="xaphuongdiachi" id="xaphuongdiachi">
-                        <option value="" disabled selected>Xã/Phường</option>
-                    </select>
-                    <input type="text" name="diachi">
-                </div>
+                <input type="text" name="diachi" disabled>
             </div>
             <div class="status">
                 <label for="trangthai" class="attribute">Trạng thái: </label>

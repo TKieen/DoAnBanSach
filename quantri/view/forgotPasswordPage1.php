@@ -19,11 +19,15 @@
         <div class=" form-box login">
             <h1>Quên mật khẩu?</h1>
             <h3>Nhập vào email của bạn:</h3>
-            <form action="?page=forgotPassword" method="POST">
+            <form id="forgotPwd1-form" method="POST" enctype="multipart/form-data">
                 <input type="email" name="email" placeholder="Email" required> 
-                <button type="submit" name="submit">XÁC NHẬN</button>
+                <div class="alert"></div>
+                <input type="hidden" name="forgot-pwd-1">
+                <button type="submit" name="submit">Gửi mã xác nhận</button>
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="asset/js/script_signIn.js"></script>
 </body>
 </html>

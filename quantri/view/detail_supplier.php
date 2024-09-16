@@ -18,16 +18,8 @@
                 <input type="text" name="dienthoai" disabled>
             </div>
             <div class="field">
-                <label for="diachi" class="attribute">Địa chỉ</label>
-                <div class="column">
-                    <select name="tinhdiachi" id="tinhdiachi" disabled>
-                    </select>
-                    <select name="huyendiachi" id="huyendiachi" disabled>
-                    </select>
-                    <select name="xaphuongdiachi" id="xaphuongdiachi" disabled>
-                    </select>
-                    <input type="text" name="diachi" disabled>
-                </div>
+            <label for="diachi" class="attribute">Địa chỉ</label>
+            <input type="text" name="diachi" disabled>
             </div>
             <div class="status">
                 <label for="trangthai" class="attribute">Trạng thái: </label>

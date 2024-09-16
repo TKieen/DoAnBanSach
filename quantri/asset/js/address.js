@@ -27,7 +27,7 @@ $(document).ready(function () {
         });
     }
 
-    fetchData('api/getProvinces.php', {}, function(data) {
+    fetchData('../../api/getProvinces.php', {}, function(data) {
         populateSelect('#tinhdiachi', 'Chọn Tỉnh/Thành phố', data, 'id', 'name');
     });
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
         populateSelect('#xaphuongdiachi', 'Chọn Phường/Xã', [], 'id', 'name');
 
         if (provinceId || provinceId !== '') {
-            fetchData('api/getDistricts.php', { province_id: provinceId }, function(data) {
+            fetchData('../../api/getDistricts.php', { province_id: provinceId }, function(data) {
                 populateSelect('#huyendiachi', 'Chọn Quận/Huyện', data, 'id', 'name');
             });
         }
@@ -48,31 +48,14 @@ $(document).ready(function () {
         populateSelect('#xaphuongdiachi', 'Phường/Xã', [], 'id', 'name');
 
         if (districtId || districtId !== '') {
-            fetchData('api/getWards.php', { district_id: districtId }, function(data) {
+            fetchData('../../api/getWards.php', { district_id: districtId }, function(data) {
                 populateSelect('#xaphuongdiachi', 'Phường/Xã', data, 'id', 'name');
             });
         }
     });
 
 
-
-    $('.exit-checkout-btn').click(function (e) { 
-        e.preventDefault();
-        window.location.href = '?page=home';
-    });
-
-    function validateField(selector, message) {
-        const $field = $(selector);
-        console.log(selector + ':  ' + $field.val());
-        if (!$field.val() || $field.val() === '') {
-            $field.focus();
-            alert(message);
-            return false;
-        }
-        return true;
-    }
-
-    $('#order-form').on('submit', function (event) {
+    $('#add-form-supplier').on('submit', function (event) {
         const validateField = (selector, message) => {
             const $field = $(selector);
             console.log(selector + ':  ' + $field.val());
@@ -87,7 +70,7 @@ $(document).ready(function () {
         if (!validateField('#tinhdiachi', 'Vui lòng chọn Tỉnh/Thành phố')
             || !validateField('#huyendiachi', 'Vui lòng chọn Quận/Huyện')
             || !validateField('#xaphuongdiachi', 'Vui lòng chọn Phường/Xã')
-            || !validateField('#diachinhan', 'Vui lòng nhập địa chỉ nhận hàng')) {
+            || !validateField('#diachi', 'Vui lòng nhập số nhà, đường')) {
 
             event.preventDefault();
         }

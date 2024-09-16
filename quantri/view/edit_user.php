@@ -7,7 +7,7 @@
             <input type="hidden" name="user_id">
             <div class="field">
                 <label for="ten" class="attribute">Họ và tên</label>
-                <input type="text" name="ten">
+                <input type="text" name="ten" disabled>
             </div>
             <div class="field">
                 <label for="email" class="attribute">Email</label>
@@ -15,7 +15,7 @@
             </div>
             <div class="field">
                 <label for="dienthoai" class="attribute">Điện thoại</label>
-                <input type="text" name="dienthoai">
+                <input type="text" name="dienthoai" disabled>
             </div>
             <div class="field">
                 <label for="phanquyen"class="attribute">Phân quyền</label>

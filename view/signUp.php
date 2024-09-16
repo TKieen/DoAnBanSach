@@ -30,7 +30,7 @@
                     </div>
                     <div class="signIn-box-row3">
                         <div class="signIn-box-row3-form">
-                            <form action="?page=signUp" method="POST">
+                            <form id="signUp-form" method="POST">
                                 <div class="signIn-box-row3-form-items">
                                     <strong>Họ và tên<span style="color: #D64830">*</span></strong><input type="text" name="fullname" id="tt" required>
                                 </div>
@@ -46,10 +46,11 @@
                                 <div class="signIn-box-row3-form-items">
                                     <strong>Điện thoại<span style="color: #D64830">*</span></strong><input type="text" name="phone" id="" pattern="[0]+[0-9]{9}" required title="Nhập số điện thoại có 10 chữ số bắt đầu từ số 0">
                                 </div>
-                                <div class="signIn-box-row3-form-errorMssg" style="display:none" id="empty">
-                                    Vui lòng không để trống các thông tin bắt buộc.
+                                <div class="alert"></div>
+                                <div class="signIn-box-row3-right-button"> 
+                                    <input type="hidden" name="sign_up">
+                                    <button type="submit" name="sign_up">ĐĂNG KÝ</button>
                                 </div>
-                                <div class="signIn-box-row3-right-button"> <button type="submit" name="sign_up">ĐĂNG KÝ</button></div>
                             </form>
                         </div>
                     </div>
@@ -59,16 +60,8 @@
                 </div>
             </ul>
         </div>
-<?php
-	if(isset($alert) && $alert!=""){
-		echo
-		'<script>
-		window.addEventListener("load", () => {
-			alert("'.$alert.'");
-		  });
-		</script>';
-	}
-?>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="asset/js/signUp.js"></script>
 <?php
     include_once "inc/footer.php";
 ?>

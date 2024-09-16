@@ -15,8 +15,8 @@
     }
 
     // ton tai mot tai khoan trung email, dienthoai tru tai khoan hien tai
-    function isExist_update($id, $email, $dienthoai){
-        $sql = 'select idTK from taikhoan where (email= "'.$email.'" or dienthoai= "'.$dienthoai.'") and idTK!='.$id;
+    function isExist_update($id, $email){
+        $sql = 'select idTK from taikhoan where email= "'.$email.'" and idTK!='.$id;
         return getOne($sql)!=null;
     }
     
@@ -25,12 +25,10 @@
         insert($sql);
     }
 
-    function editUser($id,$ten, $email, $dienthoai, $phanquyen, $trangthai){
+    function editUser($id, $email, $phanquyen, $trangthai){
         $sql = 
         'UPDATE taikhoan
-        SET tenTK = "'.$ten.'",
-        email = "'.$email.'",
-        dienthoai = "'.$dienthoai.'",
+        SET email = "'.$email.'",
         phanquyen = "'.$phanquyen.'",
         trangthai = '.$trangthai.'
         WHERE idTK = '.$id;

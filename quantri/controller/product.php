@@ -33,7 +33,7 @@ if(isset($_POST['add_data_product'])){
     $namxb = $_POST['namxb'];
     $idTL = $_POST['idTL'];
     $mota = $_POST['mota'];
-    if(!isProductExist($tuasach,$namxb)){
+    if(!isProductExist($tuasach,$namxb, $tacgia, $giaban, $giabia, $idNCC, $nxb)){ 
         addProduct($picProfile, $tuasach, $tacgia, $nxb, $namxb, $idNCC, $giabia, $giaban, $idTL, $mota);
         echo json_encode(array('success'=>true));
     }
@@ -89,21 +89,18 @@ if(isset($_POST['update_data_product'])){
         move_uploaded_file($tmp_dir, $upload_dir.$picProfile);
     }
     $id = $_POST['product_id'];
-    $tuasach = $_POST['tuasach'];
-    $nxb = $_POST['nxb'];
-    $giabia = $_POST['giabia'];
-    $tacgia = $_POST['tacgia'];
-    $namxb = $_POST['namxb'];
     $idTL = $_POST['idTL'];
     $mota = $_POST['mota'];
     $idMGG = $_POST['idMGG'];
     if($idMGG == -1) $idMGG = NULL;
     $trangthai = $_POST['trangthai'];
-    if(!isProductExist_update($id, $tuasach,$namxb)){
-        editProduct($id, $picProfile, $tuasach, $tacgia, $nxb, $namxb, $giabia, $idTL, $idMGG, $mota, $trangthai);
-        echo json_encode(array('success'=>true));
-    }
-    else echo json_encode(array('success'=>false));
+    editProduct($id, $picProfile, $idTL, $idMGG, $mota, $trangthai);
+    echo json_encode(array('success'=>true));
+    //  if(!isProductExist_update($id, $tuasach,$namxb)){
+    //      editProduct($id, $picProfile, $tuasach, $tacgia, $nxb, $namxb, $giabia, $idTL, $idMGG, $mota, $trangthai);
+    //      echo json_encode(array('success'=>true));
+    //  }
+    // else echo json_encode(array('success'=>false));
 }
 /* update-data */
 
