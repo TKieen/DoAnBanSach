@@ -1,11 +1,15 @@
 <?php
+    include '../lib/connect.php';
+    require '../model/signUp.php';
+    require '../model/customer.php';
+    require_once "../lib/session.php";
+
     $errors = [ 'email' => ['isEmpty' => '', 'invalid' => '', 'existed' => ''],
         'phone' => ['existed' => ''],
         'password' => ['isEmpty' => ''],
         'r_password' => ['isEmpty' => '', 'unmatched' => ''], 
         'fullname' => ['required' => '']
     ];
-    $alert = "";
 
     if(isset($_POST['sign_up'])) {
 
@@ -40,23 +44,9 @@
             $phone = $_POST['phone'];
 
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-            $sql = "INSERT INTO taikhoan (email, matkhau, tenTK, dienthoai, phanquyen, trangthai) VALUES (?, ?, ?, ?, ?, ?)";
-            $stmt = mysqli_stmt_init($conn);
-            $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
-            $phanquyen = "KH";
-            $trangthai = '1';
-            
-            if($prepareStmt) {  
-                mysqli_stmt_bind_param($stmt, "ssssss", $email, $password_hash, $fullname, $phone, $phanquyen, $trangthai);
-                mysqli_stmt_execute($stmt);
-                $notif = "Đăng kí thành công";
-                echo "<script>alert('{$notif}')</script>";
-                header('Location:?page=signIn');
-            }
+            addCustomer($email, $password_hash, $fullname, $phone);
+            echo json_encode(array('success'=>true));
         }
-        $alert = "Thông tin không hợp lệ. Vui lòng kiểm tra lại.";
+        else echo json_encode(array('success'=>false));
     }
-    $category = getAllCategory_KH();
-    require "view/signUp.php";
 ?>

@@ -19,8 +19,9 @@
         return getOne($sql);
     }
 
-    function isSupplierExist($email, $dienthoai){
-        $sql = 'SELECT idNCC FROM nhacungcap WHERE email= "'.$email.'" or dienthoai= "'.$dienthoai.'"';
+    function isSupplierExist($ten, $email, $dienthoai, $diachi){
+        $sql = 'SELECT idNCC FROM nhacungcap 
+        WHERE tenNCC = "'.$ten.'" or email= "'.$email.'" or dienthoai= "'.$dienthoai.'" or diachi = "'.$diachi.'"';
        return getOne($sql)!=null;
     }
 
@@ -34,14 +35,10 @@
         insert($sql);
     }
 
-    function editSupplier($idNCC,$tenNCC, $email, $dienthoai, $diachi, $trangthai){
+    function editSupplier($idNCC, $trangthai){
         $sql = 
         'UPDATE nhacungcap
-        SET tenNCC = "'.$tenNCC.'",
-        email = "'.$email.'",
-        dienthoai = "'.$dienthoai.'",
-        diachi = "'.$diachi.'",
-        trangthai = '.$trangthai.'
+        SET trangthai = '.$trangthai.'
         WHERE idNCC = '.$idNCC;
         edit($sql);
     }

@@ -149,6 +149,30 @@ function formValidateUser(ten, email, dienthoai, phanquyen) {
 }
 /* function validate user form */
 
+function formValidateUser_edit(email, phanquyen) {
+    //Kiểm tra hợp lệ
+    let alert = '';
+    
+    let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+
+    //Email
+    if(email === ''){
+        alert = "<span class='red'>Vui lòng nhập email.</span>";
+        return alert;
+    }
+    else if(!emailRegex.test(email)){
+        alert = "<span class='red'>Email không hợp lệ.</span>";
+        return alert;
+    }
+    
+    //Phan quyen
+    if(phanquyen==-1){ // phanquyen===-1 sai, phanquyen==="-1" dung
+        alert = "<span class='red'>Vui lòng phân quyền cho người dùng.</span>";
+        return alert;
+    }
+    return alert;
+}
+
 /* function validate user form */
 function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     //Kiểm tra hợp lệ
@@ -248,6 +272,17 @@ function formValidateSupplier(ten, email, dienthoai, diachi) {
     return alert;
 }
 /* function validate supplier form */
+function formValidateSupplier_edit(diachi) {
+    //Kiểm tra hợp lệ
+    let alert = '';
+    //diachi
+    if(diachi === ''){
+        alert = "<span class='red'>Vui lòng nhập địa chỉ.</span>";
+        return alert;
+    }
+    
+    return alert;
+}
 
 /* function validate discount form */
 function formValidateDiscount(phantram, ngaybatdau, ngayketthuc) {
@@ -322,7 +357,7 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
 
     // namxb
     var curr_date = new Date();
-    if(isNaN(namxb) || namxb <=0 || namxb>curr_date.getFullYear()){
+    if(isNaN(namxb) || namxb <1000 || namxb>curr_date.getFullYear()){
         alert = "<span class='red'>Vui lòng nhập năm xuất bản hợp lệ.</span>";
         return alert;
     }
@@ -342,6 +377,25 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
     return alert;
 }
 /* function validate product form */
+
+function formValidateProduct_edit(idTL, mota) {
+    // Kiểm tra hợp lệ
+    let alert = '';
+
+    // idTL
+    if(idTL == -1){
+        alert = "<span class='red'>Vui lòng chọn thể loại.</span>";
+        return alert;
+    }
+
+    // mota
+    if(mota == ""){
+        alert = "<span class='red'>Vui lòng nhập mô tả.</span>";
+        return alert;
+    }
+
+    return alert;
+}
 
 /* function validate inventory form */
 function formValidateInventory(sanpham, soluong, gianhap) {

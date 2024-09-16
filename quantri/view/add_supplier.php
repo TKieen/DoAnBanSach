@@ -19,7 +19,18 @@
             </div>
             <div class="field">
                 <label for="diachi" class="attribute">Địa chỉ</label>
-                <input type="text" name="diachi">
+                <div class="column">
+                    <select name="tinhdiachi" id="tinhdiachi">
+                        <option value="" selected>Tỉnh/Thành phố</option>
+                    </select>
+                    <select name="huyendiachi" id="huyendiachi">
+                        <option value="" selected>Quận/Huyện</option>
+                    </select>
+                    <select name="xaphuongdiachi" id="xaphuongdiachi">
+                        <option value="" selected>Xã/Phường</option>
+                    </select>
+                    <input type="text" name="diachi" id="diachi" placeholder="Số nhà, đường">
+                </div>
             </div>
             <hr>
             <div class="alert"></div>

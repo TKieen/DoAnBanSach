@@ -190,7 +190,7 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
 
         /* info */
         case 'editInfo':
-            require_once "../controller/editInfo.php";
+            require_once "../view/edit_info.php";
             break;
         /* info */
         

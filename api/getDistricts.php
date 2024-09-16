@@ -12,4 +12,3 @@ if (isset($_GET['province_id']) && is_numeric($_GET['province_id'])) {
     http_response_code(400);
     echo json_encode(['error' => 'Invalid province_id']);
 }
-

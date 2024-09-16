@@ -32,7 +32,7 @@ $(document).ready(function() {
                     const obj = JSON.parse(response);
                     if(obj.success)
                         $('.alert').html('<span class="green">Thêm thành công</span>');
-                    else $('.alert').html('<span class="red">Nhà cung cấp này đã tồn tại do trùng email hoặc số điện thoại</span>');
+                    else $('.alert').html('<span class="red">Nhà cung cấp này đã tồn tại do trùng tên, email hoặc số điện thoại</span>');
                 },
             });
         }  
@@ -73,11 +73,8 @@ $(document).ready(function() {
         event.preventDefault();
         
         // validate form
-        var ten = $('#edit-form-supplier input[name="ten"]').val();
-        var email = $('#edit-form-supplier input[name="email"]').val();
-        var dienthoai = $('#edit-form-supplier input[name="dienthoai"]').val();
         var diachi = $('#edit-form-supplier input[name="diachi"]').val();
-        var alert = formValidateSupplier(ten, email, dienthoai,diachi);
+        var alert = formValidateSupplier_edit(diachi);
         if(alert ===''){
         // Serialize form data
         var formData = new FormData( $('#edit-form-supplier')[0]);

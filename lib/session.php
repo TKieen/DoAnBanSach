@@ -19,7 +19,7 @@
     function login_session_set_email($inputEmail) {
         $_SESSION['user']['email'] = $inputEmail;
     }
-    
+
     function login_session_unset() {
         $_SESSION['user'] = ['id' => '', 'email' => '', 'name' => '', 'phanquyen' => ''];
     }
