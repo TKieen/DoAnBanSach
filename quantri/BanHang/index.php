@@ -45,8 +45,8 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
         /* thong ke doanh thu */
 
         case 'editInfo':
-            require_once "../controller/editInfo.php";
-            break;     
+            require_once "../view/edit_info.php";
+            break;   
             
         case 'signOut':
             admin_login_session_unset();

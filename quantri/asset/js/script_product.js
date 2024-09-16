@@ -93,15 +93,9 @@ $(document).ready(function() {
         // Prevent the default form submission
         event.preventDefault();
         // validate form
-        var tuasach = $('#edit-form-product input[name="tuasach"]').val();
-        var nxb = $('#edit-form-product input[name="nxb"]').val();
-        var idNCC = $('#edit-form-product select[name="idNCC"]').val();
-        var giabia = $('#edit-form-product input[name="giabia"]').val();
-        var tacgia = $('#edit-form-product input[name="tacgia"]').val();
-        var namxb = $('#edit-form-product input[name="namxb"]').val();
         var idTL = $('#edit-form-product select[name="idTL"]').val();
         var mota = $('#edit-form-product textarea[name="mota"]').val();
-        var alert = formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, mota);
+        var alert = formValidateProduct_edit(idTL, mota);
         if(alert ===''){
             // Serialize form data
             var formData = new FormData( $('#edit-form-product')[0]);

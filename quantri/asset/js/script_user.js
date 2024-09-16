@@ -72,11 +72,9 @@ $(document).ready(function() {
         event.preventDefault();
         
         // validate form
-        var ten = $('#edit-form-user input[name="ten"]').val();
         var email = $('#edit-form-user input[name="email"]').val();
-        var dienthoai = $('#edit-form-user input[name="dienthoai"]').val();
         var phanquyen = $('#edit-form-user select[name="phanquyen"]').val();
-        var alert = formValidateUser(ten, email, dienthoai, phanquyen);
+        var alert = formValidateUser_edit(email, phanquyen);
         if(alert ===''){
         // Serialize form data
         var formData = new FormData( $('#edit-form-user')[0]);
@@ -91,7 +89,7 @@ $(document).ready(function() {
                 console.log(response);
                 const obj = JSON.parse(response);
                 if(obj.success) $('.alert').html('<span class="green">Cập nhật thành công</span>');
-                else $('.alert').html('<span class="red">Người này đã tồn tại do trùng email hoặc số điện thoại</span>');
+                else $('.alert').html('<span class="red">Người này đã tồn tại do trùng email</span>');
             },
         });
     }

@@ -28,13 +28,11 @@ if(isset($_POST['edit_data_user'])){
 /* update-data */
 if(isset($_POST['update_data_user'])){
     $id = $_POST['user_id'];
-    $ten = $_POST['ten'];
     $email = $_POST['email'];
-    $dienthoai = $_POST['dienthoai'];
     $phanquyen = $_POST['phanquyen'];
     $trangthai = $_POST['trangthai'];
-    if(!isExist_update($id, $email, $dienthoai)){
-        editUser($id,$ten,$email,$dienthoai,$phanquyen,$trangthai);
+    if(!isExist_update($id, $email)){
+        editUser($id,$email,$phanquyen,$trangthai);
         echo json_encode(array('success'=>true));
     }
     else echo json_encode(array('success'=>false));

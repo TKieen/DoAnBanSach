@@ -14,11 +14,11 @@
             <input type="hidden" name="product_id">
             <div class="field">
                 <label for="tuasach">Tựa sách</label>
-                <input type="text" name="tuasach">
+                <input type="text" name="tuasach" disabled>
             </div>
             <div class="field">
                 <label for="nxb">Nhà xuất bản</label>
-                <input type="text" name="nxb">
+                <input type="text" name="nxb" disabled>
             </div>
             <div class="field">
                 <label for="idNCC">Nhà cung cấp</label>
@@ -36,15 +36,15 @@
              </div>
              <div class="field">
                 <label for="giabia">Giá bìa</label>
-                <input type="text" name="giabia">
+                <input type="text" name="giabia" disabled>
             </div>
             <div class="field">
                 <label for="tacgia">Tác giả</label>
-                <input type="text" name="tacgia">
+                <input type="text" name="tacgia" disabled>
             </div>
             <div class="field">
                 <label for="namxuatban">Năm xuất bản</label>
-                <input type="text" name="namxb">
+                <input type="text" name="namxb" disabled>
             </div>
             <div class="field">
                 <label for="giaban">Giá bán</label>

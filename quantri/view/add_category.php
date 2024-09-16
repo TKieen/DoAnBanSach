@@ -1,6 +1,6 @@
 <!--Start: Add Category-->
 <div class="formPopup" id="add-modal-category">
-    <form id="add-form-category" method="post" enctype="multipart/form-data" method="post">
+    <form id="add-form-category" method="post" enctype="multipart/form-data">
         <button type="button" class="close-btn close-btn-category"><i class="fa-solid fa-x"></i></button>
         <div class="expand">
             <h1>Thêm thể loại</h1>

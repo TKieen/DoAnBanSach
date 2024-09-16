@@ -1,21 +1,21 @@
 <?php
-include '../lib/connect.php';
+include '../../lib/connect.php';
 require '../model/signIn.php';
-require '../model/customer.php';
-require_once "../lib/session.php";
+require '../../model/customer.php';
+require_once "../../lib/session.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-require "../view/vendor/autoload.php";
+require "../../view/vendor/autoload.php";
 
 if(isset($_POST['sign_in'])){
     $inputEmail = $_POST['email'];
     $inputPassword = $_POST['password'];
     $user = login($inputEmail);
     if($user){
-        if(password_verify($inputPassword, $user['matkhau']) && ($user['trangthai'] == 1 && ($user['phanquyen'] == "KH" || $user['phanquyen'] == "DN"))){
-            login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
-            echo json_encode(array('success'=>true));
+        if(password_verify($inputPassword, $user['matkhau']) && ($user['trangthai'] == 1 && $user['phanquyen'] != 'KH')){
+            admin_login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
+            echo json_encode(array('success'=>true,'phanquyen'=>$user['phanquyen']));
         }
         else echo json_encode(array('success'=>false));
     }
@@ -24,7 +24,7 @@ if(isset($_POST['sign_in'])){
 
 if(isset($_POST['forgot-pwd-1'])){
     $email = $_POST['email'];
-    if(isEmailValid_KH($email)){
+    if(isEmailValid1($email)){
         reset_password_session($email);
 
             //code gửi mail
@@ -73,9 +73,11 @@ if (isset($_POST['forgot-pwd-3'])) {
     $r_password = $_POST['r_password'];
     
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
-    resetPassword($_SESSION['reset_password']['email'], $password_hash);
+    resetPassword2($_SESSION['reset_password']['email'], $password_hash);
     reset_password_session_unset();
     echo json_encode(array('success'=>true));
         
 }
+
 ?>
+

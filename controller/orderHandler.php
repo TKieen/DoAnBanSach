@@ -2,26 +2,28 @@
     require "model\location.php";
     if(isset($_POST['orderSubmit']) && ($_POST['orderSubmit'])) {
         //lấy thông tin khách hàng từ form để tạo đơn hàng
-        $diachinhan = $_POST['diachinhan'];
-        $tinh_id = $_POST['tinhdiachi'];
-        $huyen_id = $_POST['huyendiachi'];
-        $xa_id = $_POST['xaphuongdiachi'];
-        // Truy vấn để lấy tên của tỉnh/thành phố dựa trên tinh_id
-        $tinh = getProvinceNameById($tinh_id);
+        $tinh = getProvinceNameById($_POST['tinhdiachi']);
 
         // Truy vấn để lấy tên của quận/huyện dựa trên huyen_id
-        $huyen = getDistrictNameById($huyen_id);
+        $quan = getDistrictNameById($_POST['huyendiachi']);
 
         // Truy vấn để lấy tên của xã/phường dựa trên xa_id
-        $xa = getWardNameById($xa_id);
+        $xaphuong = getWardNameById($_POST['xaphuongdiachi']);
 
-        // Ghép các phần lại thành 1 chuỗi địa chỉ đầy đủ
-        $diachiDayDu = $diachinhan . ', ' . $xa . ', ' . $huyen . ', ' . $tinh;
+        $commaPos = strpos($_POST['diachinhan'], ',');
 
+        if ($commaPos !== false) {
+            $substring = substr($_POST['diachinhan'], 0, $commaPos);
+        } else {
+            // If no comma is found, return the entire string
+            $substring = $_POST['diachinhan'];
+        }
+        $diachinhan = $substring.','.$xaphuong.','.$quan.','.$tinh;
         $tongtien =  (int)$_POST['totalPrice'];
 
+
         //insert đơn hàng vào database
-        $orderId = createOrder($_SESSION['user']['id'], $diachiDayDu, $tongtien, date('Y-m-d'), date('Y-m-d'));
+        $orderId = createOrder($_SESSION['user']['id'], $diachinhan, $tongtien, date('Y-m-d'), date('Y-m-d'));
         //insert chi tiết đơn hàng vào database
         $tongsanpham = 0;
         for ($i=0; $i < sizeof($_SESSION['cart']); $i++) { 
