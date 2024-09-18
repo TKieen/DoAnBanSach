@@ -25,6 +25,11 @@
                     <label for="ngaydat" class="attribute">Ngày tạo</label>
                     <input type="text" name="ngaytao" disabled>
                 </div>
+                <div class="field">
+                    <label for="nhanvien" class="attribute">Nhân viên</label>
+                    <input type="text" name="idNV" disabled>
+                    <input type="hidden" name="idNV_update" value="<?=$_SESSION['admin']['id']?>">
+                </div>
             </div>
             <div>
                 <div class="field">
