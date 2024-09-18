@@ -19,7 +19,7 @@
 /* form */
 .formPopup form{
     /* max-width: 750px; */
-    width: 60%;
+    width: 65%;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px; 
@@ -41,8 +41,9 @@
 
 .order_info{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .formPopup .updateOrderFrm{
@@ -172,6 +173,7 @@
 /* status */
 .status{
     margin: 4px 0;
+    display: flex;
 }
 
 .status div{
