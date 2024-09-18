@@ -31,9 +31,13 @@ $(document).ready(function() {
     $('#add-form-phieunhapkho').submit(function(event) {
         // Prevent the default form submission
         event.preventDefault();
+        $chietkhau = $('#add-form-phieunhapkho input[name="chietkhau"]').val();
+        if($chietkhau <= 0) $('.alert').html('<span class="red">Chiết khấu không hợp lệ</span>');
+        else{    
             // Serialize form data
         var idNCC = $('#add-form-phieunhapkho select[name="idNCC"]').val();
-        window.location.href="?page=add_phieunhapkho&idNCC="+idNCC;
+        window.location.href="?page=add_phieunhapkho&idNCC="+idNCC+"&chietkhau="+$chietkhau;
+        }
     });
     /* End: add form */
 
@@ -168,8 +172,7 @@ $('.add-new-row').click(function(e) {
 /* Start: update good receive note */
 $('button[name="update_btn"]').click(function(){
     var soluong = $('.inventory input[name="soluong[]"]');
-    var gianhap = $('.inventory input[name="gianhap[]"]');
-    if(formValidateInventory2(soluong, gianhap) === true){
+    if(formValidateInventory2(soluong) === true){
         var formData = new FormData( $('#inventory_form')[0]);
         formData.append('update_btn', true);
         $.ajax({
@@ -190,6 +193,7 @@ $('button[name="update_btn"]').click(function(){
                     tongtien+="đ";
                     $('.tongsoluong').html(obj.tongsoluong);
                     console.log(obj.thanhtien_arr);
+                    $('.idNV').html(obj.idNV);
                     $('.tongtien').html(tongtien);
                     $('.ngaycapnhat').html(obj.ngaycapnhat);
                     var i=0;
@@ -221,6 +225,7 @@ $('button[name="update_btn"]').click(function(){
                 console.log(response);
                 const obj = JSON.parse(response);
                 if(obj.success){
+                    $('.idNV').html(obj.idNV);
                     alert("Đã cập nhật thành công");
                     window.location.href="index.php?page=phieunhapkho";
                 }
@@ -244,6 +249,7 @@ $('button[name="cancel_btn"]').click(function(){
             console.log(response);
             const obj = JSON.parse(response);
             if(obj.success){
+                $('.idNV').html(obj.idNV);
                 alert("Đã hủy thành công");
                 window.location.href="index.php?page=phieunhapkho";
             }
@@ -254,16 +260,31 @@ $('button[name="cancel_btn"]').click(function(){
 
 /* Start: search product */
 $(document).on('change', '.inventory select[name="product[]"]', function(){
-    console.log("hello");
     var selectedOption = $(this).find('option:selected');
-    var giabia = (selectedOption.data('giabia')).toLocaleString(
+    var tr = $(this).closest('tr');
+    var giabia = selectedOption.data('giabia');
+    // gia nhap
+    var chietkhau = $('.inventory input[name="chietkhau"]').val();
+    console.log(chietkhau);
+    var gianhap = ((100-chietkhau)/100)*giabia;
+    console.log(tr.find('input[name="gianhap[]"]'));
+    tr.find('input[name="gianhap[]"]').val(gianhap);
+    console.log(gianhap);
+    gianhap = gianhap.toLocaleString(
+        undefined, // leave undefined to use the visitor's browser 
+                   // locale or a string like 'en-US' to override it.
+        { maximumFractionDigits: 2 }
+      ).replace(/,/g, '.');
+    gianhap +="đ";
+    // gia bia
+    giabia = giabia.toLocaleString(
         undefined, // leave undefined to use the visitor's browser 
                    // locale or a string like 'en-US' to override it.
         { maximumFractionDigits: 2 }
       ).replace(/,/g, '.');
     giabia +="đ";
-    var tr = $(this).closest('tr');
     tr.find('.giabia').html(giabia);
+    tr.find('.gianhap').html(gianhap);
 });
 /* End: search product */
 
@@ -275,8 +296,7 @@ $('.inventory').submit(function(event) {
     // validate form
     var sanpham = $('.inventory select[name="product[]"]').not(':first');
     var soluong = $('.inventory input[name="soluong[]"]').not(':first');
-    var gianhap = $('.inventory input[name="gianhap[]"]').not(':first');
-    if(formValidateInventory(sanpham, soluong, gianhap) === true){
+    if(formValidateInventory(sanpham, soluong) === true){
         // Serialize form data
         var formData = new FormData( $('.inventory')[0]);
         // AJAX request to handle form submission

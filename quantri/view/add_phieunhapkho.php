@@ -18,6 +18,13 @@
                             <?=$tenNCC?>
                         </div>
                     </div>
+                    <div class="field">
+                        <label for="">Nhân viên:</label>
+                        <div class="info">
+                            <input type="hidden" name="idNV" value="<?=$_SESSION['admin']['id']?>">
+                            <?=$_SESSION['admin']['id']?>
+                        </div>
+                    </div>
                 </div>
                 <div class="item">
                     <div class="field">
@@ -32,6 +39,13 @@
                         <div class="info">
                             <input type="hidden" name="ngaycapnhat" value="<?=$ngaytao?>">
                             <?=$ngaytao?>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="">Chiết khấu:</label>
+                        <div class="info">
+                            <input type="hidden" name="chietkhau" value="<?=$chietkhau?>" id="chietkhau">
+                            <?=$chietkhau?>
                         </div>
                     </div>
                 </div>
@@ -86,8 +100,9 @@
                             </td>
                             <!--gia nhap, gia bia phai duoc them luc tao san pham-->
                             <!--gererate auto-->
-                            <td class="gianhap">
-                                <input type="text" name="gianhap[]">
+                            <td>
+                                <div class="gianhap"></div>
+                                <input type="hidden" name="gianhap[]">
                             </td>
                             <td>
                                 <div class="giabia"></div>
@@ -127,8 +142,9 @@
                             </td>
                             <!--gia nhap, gia bia phai duoc them luc tao san pham-->
                             <!--gererate auto-->
-                            <td class="gianhap">
-                                <input type="number" name="gianhap[]">
+                            <td>
+                                <input type="hidden" name="gianhap[]">
+                                <div class="gianhap"></div>
                             </td>
                             <td>
                                 <div class="giabia"></div>

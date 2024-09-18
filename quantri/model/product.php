@@ -35,14 +35,13 @@
         insert($sql);
     }
 
-    function editProduct($idSach, $hinhanh, $idTL, $idMGG, $mota, $trangthai){
+    function editProduct($idSach, $hinhanh, $idMGG, $mota, $trangthai){
         $sql = 
         'UPDATE Sach
         SET hinhanh = "'.$hinhanh.'",';
         if($idMGG === NULL) $sql.='idMGG = NULL,';
         else $sql.='idMGG = '.$idMGG.',';
         $sql.='
-        idTL = '.$idTL.',
         mota = "'.$mota.'",
         trangthai = '.$trangthai.'
         WHERE idSach = '.$idSach;

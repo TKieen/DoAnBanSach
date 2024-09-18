@@ -91,6 +91,7 @@ $(document).ready(function() {
                     }
 
                 $('#edit-form-order select[name="trangthai"]').val(donhang.trangthai);
+                $('#edit-form-order input[name="idNV"]').val(donhang.idNV);
                 // // Display the edit form as a pop-up
                 $('#edit-modal-order').show();
             },
@@ -116,7 +117,10 @@ $(document).ready(function() {
             success: function(response) {
                 console.log(response);
                 const obj = JSON.parse(response);
-                if(obj.success) $('.alert').html('<span class="green">Cập nhật thành công</span>');
+                if(obj.success) {
+                    
+                    $('.alert').html('<span class="green">Cập nhật thành công</span>');
+                }
             },
         });
     });
@@ -183,6 +187,7 @@ $(document).ready(function() {
                     ).replace(/,/g, '.');
                 $('#view-form-order input[name="tongtien"]').val(tongtien+"đ");
                 $('#view-form-order select[name="trangthai"]').val(donhang.trangthai);
+                $('#view-form-order input[name="idNV"]').val(donhang.idNV);
                 // // Display the edit form as a pop-up
                 $('#view-modal-order').show();
             },

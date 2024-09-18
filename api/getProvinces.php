@@ -1,4 +1,5 @@
 <?php
+require '../lib/connect.php';
 require '../model/location.php';
 $data = getProvinces();
 header('Content-Type: application/json');

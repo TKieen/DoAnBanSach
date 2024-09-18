@@ -15,7 +15,9 @@ if(isset($_POST['open_phieunhapkho'])){
 if(isset($_POST['add_inventory_form_btn'])){
     $ngaytao = $_POST['ngaytao'];
     $ngaycapnhat = $_POST['ngaycapnhat'];
-    addNewphieunhapkho();
+    $chietkhau = $_POST['chietkhau'];
+    $idNV = $_POST['idNV'];
+    addNewphieunhapkho($idNV);
     $idPN = getLastPhieuNhapKhoID()['idPN'];
     // so san pham
     $n = count($_POST['product']);
@@ -32,9 +34,9 @@ if(isset($_POST['add_inventory_form_btn'])){
         $thanhtien = $gianhap * $soluong;
         $thanhtien_arr[] = $thanhtien;
         $tongtien+=$thanhtien;
-        addCTPhieuNhapKho($idPN, $idSach, $soluong, $gianhap);
+        addCTPhieuNhapKho($idPN, $idSach, $soluong);
     }
-    updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $tongsoluong, $tongtien, "cht");
+    updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $chietkhau, $tongsoluong, $tongtien, "cht");
 
     // tong so luong
     // thanh tien
@@ -56,6 +58,7 @@ if(isset($_POST['update_btn'])){
     $tongsoluong = 0;
     $thanhtien_arr = [];
     $idPN = $_POST['idPN'];
+    $idNV = $_POST['idNV'];
 
     for($i=0; $i<$n; $i++){
         $thanhtien = 0;
@@ -66,15 +69,16 @@ if(isset($_POST['update_btn'])){
         $thanhtien = $gianhap * $soluong;
         $thanhtien_arr[] = $thanhtien;
         $tongtien+=$thanhtien;
-        updateCTPhieuNhapKho($idPN, $idSach, $soluong, $gianhap);
+        updateCTPhieuNhapKho($idPN, $idSach, $soluong);
     }
-    updatePhieuNhapKho_ngaycapnhat($idPN,  date("Y-m-d"), $tongsoluong, $tongtien);
+    updatePhieuNhapKho_ngaycapnhat($idPN,  date("Y-m-d"), $idNV, $tongsoluong, $tongtien);
     $result = [
         'success' => true,
         'tongsoluong' => $tongsoluong,
         'tongtien' => $tongtien,
         'thanhtien_arr' => $thanhtien_arr,
-        'ngaycapnhat' => date("Y-m-d")
+        'ngaycapnhat' => date("Y-m-d"),
+        'idNV' => $idNV
     ];
     echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 }
@@ -82,15 +86,16 @@ if(isset($_POST['update_btn'])){
 
 /* complete button*/
 if(isset($_POST['complete_btn'])){
-    updatePhieuNhapKho($_POST['idPN'], date("Y-m-d"),"ht");
-    echo json_encode(array('success'=>true));
+    $idNV = $_POST['idNV'];
+    updatePhieuNhapKho($_POST['idPN'], date("Y-m-d"),"ht", $idNV);
+    echo json_encode(array('success'=>true, 'idNV' => $idNV));
 }
 /* complete button*/
 
 /* cancel button*/
 if(isset($_POST['cancel_btn'])){
-    updatePhieuNhapKho($_POST['idPN'], date("Y-m-d"),"huy");
-    echo json_encode(array('success'=>true));
+    updatePhieuNhapKho($_POST['idPN'], date("Y-m-d"),"huy", $idNV);
+    echo json_encode(array('success'=>true, 'idNV' => $idNV));
 }
 /* cancel button*/
 

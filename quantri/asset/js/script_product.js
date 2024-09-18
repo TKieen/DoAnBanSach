@@ -93,9 +93,8 @@ $(document).ready(function() {
         // Prevent the default form submission
         event.preventDefault();
         // validate form
-        var idTL = $('#edit-form-product select[name="idTL"]').val();
         var mota = $('#edit-form-product textarea[name="mota"]').val();
-        var alert = formValidateProduct_edit(idTL, mota);
+        var alert = formValidateProduct_edit(mota);
         if(alert ===''){
             // Serialize form data
             var formData = new FormData( $('#edit-form-product')[0]);
