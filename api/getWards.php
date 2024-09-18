@@ -1,6 +1,6 @@
 <?php
-include_once '..\model\location.php';
-
+require '../lib/connect.php';
+include_once '../model/location.php';
 if (isset($_GET['district_id']) && is_numeric($_GET['district_id'])) {
     $district_id = (int)$_GET['district_id'];
 

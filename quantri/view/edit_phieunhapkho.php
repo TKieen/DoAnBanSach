@@ -18,7 +18,13 @@
                             <?=$tenNCC?>
                         </div>
                     </div>
-                    
+                    <div class="field">
+                        <label for="">Nhân viên:</label>
+                        <div class="info idNV">
+                            <?=$idNV?>
+                        </div>
+                        <input type="hidden" name="idNV" value="<?=$_SESSION['admin']['id']?>">
+                    </div>
                 </div>
                 <div class="item">
                     <div class="field">
@@ -32,6 +38,13 @@
                         <label for="">Ngày cập nhật:</label>
                         <div class="info ngaycapnhat">
                             <?=$ngaycapnhat?>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="">Chiết khấu:</label>
+                        <div class="info">
+                            <input type="hidden" name="chietkhau" value="<?=$chietkhau?>" id="chietkhau">
+                            <?=$chietkhau?>
                         </div>
                     </div>
                 </div>
@@ -62,6 +75,7 @@
                     <?php
                         foreach($ctphieunhap as $item){
                             extract($item);
+                            $gianhap = ((100-$chietkhau)/100)*$giabia;
                             $giabia = number_format($giabia,0,"",".");
                             $thanhtien = number_format($thanhtien,0,"",".");
                     ?>
@@ -79,8 +93,9 @@
                         </td>
                         <!--gia nhap, gia bia phai duoc them luc tao san pham-->
                         <!--gererate auto-->
-                        <td class="gianhap">
-                            <input type="number" name="gianhap[]" value="<?=$gianhap?>">
+                        <td>
+                            <input type="hidden" name="gianhap[]" value="<?=$gianhap?>">
+                                <div class="gianhap"><?php echo number_format($gianhap,0,"","."); ?>đ</div>
                         </td>
                         <td>
                             <div class="giabia"><?=$giabia?>đ</div>

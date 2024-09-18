@@ -291,7 +291,7 @@ function formValidateDiscount(phantram, ngaybatdau, ngayketthuc) {
     var curr_date = new Date();
     //phantram
 
-    if(phantram <= 0 || phantram>100 || isNaN(phantram)) {   //nếu tên rỗng
+    if(phantram < 0 || phantram>100 || isNaN(phantram)) {   //nếu tên rỗng
         alert = "<span class='red'>Phần trăm không hợp lệ</span>";
         return alert;
     }
@@ -378,15 +378,9 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
 }
 /* function validate product form */
 
-function formValidateProduct_edit(idTL, mota) {
+function formValidateProduct_edit(mota) {
     // Kiểm tra hợp lệ
     let alert = '';
-
-    // idTL
-    if(idTL == -1){
-        alert = "<span class='red'>Vui lòng chọn thể loại.</span>";
-        return alert;
-    }
 
     // mota
     if(mota == ""){
@@ -398,7 +392,7 @@ function formValidateProduct_edit(idTL, mota) {
 }
 
 /* function validate inventory form */
-function formValidateInventory(sanpham, soluong, gianhap) {
+function formValidateInventory(sanpham, soluong) {
    // Kiểm tra hợp lệ
     if(sanpham.length == 0){
         alert("Vui lòng nhập sản phẩm.");
@@ -420,23 +414,13 @@ function formValidateInventory(sanpham, soluong, gianhap) {
             alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
             return false;
         }
-
-    for(var i = 0; i<gianhap.length; i++)
-        if(gianhap[i].value <= 0){
-            alert("Vui lòng nhập giá nhập lớn hơn 0.\nLỗi: dòng "+(i+1));
-            return false;
-        }
-        else if(gianhap[i].value == ""){
-            alert("Vui lòng nhập giá nhập.\nLỗi: dòng "+(i+1));
-            return false;
-        }
     
     return true;
 }
 /* function validate inventory form */
 
 /* function validate inventory form 2*/
-function formValidateInventory2(soluong, gianhap) {
+function formValidateInventory2(soluong) {
     // Kiểm tra hợp lệ 
      for(var i = 0; i<soluong.length; i++)
          if(soluong[i].value <= 0){
@@ -448,16 +432,6 @@ function formValidateInventory2(soluong, gianhap) {
              return false;
          }
  
-     for(var i = 0; i<gianhap.length; i++)
-         if(gianhap[i].value <= 0){
-             alert("Vui lòng nhập giá nhập lớn hơn 0.\nLỗi: dòng "+(i+1));
-             return false;
-         }
-         else if(gianhap[i].value == ""){
-             alert("Vui lòng nhập giá nhập.\nLỗi: dòng "+(i+1));
-             return false;
-         }
-     
      return true;
  }
  /* function validate inventory form 2*/

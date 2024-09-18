@@ -1,5 +1,6 @@
 <?php
     $GLOBALS['conn'] = new mysqli("localhost","root","","bansach");
+    $GLOBALS['conn_address'] = new mysqli("localhost","root","","address");
     function getPage(){
         $curr_page = 1;
         if(isset($_GET['index']))

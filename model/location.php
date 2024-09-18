@@ -1,8 +1,8 @@
 <?php
-include_once '../lib/connect.php';
+
 function getProvinces() {
     $sql = "SELECT * FROM provinces";
-    $result = mysqli_query($GLOBALS["conn"], $sql);
+    $result = mysqli_query($GLOBALS["conn_address"], $sql);
     $data = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $data[] = array(
@@ -15,7 +15,7 @@ function getProvinces() {
 
 function getDistricts($provinceId) {
     $sql = "SELECT * FROM `districts` WHERE `province_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
+    $stmt = $GLOBALS['conn_address']->prepare($sql);
     $stmt->bind_param('i', $provinceId);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -32,7 +32,7 @@ function getDistricts($provinceId) {
 
 function getWards($districtId) {
     $sql = "SELECT * FROM `wards` WHERE `district_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
+    $stmt = $GLOBALS['conn_address']->prepare($sql);
     $stmt->bind_param('i', $districtId);
 
     $stmt->execute();
@@ -51,7 +51,7 @@ function getWards($districtId) {
 
 function getProvinceNameById($provinceId) {
     $sql = "SELECT * FROM `provinces` WHERE `province_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
+    $stmt = $GLOBALS['conn_address']->prepare($sql);
     $stmt->bind_param('i', $provinceId);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -60,7 +60,7 @@ function getProvinceNameById($provinceId) {
 }
 function getDistrictNameById($districtId) {
     $sql = "SELECT * FROM `districts` WHERE `district_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
+    $stmt = $GLOBALS['conn_address']->prepare($sql);
     $stmt->bind_param('i', $districtId);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -69,7 +69,7 @@ function getDistrictNameById($districtId) {
 }
 function getWardNameById($wardId) {
     $sql = "SELECT * FROM `wards` WHERE `ward_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
+    $stmt = $GLOBALS['conn_address']->prepare($sql);
     $stmt->bind_param('i', $wardId);
     $stmt->execute();
     $result = $stmt->get_result();
