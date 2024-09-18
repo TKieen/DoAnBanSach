@@ -89,12 +89,11 @@ if(isset($_POST['update_data_product'])){
         move_uploaded_file($tmp_dir, $upload_dir.$picProfile);
     }
     $id = $_POST['product_id'];
-    $idTL = $_POST['idTL'];
     $mota = $_POST['mota'];
     $idMGG = $_POST['idMGG'];
     if($idMGG == -1) $idMGG = NULL;
     $trangthai = $_POST['trangthai'];
-    editProduct($id, $picProfile, $idTL, $idMGG, $mota, $trangthai);
+    editProduct($id, $picProfile, $idMGG, $mota, $trangthai);
     echo json_encode(array('success'=>true));
     //  if(!isProductExist_update($id, $tuasach,$namxb)){
     //      editProduct($id, $picProfile, $tuasach, $tacgia, $nxb, $namxb, $giabia, $idTL, $idMGG, $mota, $trangthai);

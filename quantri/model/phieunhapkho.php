@@ -13,7 +13,7 @@
 
     function getPhieuNhapByID($id){
         $sql = 
-        'SELECT DISTINCT phieunhap.idPN, nhacungcap.tenNCC, nhacungcap.idNCC, tongtien, tongsoluong, ngaytao, ngaycapnhat, phieunhap.trangthai
+        'SELECT DISTINCT phieunhap.idPN, nhacungcap.tenNCC,chietkhau, nhacungcap.idNCC, tongtien, tongsoluong, ngaytao, ngaycapnhat, phieunhap.trangthai, idNV
         FROM nhacungcap
         INNER JOIN sach ON nhacungcap.idNCC = sach.idNCC
         INNER JOIN ctphieunhap ON sach.idSach = ctphieunhap.idSach
@@ -24,26 +24,28 @@
 
     function getDetailPhieuNhapByID($id){
         $sql = 
-        'SELECT sach.idSach, tuasach, soluong, gianhap, giabia, (gianhap*soluong) AS thanhtien
-        FROM ctphieunhap
+        'SELECT sach.idSach, tuasach, soluong, giabia, (((100-chietkhau)/100)*giabia*soluong) AS thanhtien
+        FROM phieunhap
+        INNER JOIN ctphieunhap ON phieunhap.idPN = ctphieunhap.idPN
         INNER JOIN sach ON ctphieunhap.idSach = sach.idSach
-        WHERE idPN = '.$id;
+        WHERE ctphieunhap.idPN = '.$id;
         return getAll(($sql));
     }
 
-    function updatePhieuNhapKho($id, $ngaycapnhat, $trangthai){
+    function updatePhieuNhapKho($id, $ngaycapnhat, $trangthai, $idNV){
         $sql = 
         'UPDATE phieunhap
         SET ngaycapnhat= "'.$ngaycapnhat.'",
-        trangthai = "'.$trangthai.'"
+        trangthai = "'.$trangthai.'",
+        idNV = '.$idNV.'
         WHERE idPN = '.$id;
         edit($sql);
     }
 
-    function addNewphieunhapkho(){
+    function addNewphieunhapkho($idNV){
         $sql=
-        'INSERT INTO phieunhap(trangthai) 
-        VALUE("cht")';
+        'INSERT INTO phieunhap(idNV, trangthai) 
+        VALUE('.$idNV.', "cht")';
         insert($sql);
     }
 
@@ -56,21 +58,23 @@
         return getOne($sql);
     }
 
-    function updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $tongsoluong, $tongtien){
+    function updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $chietkhau, $tongsoluong, $tongtien){
         $sql = 
         'UPDATE phieunhap
         SET ngaytao = "'.$ngaytao.'",
         ngaycapnhat = "'.$ngaycapnhat.'",
+        chietkhau = '.$chietkhau.',
         tongsoluong= '.$tongsoluong.',
         tongtien = '.$tongtien.'
         WHERE idPN = '.$idPN;
         edit($sql);
     }
 
-    function updatePhieuNhapKho_ngaycapnhat($idPN, $ngaycapnhat, $tongsoluong, $tongtien){
+    function updatePhieuNhapKho_ngaycapnhat($idPN, $ngaycapnhat, $idNV, $tongsoluong, $tongtien){
         $sql = 
         'UPDATE phieunhap
         SET ngaycapnhat = "'.$ngaycapnhat.'",
+        idNV = '.$idNV.',
         tongsoluong= '.$tongsoluong.',
         tongtien = '.$tongtien.'
         WHERE idPN = '.$idPN;
@@ -79,18 +83,17 @@
     /* Phieu nhap kho */
 
     /* Chi tiet phieu nhap kho */
-    function addCTPhieuNhapKho($idPN, $idSach, $soluong, $gianhap){
+    function addCTPhieuNhapKho($idPN, $idSach, $soluong){
         $sql=
-        'INSERT INTO ctphieunhap(idPN, idSach, soluong, gianhap) 
-        VALUES ('.$idPN.','.$idSach.','.$soluong.','.$gianhap.')';
+        'INSERT INTO ctphieunhap(idPN, idSach, soluong) 
+        VALUES ('.$idPN.','.$idSach.','.$soluong.')';
         insert($sql);
     }
 
-    function updateCTPhieuNhapKho($idPN, $idSach, $soluong, $gianhap){
+    function updateCTPhieuNhapKho($idPN, $idSach, $soluong){
         $sql = 
         'UPDATE ctphieunhap
-        SET soluong = '.$soluong.',
-        gianhap = '.$gianhap.'
+        SET soluong = '.$soluong.'
         WHERE idPN = '.$idPN.'
         AND idSach = '.$idSach;
         edit($sql);

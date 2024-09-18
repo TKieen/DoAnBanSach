@@ -48,7 +48,7 @@
     }
 
     function getGRNDetails($idPN){
-        $sql = "SELECT 	ctpn.idSach, sach.tuasach, ctpn.soluong, sach.giabia, ctpn.gianhap, ctpn.soluong*ctpn.gianhap as thanhtien
+        $sql = "SELECT 	ctpn.idSach, sach.tuasach, ctpn.soluong, sach.giabia, ((100-chietkhau)/100)*giabia as gianhap, ctpn.soluong*(((100-chietkhau)/100)*giabia) as thanhtien
                 FROM	phieunhap pn, ctphieunhap ctpn, sach
                 WHERE	pn.idPN = ctpn.idPN
                     AND	ctpn.idSach = sach.idSach

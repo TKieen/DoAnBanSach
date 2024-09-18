@@ -1,46 +1,20 @@
 <?php
 include '../../lib/connect.php';
 require '../model/supplier.php';
-
+require "../../model/location.php";
 /* add-data */
 if(isset($_POST['add_data_supplier'])){
     $ten = $_POST['ten'];
     $email = $_POST['email'];
     $dienthoai = $_POST['dienthoai'];
-    // tinh
-    $sql = "SELECT * FROM `provinces` WHERE `province_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
-    $stmt->bind_param('i', $_POST['tinhdiachi']);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $tinh = getProvinceNameById($_POST['tinhdiachi']);
 
-    $tinh = "";
-    while ($row = $result->fetch_assoc()) {
-        $tinh = $row['province_name'];
-    }
-    // quan
-    $sql = "SELECT * FROM `districts` WHERE `district_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
-    $stmt->bind_param('i', $_POST['huyendiachi']);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Truy vấn để lấy tên của quận/huyện dựa trên huyen_id
+    $quan = getDistrictNameById($_POST['huyendiachi']);
 
-    $quan = "";
-    while ($row = $result->fetch_assoc()) {
-        $quan = $row['district_name'];
-    }
+    // Truy vấn để lấy tên của xã/phường dựa trên xa_id
+    $xaphuong = getWardNameById($_POST['xaphuongdiachi']);
 
-    // xa, phuong
-    $sql = "SELECT * FROM `wards` WHERE `ward_id` = ?";
-    $stmt = $GLOBALS['conn']->prepare($sql);
-    $stmt->bind_param('i', $_POST['xaphuongdiachi']);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    $xaphuong = "";
-    while ($row = $result->fetch_assoc()) {
-        $xaphuong = $row['ward_name'];
-    }
 
     $commaPos = strpos($_POST['diachi'], ',');
 

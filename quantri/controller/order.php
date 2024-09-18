@@ -20,7 +20,8 @@ if(isset($_POST['edit_data_order'])){
 if(isset($_POST['update_data_order'])){
     $id = $_POST['order_id'];
     $trangthai = $_POST['trangthai'];
-    editOrder($id,$trangthai,date("Y-m-d"));
+    $idNV = $_POST['idNV_update'];
+    editOrder($id,$trangthai,date("Y-m-d"), $idNV);
     echo json_encode(array('success'=>true));
 }
 /* update-data */

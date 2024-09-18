@@ -1,5 +1,5 @@
 <?php
-    require "model\location.php";
+    require "model/location.php";
     if(isset($_POST['orderSubmit']) && ($_POST['orderSubmit'])) {
         //lấy thông tin khách hàng từ form để tạo đơn hàng
         $tinh = getProvinceNameById($_POST['tinhdiachi']);

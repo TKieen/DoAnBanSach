@@ -52,7 +52,7 @@
             </div>
             <div class="field">
                 <label for="idTL">Thể loại</label>
-                <select name="idTL">
+                <select name="idTL" disabled>
                     <?php
                         $category = getAllCategoryActive();
                         foreach($category as $item){

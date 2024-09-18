@@ -20,7 +20,10 @@
                         <label for="">Nhà cung cấp:</label>
                         <div class="info"><?=$tenNCC?></div>
                     </div>
-                    
+                    <div class="field">
+                        <label for="">Nhân viên:</label>
+                        <div class="info"><?=$idNV?></div>
+                    </div>
                 </div>
                 <div class="item">
                     <div class="field">
@@ -33,6 +36,12 @@
                         <label for="">Ngày cập nhật:</label>
                         <div class="info">
                             <?=$ngaycapnhat?>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="">Chiết khấu:</label>
+                        <div class="info">
+                            <?=$chietkhau?>
                         </div>
                     </div>
                 </div>
