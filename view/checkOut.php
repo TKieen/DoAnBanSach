@@ -137,6 +137,14 @@
     </section>
 </form>
 </div>
+
+<script>
+    document.getElementById('diachinhan').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // ngăn chặn việc thực hiện quay về homepage khi ấn enter ở địa chỉ nhận hàng
+        }
+    });
+</script>
 <script src="asset/js/checkout.js"></script>
 
 <?php
