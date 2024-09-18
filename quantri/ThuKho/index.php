@@ -120,6 +120,7 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
             if(isset($_GET['idNCC'])){
                 $supplier = getSupplierByID($_GET['idNCC']);
                 $ngaytao = date("Y-m-d");
+                $chietkhau = $_GET['chietkhau'];
                 require_once '../view/add_phieunhapkho.php';   
             }
             break;

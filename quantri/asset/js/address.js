@@ -77,7 +77,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: 'controller/getProvinces.php', // URL server để lấy danh sách Tỉnh/Thành phố
+        url: '../../controller/getProvinces.php', // URL server để lấy danh sách Tỉnh/Thành phố
         type: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -92,7 +92,7 @@ $(document).ready(function () {
         var province_id = $(this).val();
         if(province_id) {
             $.ajax({
-                url: 'controller/getDistricts.php', // URL server để lấy Quận/Huyện
+                url: '../../controller/getDistricts.php', // URL server để lấy Quận/Huyện
                 type: 'POST',
                 data: {province_id: province_id},
                 dataType: 'json',
@@ -112,7 +112,7 @@ $(document).ready(function () {
         var district_id = $(this).val();
         if(district_id) {
             $.ajax({
-                url: 'controller/getWards.php', // URL server để lấy Xã/Phường
+                url: '../../controller/getWards.php', // URL server để lấy Xã/Phường
                 type: 'POST',
                 data: {district_id: district_id},
                 dataType: 'json',

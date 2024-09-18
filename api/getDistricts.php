@@ -1,4 +1,5 @@
 <?php
+require '../lib/connect.php';
 require "../model/location.php";
 if (isset($_GET['province_id']) && is_numeric($_GET['province_id'])) {
     $provinceId = (int)$_GET['province_id'];

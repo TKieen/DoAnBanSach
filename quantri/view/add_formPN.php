@@ -20,7 +20,12 @@
                     ?>
                 </select>
             </div>
+            <div class="field">
+                <label for="chietkhau" class="attribute">Chiết khấu (%)</label>
+                <input type="text" name="chietkhau">
+            </div>
             <hr>
+            <div class="alert"></div>
             <div class="buttons">
                 <button type="submit" name="btnadd">Thêm</button>
             </div>
