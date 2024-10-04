@@ -71,6 +71,7 @@
                     <?php
                         foreach($ctphieunhap as $item){
                             extract($item);
+                            $gianhap = ((100-$chietkhau)/100)*$giabia;
                             $giabia = number_format($giabia,0,"",".");
                             $gianhap = number_format($gianhap,0,"",".");
                             $thanhtien = number_format($thanhtien,0,"",".");
