@@ -16,16 +16,32 @@ function show_hide() {
 // check filter form
 function checkFilterForm(){
 console.log("hello");
-minPrice = parseInt(document.getElementById("minPrice").value);
-maxPrice = parseInt(document.getElementById("maxPrice").value);
+minPrice = document.getElementById("minPrice").value;
+maxPrice = document.getElementById("maxPrice").value;
 
-if(isNaN(minPrice) || isNaN(maxPrice)){
-  alert("vui lòng nhập số.");
+
+if(minPrice == ""){
+  alert("vui lòng nhập giá tối thiểu.");
+  return false;
+}
+
+if(maxPrice == ""){
+  alert("vui lòng nhập giá tối đa.");
+  return false;
+}
+
+if(isNaN(minPrice)){
+  alert("Giá tối thiểu không hợp lệ");
+  return false;
+}
+
+if(isNaN(maxPrice)){
+  alert("Giá tối đa không hợp lệ");
   return false;
 }
 
 if(minPrice=="" || maxPrice=="" || minPrice<=0 || maxPrice<=0 ||(minPrice>maxPrice)){
-  alert("Vui lòng nhập số tiền hợp lệ");
+  alert("Vui lòng nhập khoảng tiền hợp lệ");
   return false;
 }
 
