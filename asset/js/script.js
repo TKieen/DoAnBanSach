@@ -30,13 +30,18 @@ if(maxPrice == ""){
   return false;
 }
 
-if(isNaN(minPrice) || isNaN(maxPrice)){
-  alert("vui lòng nhập số.");
+if(isNaN(minPrice)){
+  alert("Giá tối thiểu không hợp lệ");
+  return false;
+}
+
+if(isNaN(maxPrice)){
+  alert("Giá tối đa không hợp lệ");
   return false;
 }
 
 if(minPrice=="" || maxPrice=="" || minPrice<=0 || maxPrice<=0 ||(minPrice>maxPrice)){
-  alert("Vui lòng nhập số tiền hợp lệ");
+  alert("Vui lòng nhập khoảng tiền hợp lệ");
   return false;
 }
 
