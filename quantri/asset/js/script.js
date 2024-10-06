@@ -344,6 +344,10 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
     }
 
     // giabia
+    if (giabia == "") {
+        alert = "<span class='red'>Giá bìa không được để trống.</span>";
+        return alert
+    }
     if(isNaN(giabia) || giabia <= 0){
         alert = "<span class='red'>Giá bìa không hợp lệ.</span>";
         return alert;
