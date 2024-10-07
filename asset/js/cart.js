@@ -5,7 +5,7 @@ function validateInputQty(element) {
     if(isNaN(value) || value === '' || value < 1) {
         alert("Vui lòng nhập vào số lượng hợp lệ");
         setTimeout(function() {
-            element.value = "";
+            element.value = "1";
             element.focus();
         }, 0);
         return false;

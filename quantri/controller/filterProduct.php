@@ -33,7 +33,14 @@ if(isset($_POST['btnsearch'])) {
                         echo "
                             <script>alert('Số tiền nhập vào phải lớn hơn 0!')</script>
                         ";
-                    } else {
+                    } 
+                    else 
+                        if ($priceFrom > $priceTo) {
+                            echo "
+                                <script>alert('Giá tối thiểu phải nhỏ hơn giá tối đa!')</script>
+                            ";
+                        }
+                        else {
                         $sql .= " and (giaban between '$priceFrom' and '$priceTo')";
                     }
                 } else {
@@ -93,6 +100,11 @@ if(isset($_POST['btnsearch'])) {
                         echo "
                             <script>alert('Số tiền nhập vào phải lớn hơn 0!')</script>
                         ";
+                    }
+                    else if ($priceFrom > $priceTo) {
+                        echo "
+                                <script>alert('Giá tối thiểu phải nhỏ hơn giá tối đa!')</script>
+                            ";
                     } else {
                         $sql .= " and (giaban between '$priceFrom' and '$priceTo')";
                     }
