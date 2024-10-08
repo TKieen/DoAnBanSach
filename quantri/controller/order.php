@@ -21,8 +21,15 @@ if(isset($_POST['update_data_order'])){
     $id = $_POST['order_id'];
     $trangthai = $_POST['trangthai'];
     $idNV = $_POST['idNV_update'];
-    editOrder($id,$trangthai,date("Y-m-d"), $idNV);
-    echo json_encode(array('success'=>true));
+
+    // Fetch current "trangthai" value from the database
+    $currentOrder = getOrderByID($id);
+    if($currentOrder['trangthai'] == $trangthai){
+        echo json_encode(array('success'=>false, 'message'=>'Trạng thái không thay đổi'));
+    } else {
+        editOrder($id,$trangthai,date("Y-m-d"), $idNV);
+        echo json_encode(array('success'=>true));
+    }
 }
 /* update-data */
 
