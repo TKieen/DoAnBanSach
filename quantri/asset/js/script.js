@@ -344,7 +344,16 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
     }
 
     // giabia
-    if(isNaN(giabia) || giabia <= 0){
+    if (giabia == "") {
+        alert = "<span class='red'>Giá bìa không được để trống.</span>";
+        return alert
+    }
+
+    if (giabia <= 0) {
+        alert = "<span class='red'>Giá bìa phải lớn hơn 0.</span>"
+    }
+
+    if(isNaN(giabia)){
         alert = "<span class='red'>Giá bìa không hợp lệ.</span>";
         return alert;
     }
@@ -357,6 +366,10 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
 
     // namxb
     var curr_date = new Date();
+    if (namxb == "") {
+        alert = "<span class='red'>Năm xuất bản không được để trống.</span>";
+        return alert
+    }
     if(isNaN(namxb) || namxb <1000 || namxb>curr_date.getFullYear()){
         alert = "<span class='red'>Vui lòng nhập năm xuất bản hợp lệ.</span>";
         return alert;

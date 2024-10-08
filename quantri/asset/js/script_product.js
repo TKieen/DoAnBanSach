@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('.open_add_form_product').click(function() {
         // Display the form as a pop-up
        $('#add-modal-product').show();
+       $('#add-form-product input[name="tuasach"]').focus();
    });
 
     $('#add-form-product').submit(function(event) {
