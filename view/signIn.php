@@ -34,7 +34,7 @@
                         <div class="signIn-box-row3-form">
                             <form id="signIn-form" method="POST"  enctype="multipart/form-data">
                                 <div class="signIn-box-row3-form-items">
-                                    <strong>Email<span style="color: #D64830">*</span></strong><input type="text" name="email" id="email" required>
+                                    <strong>Email<span style="color: #D64830">*</span></strong><input type="email" name="email" id="email" required>
                                 </div>
                                 <div class="signIn-box-row3-form-items">
                                     <strong>Mật khẩu<span style="color: #D64830">*</span></strong><input type="password" name="password" id="password" required>
