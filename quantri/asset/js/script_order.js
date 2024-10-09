@@ -117,11 +117,22 @@ $(document).ready(function() {
             success: function(response) {
                 console.log(response);
                 const obj = JSON.parse(response);
-                if(obj.success) {
-                    
+                if (obj.success) {
+                    // Display success message when the status was updated successfully
                     $('.alert').html('<span class="green">Cập nhật thành công</span>');
+                } else {
+                    // Display alert if no changes were made
+                    if (obj.message === 'Trạng thái không thay đổi') {
+                        $('.alert').html('<span class="red">Trạng thái không thay đổi</span>');
+                    } else {
+                        // Handle other failure cases or errors
+                        $('.alert').html('<span class="red">Có lỗi xảy ra, vui lòng thử lại</span>');
+                    }
                 }
             },
+            error: function() {
+                $('.alert').html('<span class="red">Có lỗi xảy ra trong khi cập nhật đơn hàng</span>');
+            }
         });
     });
     /* End: update form */

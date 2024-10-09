@@ -96,7 +96,9 @@
                                 </select>
                             </td>
                             <td class="quantity">
-                                <input type="number" name="soluong[]">
+                                <!-- <input type="number" name="soluong[]"> -->
+                                <input type="number" name="soluong[] " id="chietkhau" min="1" max="9999" maxlength="4">
+
                             </td>
                             <!--gia nhap, gia bia phai duoc them luc tao san pham-->
                             <!--gererate auto-->
@@ -138,7 +140,9 @@
                                 </select>
                             </td>
                             <td class="quantity">
-                                <input type="number" name="soluong[]" >
+                                <!-- <input type="number" name="soluong[]" > -->
+                                <input type="number" name="soluong[] " id="chietkhau" min="1" max="9999" maxlength="4">
+
                             </td>
                             <!--gia nhap, gia bia phai duoc them luc tao san pham-->
                             <!--gererate auto-->
