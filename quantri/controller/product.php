@@ -52,10 +52,21 @@ if(isset($_POST['edit_data_product'])){
     //option for discount
     $options = "";
     $discount = null;
-    if($result['idMGG']!=-1){
+
+    if($result['idMGG']!= -1){
         $discount = getDiscountByID($result['idMGG']);
-        extract($discount);
-        $options .= '<option value="'.$idMGG.'">'.$phantram.'</option>';
+        if($discount['trangthai'] == 'hd'){
+            extract($discount);
+            $options .= '<option value="'.$idMGG.'">'.$phantram.'</option>';
+        }
+        else{
+            $options = '<option value="-1">Không có</option>';
+            $discount = getAllDiscountWaiting();
+            foreach($discount as $item){
+                extract($item);
+                $options .= '<option value="'.$idMGG.'">'.$phantram.'</option>';
+            }
+        }
     }
     else{
         $options = '<option value="-1">Không có</option>';
