@@ -22,7 +22,7 @@
             </div>
             <div class="field">
                 <label for="chietkhau" class="attribute">Chiết khấu (%)</label>
-                <input type="text" name="chietkhau">
+                <input type="number" name="chietkhau">
             </div>
             <hr>
             <div class="alert"></div>
