@@ -16,7 +16,7 @@
                             <form class="header-navbar-items-search" name="search">
                                 <input type="hidden" name="page" value="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" placeholder="Tìm kiếm tựa sách, tác giả" name="kyw">
+                                <input type="text" placeholder="Tìm kiếm tựa sách, tác giả" name="kyw" required>
                                 <button type="submit" name="btn" value="submit" class="findBook-button">Tìm sách</button>
                             </form>
                         </li>
