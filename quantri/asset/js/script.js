@@ -232,7 +232,7 @@ function formValidateSupplier(ten, email, dienthoai, diachi) {
     let alert = '';
     let phoneRegex = /^0[0-9]{9}$/;
     let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
-
+    let tenRegex = /^[a-zA-Z ]{3,16}$/;
     //Fullname
     if(ten === '') {   //nếu tên rỗng
         alert = "<span class='red'>Vui lòng nhập họ tên.</span>";
@@ -243,6 +243,10 @@ function formValidateSupplier(ten, email, dienthoai, diachi) {
         return alert;
     }
 
+    if(!tenRegex.test(ten)){
+        alert = "<span class='red'>Họ tên chỉ gồm ký tự chữ.</span>";
+        return alert;
+    }
     //Email
     if(email === ''){
         alert = "<span class='red'>Vui lòng nhập email.</span>";
@@ -357,7 +361,16 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
     }
 
     // giabia
-    if(isNaN(giabia) || giabia <= 0){
+    if (giabia == "") {
+        alert = "<span class='red'>Giá bìa không được để trống.</span>";
+        return alert
+    }
+
+    if (giabia <= 0) {
+        alert = "<span class='red'>Giá bìa phải lớn hơn 0.</span>"
+    }
+
+    if(isNaN(giabia)){
         alert = "<span class='red'>Giá bìa không hợp lệ.</span>";
         return alert;
     }
@@ -370,6 +383,10 @@ function formValidateProduct(tuasach, nxb, idNCC, giabia, tacgia, namxb, idTL, m
 
     // namxb
     var curr_date = new Date();
+    if (namxb == "") {
+        alert = "<span class='red'>Năm xuất bản không được để trống.</span>";
+        return alert
+    }
     if(isNaN(namxb) || namxb <1000 || namxb>curr_date.getFullYear()){
         alert = "<span class='red'>Vui lòng nhập năm xuất bản hợp lệ.</span>";
         return alert;
@@ -448,3 +465,25 @@ function formValidateInventory2(soluong) {
      return true;
  }
  /* function validate inventory form 2*/
+
+ function formValidateCategory(ten) {
+    let alert = '';
+    let tenRegex = /^[a-zA-Z0-9]{1,16}$/;
+    let regexKyTuDacBiet = /^[^\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?]*$/;
+
+    if(ten === '') {   //nếu tên rỗng
+        alert = "<span class='red'>Vui lòng nhập thể loại.</span>";
+        return alert;
+    }
+
+    if(!regexKyTuDacBiet.test(ten)) {
+        alert = "<span class='red'>Thể loại không hop lệ. Thể loại không chứa ký tự đặc biệt.</span>";
+        return alert;
+    }
+
+    if(!tenRegex.test(ten)) {
+        alert = "<span class='red'>Thể loại không hop lệ. Thể loại không quá 16 ký tự.</span>";
+        return alert;
+    }
+    return alert;
+ }

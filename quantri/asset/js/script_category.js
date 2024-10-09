@@ -10,7 +10,11 @@ $(document).ready(function() {
     $('#add-form-category').submit(function(event) {
         // Prevent the default form submission
         event.preventDefault();
-
+        var ten = $('#add-form-category input[name="tenTL"]').val();
+        var alert = formValidateCategory(ten);
+        console.log(alert);
+        if(alert ===''){
+            console.log(1);
             // Serialize form data
             var formData = new FormData( $('#add-form-category')[0]);
             // AJAX request to handle form submission
@@ -28,6 +32,8 @@ $(document).ready(function() {
                     else $('.alert').html('<span class="red">Thể loại đã tồn tại</span>');
                 },
             });
+        }
+        else $('.alert').html(alert);
     });
     /* End: add form */
 
@@ -58,23 +64,27 @@ $(document).ready(function() {
     $('#edit-form-category').submit(function(event) {
         // Prevent the default form submission
         event.preventDefault();
-        
+        var ten = $('#edit-form-category input[name="tenTL"]').val();
+        var alert = formValidateCategory(ten);
+        if(alert ===''){
         // Serialize form data
-        var formData = new FormData( $('#edit-form-category')[0]);
-        // AJAX request to handle form submission
-        $.ajax({
-            url: '../controller/category.php', // URL to handle form submission
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                const obj = JSON.parse(response);
-                if(obj.success) $('.alert').html('<span class="green">Cập nhật thành công</span>');
-                else $('.alert').html('<span class="red">Thể loại đã tồn tại</span>');
-            },
-        });
+            var formData = new FormData( $('#edit-form-category')[0]);
+            // AJAX request to handle form submission
+            $.ajax({
+                url: '../controller/category.php', // URL to handle form submission
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log(response);
+                    const obj = JSON.parse(response);
+                    if(obj.success) $('.alert').html('<span class="green">Cập nhật thành công</span>');
+                    else $('.alert').html('<span class="red">Thể loại đã tồn tại</span>');
+                },
+            });
+        }
+        else $('.alert').html(alert);
     });
     /* End: update form */
     
