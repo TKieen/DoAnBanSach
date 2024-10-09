@@ -138,21 +138,25 @@ $(document).ready(function() {
     $('.lock_supplier').click(function() {
         // Display the form as a pop-up
         var supplier_id = $(this).closest('tr').find('.supplier_id').text();
-        $.ajax({
-            url: '../controller/supplier.php', // Replace with the actual PHP endpoint to fetch supplier details
-            type: 'POST',
-            data: {
-                'lock_supplier': true,
-                'supplier_id': supplier_id,
-            },
-            success: function(response){
-                const obj = JSON.parse(response);
-                if(obj.success){
-                    var curr_page = $('.curr_page').val();
-                    window.location.href="index.php?page=supplier&index="+curr_page;
-                }
-            },
-        });
+        if(confirm('Bạn có muốn khóa nhà cung cấp có ID là ' + supplier_id + ' không?')){
+            
+            $.ajax({
+                url: '../controller/supplier.php', // Replace with the actual PHP endpoint to fetch supplier details
+                type: 'POST',
+                data: {
+                    'lock_supplier': true,
+                    'supplier_id': supplier_id,
+                },
+                success: function(response){
+                    const obj = JSON.parse(response);
+                    if(obj.success){
+                        var curr_page = $('.curr_page').val();
+                        window.location.href="index.php?page=supplier&index="+curr_page;
+                    }
+                },
+            });
+        }
+        
    });
     /* End: lock */
 
@@ -160,21 +164,24 @@ $(document).ready(function() {
     $('.unlock_supplier').click(function() {
         // Display the form as a pop-up
         var supplier_id = $(this).closest('tr').find('.supplier_id').text();
-        $.ajax({
-            url: '../controller/supplier.php', // Replace with the actual PHP endpoint to fetch supplier details
-            type: 'POST',
-            data: {
-                'unlock_supplier': true,
-                'supplier_id': supplier_id,
-            },
-            success: function(response){
-                const obj = JSON.parse(response);
-                if(obj.success){
-                    var curr_page = $('.curr_page').val();
-                    window.location.href="index.php?page=supplier&index="+curr_page;
-                }
-            },
-        });
+        if(confirm('Bạn có muốn mở khóa nhà cung cấp có ID là ' + supplier_id + ' không?')){
+
+            $.ajax({
+                url: '../controller/supplier.php', // Replace with the actual PHP endpoint to fetch supplier details
+                type: 'POST',
+                data: {
+                    'unlock_supplier': true,
+                    'supplier_id': supplier_id,
+                },
+                success: function(response){
+                    const obj = JSON.parse(response);
+                    if(obj.success){
+                        var curr_page = $('.curr_page').val();
+                        window.location.href="index.php?page=supplier&index="+curr_page;
+                    }
+                },
+            });
+        }
    });
     /* End: unlock */
 });
