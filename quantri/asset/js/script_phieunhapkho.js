@@ -326,7 +326,7 @@ $('.inventory').submit(function(event) {
                         $('.thanhtien').eq(i++).html(element);
                     });
                     alert("Đã thêm thành công"); 
-                    window.location.href="index.php?page=add_phieunhapkho&idNCC="+obj.idNCC+"&chietkhau="+obj.chietkhau;
+                    window.location.href="index.php?page=phieunhapkho";
                 }
                             
             },
