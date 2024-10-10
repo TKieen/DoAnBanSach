@@ -12,14 +12,20 @@ if(isset($_POST['sign_in'])){
     $inputEmail = $_POST['email'];
     $inputPassword = $_POST['password'];
     $user = login($inputEmail);
-    if($user){
-        if(password_verify($inputPassword, $user['matkhau']) && ($user['trangthai'] == 1 && $user['phanquyen'] != 'KH')){
-            admin_login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
-            echo json_encode(array('success'=>true,'phanquyen'=>$user['phanquyen']));
-        }
-        else echo json_encode(array('success'=>false));
+    if (!$user) {
+        echo json_encode(array('success'=>false, 'message'=>'Email không tồn tại')); return;
     }
-    else echo json_encode(array('success'=>false));
+    if ($user['trangthai'] == 0) {
+        echo json_encode(array('success'=>false, 'message'=>'Tài khoản của bạn đã bị khóa')); return;
+    } 
+    if ($user['phanquyen'] == 'KH') {
+        echo json_encode(array('success'=>false, 'message'=>'Tài khoản của bạn không có quyền truy cập')); return;      
+    }
+    if(password_verify($inputPassword, $user['matkhau'])){
+        admin_login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
+        echo json_encode(array('success'=>true,'phanquyen'=>$user['phanquyen']));
+    }
+    else echo json_encode(array('success'=>false, 'message'=>'Mật khẩu không đúng'));
 }
 
 if(isset($_POST['forgot-pwd-1'])){

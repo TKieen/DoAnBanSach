@@ -1,25 +1,30 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+
 include '../lib/connect.php';
 require '../model/signIn.php';
 require '../model/customer.php';
 require_once "../lib/session.php";
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-require "../view/vendor/autoload.php";
+
+require '../vendor/autoload.php';
 
 if(isset($_POST['sign_in'])){
     $inputEmail = $_POST['email'];
     $inputPassword = $_POST['password'];
+    if (check_email_is_valid($inputEmail)) {
+        echo json_encode(['success' => false, 'message'=>'Email không đúng định dạng']);
+        return;
+    }
     $user = login($inputEmail);
     if($user){
         if(password_verify($inputPassword, $user['matkhau']) && ($user['trangthai'] == 1 && ($user['phanquyen'] == "KH" || $user['phanquyen'] == "DN"))){
             login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
             echo json_encode(array('success'=>true));
         }
-        else echo json_encode(array('success'=>false));
+        else echo json_encode(array('success'=>false, 'message'=>'Mật khẩu không đúng'));
     }
-    else echo json_encode(array('success'=>false));
+    else echo json_encode(array('success'=>false, 'message'=>'Email không tồn tại'));
 }
 
 if(isset($_POST['forgot-pwd-1'])){
@@ -35,15 +40,15 @@ if(isset($_POST['forgot-pwd-1'])){
             //$mail->setLanguage('vi','vendor/phpmailer/phpmailer/language/phpmailer.lang-vi.php');  
 
             $mail->Host       = 'smtp.gmail.com';                                         
-            $mail->Username   = 'doannhom4.pttkhttt@gmail.com';               
+            $mail->Username   = 'doannhom4.pttkhttt@gmail.com';
             $mail->Password   = 'ewvd stdf afap kckz';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             
-            $mail->Port       = 587; 
+            $mail->Port       = 587;
 
             $mail->setFrom('doannhom4.pttkhttt@gmail.com', 'Nha sach Vinabook');
             $mail->addAddress($_SESSION['reset_password']['email']);
-            
+
             $mail->isHTML(true);
             $mail->Subject = "Your Vinabook account verification code";
 
