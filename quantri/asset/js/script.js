@@ -232,7 +232,7 @@ function formValidateSupplier(ten, email, dienthoai, diachi) {
     let alert = '';
     let phoneRegex = /^0[0-9]{9}$/;
     let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
-
+    let tenRegex = /^[a-zA-Z ]{3,16}$/;
     //Fullname
     if(ten === '') {   //nếu tên rỗng
         alert = "<span class='red'>Vui lòng nhập họ tên.</span>";
@@ -243,6 +243,10 @@ function formValidateSupplier(ten, email, dienthoai, diachi) {
         return alert;
     }
 
+    if(!tenRegex.test(ten)){
+        alert = "<span class='red'>Họ tên chỉ gồm ký tự chữ.</span>";
+        return alert;
+    }
     //Email
     if(email === ''){
         alert = "<span class='red'>Vui lòng nhập email.</span>";
@@ -448,3 +452,25 @@ function formValidateInventory2(soluong) {
      return true;
  }
  /* function validate inventory form 2*/
+
+ function formValidateCategory(ten) {
+    let alert = '';
+    let tenRegex = /^[a-zA-Z0-9]{1,16}$/;
+    let regexKyTuDacBiet = /^[^\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?]*$/;
+
+    if(ten === '') {   //nếu tên rỗng
+        alert = "<span class='red'>Vui lòng nhập thể loại.</span>";
+        return alert;
+    }
+
+    if(!regexKyTuDacBiet.test(ten)) {
+        alert = "<span class='red'>Thể loại không hop lệ. Thể loại không chứa ký tự đặc biệt.</span>";
+        return alert;
+    }
+
+    if(!tenRegex.test(ten)) {
+        alert = "<span class='red'>Thể loại không hop lệ. Thể loại không quá 16 ký tự.</span>";
+        return alert;
+    }
+    return alert;
+ }
