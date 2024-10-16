@@ -307,6 +307,7 @@ function formValidateDiscount(phantram, ngaybatdau, ngayketthuc) {
     if(phantram > 100){
         alert = "<span class='red'>Phần trăm phải là số bé hơn 100 </span>";
         return alert;
+        
     }
     //thoi gian
     var start = new Date(ngaybatdau);
