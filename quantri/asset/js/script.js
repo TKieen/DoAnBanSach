@@ -302,29 +302,43 @@ function formValidateDiscount(phantram, ngaybatdau, ngayketthuc) {
     let alert = '';
     var curr_date = new Date();
     //phantram
-
-    if(phantram < 0 || phantram>100 || isNaN(phantram)) {   //nếu tên rỗng
-        alert = "<span class='red'>Phần trăm không hợp lệ</span>";
+    if(phantram == ""){
+        alert = "<span class='red'>Phần trăm không được để trống</span>";
         return alert;
     }
 
+    if(phantram < 0 || isNaN(phantram)) {   //nếu tên rỗng
+        alert = "<span class='red'>Phần trăm phải là số lớn hơn 0 </span>";
+        return alert;
+    }
+
+    if(phantram > 100){
+        alert = "<span class='red'>Phần trăm phải là số bé hơn 100 </span>";
+        return alert;
+        
+    }
     //thoi gian
     var start = new Date(ngaybatdau);
     start.setHours(0, 0, 0, 0);
     curr_date.setHours(0,0,0,0);    
 
-    if(ngaybatdau == "" || ngayketthuc == ""){
-        alert = "<span class='red'>Thời gian không hợp lệ!</span>";
+    if(ngaybatdau == ""){
+        alert = "<span class='red'>Ngày bắt đầu không được để trống!</span>";
+        return alert;
+    }
+
+    if(ngayketthuc == ""){
+        alert = "<span class='red'>Ngày kết thúc không được để trống!</span>";
         return alert;
     }
 
     if(start <= curr_date){
-        alert = "<span class='red'>Thời gian không hợp lệ!</span>";
+        alert = "<span class='red'>Ngày bắt đầu phải lớn hơn ngày hiện tại!</span>";
         return alert;
     }
 
     if(ngaybatdau >= ngayketthuc){
-        alert = "<span class='red'>Thời gian không hợp lệ!</span>";
+        alert = "<span class='red'>Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!</span>";
         return alert;
     }
 
