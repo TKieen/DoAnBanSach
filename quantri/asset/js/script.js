@@ -177,7 +177,7 @@ function formValidateUser_edit(email, phanquyen) {
 function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     //Kiểm tra hợp lệ
     let alert = '';
-    let tenRegex = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂÂÊÔơưăâêô\s]+$/;
+    let tenRegex = /^[\p{L} ]+$/u;
     let phoneRegex = /^0[0-9]{9}$/;
     let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
     let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/;
@@ -187,10 +187,11 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
         alert = "<span class='red'>Vui lòng nhập họ tên.</span>";
         return alert;
     }
-    else if(ten.length < 3){
+    if(ten.length < 3){
         alert = "<span class='red'>Vui lòng nhập họ tên nhiều hơn 3 ký tự.</span>";
         return alert;
-    } else if (!tenRegex.test(ten)) {
+    }
+    if (!tenRegex.test(ten)) {
         alert = "<span class='red'>Tên không hợp lệ. Vui lòng chỉ sử dụng chữ cái.</span>";
         return alert;
     }

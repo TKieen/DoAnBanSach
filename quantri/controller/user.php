@@ -2,19 +2,34 @@
 include '../../lib/connect.php';
 require '../model/user.php';
 
+require 'userValidation.php';
+
 /* add-data */
 if(isset($_POST['add_data_user'])){
-    $ten = $_POST['ten'];
-    $email = $_POST['email'];
-    $dienthoai = $_POST['dienthoai'];
-    $phanquyen = $_POST['phanquyen'];
-    $p = $_POST['matkhau'];
-    $p_hash = password_hash($p, PASSWORD_DEFAULT);
-    if(!isExist($email, $dienthoai)){
-        addUser($ten, $email, $dienthoai, $phanquyen, $p_hash);
-        echo json_encode(array('success'=>true));
+    $name = htmlspecialchars($_POST['ten']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['dienthoai']);
+    $role = htmlspecialchars($_POST['phanquyen']);
+    $password = htmlspecialchars($_POST['matkhau']);
+    
+    try {
+        validateName($name);
+        validateEmail($email);
+        validatePassword($password);
+        validatePhone($phone);
+        validateRole($role);
+    } catch (Exception $e) {
+        echo json_encode(['success'=>false, 'message'=>$e->getMessage()]);
+        return;
     }
-    else echo json_encode(array('success'=>false));
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    if (isExist($email, $phone)) {
+        echo json_encode(array('success'=>false, 'message'=>"Người này đã tồn tại do trùng email hoặc số điện thoại"));
+        return;
+    }
+    addUser($name, $email, $phone, $role, $hashedPassword);
+    echo json_encode(array('success'=>true));
 }
 /* add-data */
 
@@ -59,4 +74,3 @@ if(isset($_POST['unlock_user'])){
     echo json_encode(array('success'=>true));
 }
 /* unlock-data */
-?>

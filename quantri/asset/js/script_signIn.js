@@ -17,33 +17,26 @@ $(document).ready(function() {
                     console.log(response);
                     const obj = JSON.parse(response);
                     console.log(obj);
-                    if(obj.success === 200) {
-                        switch(obj.phanquyen){
-                            case 'AD':
-                                window.location.href = "Admin/index.php";
-                                break;
-                            
-                            case "BH":
-                                window.location.href = "BanHang/index.php";
-                                break;
-
-                            case "TK":
-                                window.location.href = "ThuKho/index.php";
-                                break;
-
-                            case "DN":
-                                window.location.href = "ChuDN/index.php";
-                                break;
-                        }
-                        return;
-                    }
-                    if (obj.success === 401) {
+                    if(obj.success === false) {
                         $('.alert').html('<span class="red">' + obj.message + '</span>');
                         return;
                     }
-                    if (obj.success === 403) {
-                        $('.alert').html('<span class="red">'+obj.message+'</span>');
-                        return;
+                    switch(obj.phanquyen){
+                        case 'AD':
+                            window.location.href = "Admin/index.php";
+                            break;
+
+                        case "BH":
+                            window.location.href = "BanHang/index.php";
+                            break;
+
+                        case "TK":
+                            window.location.href = "ThuKho/index.php";
+                            break;
+
+                        case "DN":
+                            window.location.href = "ChuDN/index.php";
+                            break;
                     }
                 },
             });

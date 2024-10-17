@@ -84,7 +84,7 @@
     }
 
     function isFullNameValid($fullname) {
-        $pattern = '/^[\p{L} ]+$/u';
+        $pattern = '/^[\p{L} ]+$/';
         return preg_match($pattern, $fullname);
     }
 ?>
