@@ -17,7 +17,7 @@ $(document).ready(function() {
                     console.log(response);
                     const obj = JSON.parse(response);
                     console.log(obj);
-                    if(obj.success)
+                    if(obj.success === 200) {
                         switch(obj.phanquyen){
                             case 'AD':
                                 window.location.href = "Admin/index.php";
@@ -35,7 +35,16 @@ $(document).ready(function() {
                                 window.location.href = "ChuDN/index.php";
                                 break;
                         }
-                    else $('.alert').html('<span class="red">Thông tin không đúng</span>');
+                        return;
+                    }
+                    if (obj.success === 401) {
+                        $('.alert').html('<span class="red">' + obj.message + '</span>');
+                        return;
+                    }
+                    if (obj.success === 403) {
+                        $('.alert').html('<span class="red">'+obj.message+'</span>');
+                        return;
+                    }
                 },
             });
     });

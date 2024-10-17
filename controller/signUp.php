@@ -4,49 +4,47 @@
     require '../model/customer.php';
     require_once "../lib/session.php";
 
-    $errors = [ 'email' => ['isEmpty' => '', 'invalid' => '', 'existed' => ''],
-        'phone' => ['existed' => ''],
-        'password' => ['isEmpty' => ''],
-        'r_password' => ['isEmpty' => '', 'unmatched' => ''], 
-        'fullname' => ['required' => '']
-    ];
-
     if(isset($_POST['sign_up'])) {
+        $fullname = htmlspecialchars($_POST['fullname']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $rPassword = htmlspecialchars($_POST['r_password']);
+        $phone = htmlspecialchars($_POST['phone']);
 
-        $errors['email']['isEmpty'] =  check_isEmpty($_POST['email']);
-        $errors['email']['invalid'] = check_email_is_valid($_POST['email']);
-        $errors['email']['existed'] = check_email_is_existed($_POST['email']);
+        if (check_isEmpty($fullname)) {
+            echo json_encode(['success'=>false, 'message'=>'Họ tên không được để trống']); return;
+        }
+        if (check_isEmpty($email)) {
+            echo json_encode(['success'=>false, 'message'=>'Email không được để trống']); return;
+        }
+        if (check_isEmpty($password)) {
+            echo json_encode(['success'=>false, 'message'=>'Mật khẩu không được để trống']); return;
+        }
+        if (check_isEmpty($rPassword)) {
+            echo json_encode(['success'=>false, 'message'=>'Xác nhận mật khẩu không được để trống']); return;
+        }
+        if (check_isEmpty($phone)) {
+            echo json_encode(['success'=>false, 'message'=>'Số điện thoại không được để trống']); return;
+        }
+        if (isFullNameValid($fullname) == false) {
+            echo json_encode(['success'=>false, 'message'=>'Họ tên không hợp lệ']); return;
+        }
+        if (check_email_is_valid($email)) {
+            echo json_encode(['success'=>false, 'message'=>'Email không hợp lệ']); return;
+        }
+        if (check_email_is_existed($email)) {
+            echo json_encode(['success'=>false, 'message'=>'Email đã tồn tại']); return;
+        }
 
-        $errors['phone']['existed'] = check_phone_is_existed($_POST['phone']);
+        if (check_phone_is_existed($phone)) {
+            echo json_encode(['success'=>false, 'message'=>'Số điện thoại đã tồn tại']); return;
+        }
+        if (check_password_is_unmatched($password, $rPassword)) {
+            echo json_encode(['success'=>false, 'message'=>'Mật khẩu và xác nhận mật khẩu không khớp.']); return;
+        }
         
-        $errors['password']['isEmpty'] =  check_isEmpty($_POST['password']);
-
-        $errors['r_password']['isEmpty'] =  check_isEmpty($_POST['r_password']);
-        $errors['r_password']['unmatched'] = check_password_is_unmatched($_POST['password'], $_POST['r_password']);
-
-        $errors['fullname']['isEmpty'] = check_isEmpty($_POST['fullname']);
-
-        $is_able_to_sign_up = true;
-
-        foreach($errors as $error) {
-            foreach($error as $error_element) {
-                if ($error_element) {
-                    $is_able_to_sign_up = false;
-                    break;
-                }
-            }
-        }
-
-        if ($is_able_to_sign_up){
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $fullname = $_POST['fullname'];
-            $phone = $_POST['phone'];
-
-            $password_hash = password_hash($password, PASSWORD_DEFAULT);
-            addCustomer($email, $password_hash, $fullname, $phone);
-            echo json_encode(array('success'=>true));
-        }
-        else echo json_encode(array('success'=>false));
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        addCustomer($email, $hashedPassword, $fullname, $phone);
+        echo json_encode(['success'=>true, 'message'=>'Đăng ký tài khoản thành công']);
     }
 ?>

@@ -177,8 +177,10 @@ function formValidateUser_edit(email, phanquyen) {
 function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     //Kiểm tra hợp lệ
     let alert = '';
+    let tenRegex = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂÂÊÔơưăâêô\s]+$/;
     let phoneRegex = /^0[0-9]{9}$/;
     let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+    let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/;
 
     //Fullname
     if(ten === '') {   //nếu tên rỗng
@@ -187,6 +189,9 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     }
     else if(ten.length < 3){
         alert = "<span class='red'>Vui lòng nhập họ tên nhiều hơn 3 ký tự.</span>";
+        return alert;
+    } else if (!tenRegex.test(ten)) {
+        alert = "<span class='red'>Tên không hợp lệ. Vui lòng chỉ sử dụng chữ cái.</span>";
         return alert;
     }
 
@@ -203,6 +208,9 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     //mat khau
     if(matkhau==""){
         alert = "<span class='red'>Vui lòng nhập mật khẩu.</span>";
+        return alert;
+    } else if (!matkhauRegex.test(matkhau)){
+        alert = "<span class='red'>Mật khẩu chưa đủ mạnh</span>";
         return alert;
     }
 
