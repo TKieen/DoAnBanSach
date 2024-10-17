@@ -4,6 +4,8 @@ require '../model/customer.php';
 require '../model/user.php';
 require_once "../../lib/session.php";
 
+require 'userValidation.php';
+
     if(isset($_POST['submit_info'])) {
         $email = $_POST['email'];
         $phone = $_POST['phone'];
@@ -69,21 +71,32 @@ require_once "../../lib/session.php";
 
 
     if(isset($_POST['submit_password'])) {
-        $c_password = $_POST['c_password'];
-        $n_password = $_POST['n_password'];
-        $r_n_password = $_POST['r_n_password'];
+        $currentPassword = $_POST['c_password'];
+        $newPassword = $_POST['n_password'];
+        $reNewPassword = $_POST['r_n_password'];
+
         $user = getUserById($_SESSION['user']['id']);
-        if(password_verify($c_password, $user['matkhau']) && $c_password != '') {
-            $password_hash = password_hash($n_password, PASSWORD_DEFAULT);
-            resetPassword1($_SESSION['admin']['id'], $password_hash);
-            echo json_encode(array('success'=>true));
+
+        if (empty($currentPassword) && !password_verify($currentPassword, $user['password'])) {
+            echo json_encode(array('success' => false, 'message' => 'Mật khẩu hiện tai không đúng!'));
+            return;
         }
-        else echo json_encode(array('success'=>false));
+
+        try {
+            validatePassword($newPassword, $reNewPassword);
+        } catch (Exception $e) {
+            echo json_encode(array('success' => false, 'message' => $e->getMessage()));
+            return;
+        }
+
+        $password_hash = password_hash($newPassword, PASSWORD_DEFAULT);
+        resetPassword1($_SESSION['admin']['id'], $password_hash);
+        echo json_encode(array('success' => true));
     }
         
-        // if(password_verify($c_password, $user_info['matkhau']) && $c_password != '') {
-        //     if (!check_password_is_unmatched($n_password, $r_n_password) && !empty($n_password) && !empty($r_n_password)) {
-        //         $password_hash = password_hash($n_password, PASSWORD_DEFAULT);
+        // if(password_verify($currentPassword, $user_info['matkhau']) && $currentPassword != '') {
+        //     if (!check_password_is_unmatched($newPassword, $r_n_password) && !empty($newPassword) && !empty($r_n_password)) {
+        //         $password_hash = password_hash($newPassword, PASSWORD_DEFAULT);
         //         $sql = "UPDATE taikhoan SET matkhau='".$password_hash."' WHERE email='".$_SESSION['user']['email']."' LIMIT 1";
         //         $sql_run = mysqli_query($conn, $sql);
         //         if($sql_run) {
