@@ -227,7 +227,7 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
 /* function validate user form */
 
 /* function validate supplier form */
-function formValidateSupplier(ten, email, dienthoai, diachi) {
+function formValidateSupplier(ten, email, dienthoai, tinhdiachi, huyendiachi, xaphuongdiachi, diachi) {
     //Kiểm tra hợp lệ
     let alert = '';
     let phoneRegex = /^0[0-9]{9}$/;
@@ -264,6 +264,21 @@ function formValidateSupplier(ten, email, dienthoai, diachi) {
     }
     else if (dienthoai.length !== 10 || !phoneRegex.test(dienthoai)){
         alert = "<span class='red'>Sai định dạng số điện thoại.</span>";
+        return alert;
+    }
+
+    if(tinhdiachi === ''){
+        alert = "<span class='red'>Vui lòng chọn Tỉnh/Thành phố.</span>";
+        return alert;
+    }
+
+    if(huyendiachi === ''){
+        alert = "<span class='red'>Vui lòng chọn Quận/Huyện.</span>";
+        return alert;
+    }
+
+    if(xaphuongdiachi === ''){
+        alert = "<span class='red'>Vui lòng chọn Phường/Xã.</span>";
         return alert;
     }
 
