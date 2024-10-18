@@ -33,7 +33,8 @@ $(document).ready(function() {
                     const obj = JSON.parse(response);
                     if(obj.success)
                         $('.alert').html('<span class="green">Thêm thành công</span>');
-                    else $('.alert').html('<span class="red">Người này đã tồn tại do trùng email hoặc số điện thoại</span>');
+                    else
+                        $('.alert').html('<span class="red">'+obj.message+'</span>');
                 },
             });
         }

@@ -37,7 +37,7 @@ if(isset($_POST['add_inventory_form_btn'])){
         addCTPhieuNhapKho($idPN, $idSach, $soluong);
     }
     updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $chietkhau, $tongsoluong, $tongtien, "cht");
-
+    
     // tong so luong
     // thanh tien
     // tong tien
@@ -94,6 +94,7 @@ if(isset($_POST['complete_btn'])){
 
 /* cancel button*/
 if(isset($_POST['cancel_btn'])){
+    $idNV = $_POST['idNV'];
     updatePhieuNhapKho($_POST['idPN'], date("Y-m-d"),"huy", $idNV);
     echo json_encode(array('success'=>true, 'idNV' => $idNV));
 }

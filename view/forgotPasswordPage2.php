@@ -13,7 +13,7 @@
                     <p>Vui lòng nhập vào mã xác thực đã được gửi qua email của bạn.</p>
                 </div>
                 <div class="container-form-row4">
-                    <input type="text" name="maxacnhan" placeholder="Nhập vào mã xác thực...">
+                    <input type="text" name="maxacnhan"  maxlength="6" required placeholder="Nhập vào mã xác thực...">
                 </div>
                 <div class="alert"></div>
                 <div class="container-form-row6">

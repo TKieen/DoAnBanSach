@@ -177,16 +177,22 @@ function formValidateUser_edit(email, phanquyen) {
 function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     //Kiểm tra hợp lệ
     let alert = '';
+    let tenRegex = /^[\p{L} ]+$/u;
     let phoneRegex = /^0[0-9]{9}$/;
     let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+    let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/;
 
     //Fullname
     if(ten === '') {   //nếu tên rỗng
         alert = "<span class='red'>Vui lòng nhập họ tên.</span>";
         return alert;
     }
-    else if(ten.length < 3){
+    if(ten.length < 3){
         alert = "<span class='red'>Vui lòng nhập họ tên nhiều hơn 3 ký tự.</span>";
+        return alert;
+    }
+    if (!tenRegex.test(ten)) {
+        alert = "<span class='red'>Tên không hợp lệ. Vui lòng chỉ sử dụng chữ cái.</span>";
         return alert;
     }
 
@@ -203,6 +209,9 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
     //mat khau
     if(matkhau==""){
         alert = "<span class='red'>Vui lòng nhập mật khẩu.</span>";
+        return alert;
+    } else if (!matkhauRegex.test(matkhau)){
+        alert = "<span class='red'>Mật khẩu chưa đủ mạnh</span>";
         return alert;
     }
 
@@ -309,29 +318,43 @@ function formValidateDiscount(phantram, ngaybatdau, ngayketthuc) {
     let alert = '';
     var curr_date = new Date();
     //phantram
-
-    if(phantram < 0 || phantram>100 || isNaN(phantram)) {   //nếu tên rỗng
-        alert = "<span class='red'>Phần trăm không hợp lệ</span>";
+    if(phantram == ""){
+        alert = "<span class='red'>Phần trăm không được để trống</span>";
         return alert;
     }
 
+    if(phantram < 0 || isNaN(phantram)) {   //nếu tên rỗng
+        alert = "<span class='red'>Phần trăm phải là số lớn hơn 0 </span>";
+        return alert;
+    }
+
+    if(phantram > 100){
+        alert = "<span class='red'>Phần trăm phải là số bé hơn 100 </span>";
+        return alert;
+        
+    }
     //thoi gian
     var start = new Date(ngaybatdau);
     start.setHours(0, 0, 0, 0);
     curr_date.setHours(0,0,0,0);    
 
-    if(ngaybatdau == "" || ngayketthuc == ""){
-        alert = "<span class='red'>Thời gian không hợp lệ!</span>";
+    if(ngaybatdau == ""){
+        alert = "<span class='red'>Ngày bắt đầu không được để trống!</span>";
+        return alert;
+    }
+
+    if(ngayketthuc == ""){
+        alert = "<span class='red'>Ngày kết thúc không được để trống!</span>";
         return alert;
     }
 
     if(start <= curr_date){
-        alert = "<span class='red'>Thời gian không hợp lệ!</span>";
+        alert = "<span class='red'>Ngày bắt đầu phải lớn hơn ngày hiện tại!</span>";
         return alert;
     }
 
     if(ngaybatdau >= ngayketthuc){
-        alert = "<span class='red'>Thời gian không hợp lệ!</span>";
+        alert = "<span class='red'>Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!</span>";
         return alert;
     }
 

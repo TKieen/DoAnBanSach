@@ -27,7 +27,7 @@
                         <div class="footer-row2-content-items-right2">
                             Địa chỉ: Tiểu Vương Quốc Bình Chánh <br>
                             MST: 0303615027 do Sở Kế Hoạch Và Đầu Tư Tp.HCM cấp ngày 10/03/2011 <br>
-                            Tel: 028.73008182 - Fax: 028.39733234 - Email: <a style="text-decoration: none; color: #0066C0" href="">hotro@vinabook.com</a>
+                            Tel: 028.73008182 - Fax: 028.39733234 
                         </div>
                     </div>
                 </div>

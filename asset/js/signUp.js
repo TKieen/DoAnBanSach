@@ -13,13 +13,24 @@ $(document).ready(function() {
                 data: formData,
                 processData: false,
                 contentType: false,
+                dataType: 'json',
                 success: function(response) {
+                    // console.log(response);
+                    // const obj = JSON.parse(response);
+                    // console.log(obj);
+                    // if(obj.success) window.location.href = "?page=signIn";
+                    // else $('.alert').html('<span style="color: red;">Thông tin không hợp lệ. Vui lòng kiểm tra lại</span>');
                     console.log(response);
-                    const obj = JSON.parse(response);
-                    console.log(obj);
-                    if(obj.success) window.location.href = "?page=signIn";
-                    else $('.alert').html('<span style="color: red;">Thông tin không hợp lệ. Vui lòng kiểm tra lại</span>');
+                    if (response.success) {
+                        alert(response.message);
+                        window.location.href = "?page=signIn";
+                    } else {
+                        $('.alert').html('<span style="color: red;">'+response.message+'</span>')
+                    }
                 },
+                error: function(error) {
+                    alert("error");
+                }
             });
     });
     /* End: sign-up form */

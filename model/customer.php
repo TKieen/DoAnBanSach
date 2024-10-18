@@ -83,4 +83,8 @@
         edit($sql);
     }
 
+    function isFullNameValid($fullname) {
+        $pattern = '/^[\p{L} ]+$/';
+        return preg_match($pattern, $fullname);
+    }
 ?>

@@ -32,7 +32,7 @@ $(document).ready(function() {
         // Prevent the default form submission
         event.preventDefault();
         $chietkhau = $('#add-form-phieunhapkho input[name="chietkhau"]').val();
-        if($chietkhau <= 0) $('.alert').html('<span class="red">Chiết khấu không hợp lệ</span>');
+        if($chietkhau <= 0 || $chietkhau >=100) $('.alert').html('<span class="red">Chiết khấu không hợp lệ</span>');
         else{    
             // Serialize form data
         var idNCC = $('#add-form-phieunhapkho select[name="idNCC"]').val();
@@ -227,7 +227,7 @@ $('button[name="update_btn"]').click(function(){
                 if(obj.success){
                     $('.idNV').html(obj.idNV);
                     alert("Đã cập nhật thành công");
-                    window.location.href="index.php?page=phieunhapkho";
+                    window.location.href="?page=phieunhapkho";
                 }
             },
         });
@@ -325,7 +325,8 @@ $('.inventory').submit(function(event) {
                         element+="đ";
                         $('.thanhtien').eq(i++).html(element);
                     });
-                    alert("Đã thêm thành công");    
+                    alert("Đã thêm thành công"); 
+                    window.location.href="index.php?page=phieunhapkho";
                 }
                             
             },
