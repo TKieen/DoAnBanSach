@@ -7,7 +7,7 @@ require '../model/signIn.php';
 require '../model/customer.php';
 require_once "../lib/session.php";
 
-require '../vendor/autoload.php';
+require '../view/vendor/autoload.php';
 
 if(isset($_POST['sign_in'])){
     $inputEmail = $_POST['email'];
@@ -18,9 +18,15 @@ if(isset($_POST['sign_in'])){
     }
     $user = login($inputEmail);
     if($user){
-        if(password_verify($inputPassword, $user['matkhau']) && ($user['trangthai'] == 1 && ($user['phanquyen'] == "KH" || $user['phanquyen'] == "DN"))){
-            login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
-            echo json_encode(array('success'=>true));
+        if(password_verify($inputPassword, $user['matkhau'])){
+            if($user['trangthai'] == 1){
+                if($user['phanquyen'] == "KH" || $user['phanquyen'] == "DN"){
+                    login_session($user['idTK'], $user['email'], $user['tenTK'], $user['phanquyen']);
+                    echo json_encode(array('success'=>true));
+                }
+                else echo json_encode(array('success'=>false, 'message'=>'Tài khoản không có quyền truy cập'));
+            }
+            else echo json_encode(array('success'=>false, 'message'=>'Tài khoản đã bị khóa'));
         }
         else echo json_encode(array('success'=>false, 'message'=>'Mật khẩu không đúng'));
     }
