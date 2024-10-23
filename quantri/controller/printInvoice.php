@@ -9,6 +9,10 @@
 
         //Lấy thông tin đơn hàng
         $orderInfo = getOrderInfo($idDH);
+        if($orderInfo == null){
+            echo '<div style="font-size: 20;">Đơn hàng không tồn tại.</div>';
+            return;
+        }
         $orderId = $orderInfo['idDH'];
         $orderDate = dateFormat($orderInfo['ngaytao']);
         $CustomerId = $orderInfo['idTK'];
