@@ -38,9 +38,9 @@
             </select>
             <!--icon sorting: when hover a block display: A-Z-->
             <label for="">Giá từ </label>
-            <input type="text" name="priceFrom" class="priceFrom">
+            <input type="text" name="priceFrom" class="priceFrom" id="priceFrom">
             <label for="">đến</label>
-            <input type="text" name="priceTo" class="priceTo">
+            <input type="text" name="priceTo" class="priceTo" id="priceTo">
             <button type="submit" name="btnsearch">Lọc</button>
             <label for="">Tồn kho </label>
             <button name="sort" class="sort" value="asc">
