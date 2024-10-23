@@ -73,9 +73,9 @@ if(isset($_GET['page'])&&($_GET['page']!=="")){
             require_once "controller/cart.php";
             break;
 
-        case 'addToCart':
-            require_once "controller/addToCart.php";
-            break;
+        // case 'addToCart':
+        //     require_once "controller/addToCart.php";
+        //     break;
 
         case 'checkOut':
             require_once "controller/checkOut.php";
