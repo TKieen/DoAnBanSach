@@ -15,8 +15,11 @@ $(document).ready(function() {
         var ten = $('#add-form-supplier input[name="ten"]').val();
         var email = $('#add-form-supplier input[name="email"]').val();
         var dienthoai = $('#add-form-supplier input[name="dienthoai"]').val();
+        var tinhdiachi = $('#add-form-supplier select[name="tinhdiachi"]').val();
+        var huyendiachi = $('#add-form-supplier select[name="huyendiachi"]').val();
+        var xaphuongdiachi = $('#add-form-supplier select[name="xaphuongdiachi"]').val();
         var diachi = $('#add-form-supplier input[name="diachi"]').val();
-        var alert = formValidateSupplier(ten, email, dienthoai,diachi);
+        var alert = formValidateSupplier(ten, email, dienthoai, tinhdiachi, huyendiachi, xaphuongdiachi, diachi);
         if(alert ===''){
             // Serialize form data
             var formData = new FormData( $('#add-form-supplier')[0]);

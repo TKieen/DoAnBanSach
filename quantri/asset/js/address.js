@@ -55,26 +55,26 @@ $(document).ready(function () {
     });
 
 
-    $('#add-form-supplier').on('submit', function (event) {
-        const validateField = (selector, message) => {
-            const $field = $(selector);
-            console.log(selector + ':  ' + $field.val());
-            if (!$field.val() || $field.val() === '') {
-                alert(message);
-                $field.focus();
-                return false;
-            }
-            return true;
-        }
+    // $('#add-form-supplier').on('submit', function (event) {
+    //     const validateField = (selector, message) => {
+    //         const $field = $(selector);
+    //         console.log(selector + ':  ' + $field.val());
+    //         if (!$field.val() || $field.val() === '') {
+    //             alert(message);
+    //             $field.focus();
+    //             return false;
+    //         }
+    //         return true;
+    //     }
 
-        if (!validateField('#tinhdiachi', 'Vui lòng chọn Tỉnh/Thành phố')
-            || !validateField('#huyendiachi', 'Vui lòng chọn Quận/Huyện')
-            || !validateField('#xaphuongdiachi', 'Vui lòng chọn Phường/Xã')
-            || !validateField('#diachi', 'Vui lòng nhập số nhà, đường')) {
+    //     if (!validateField('#tinhdiachi', 'Vui lòng chọn Tỉnh/Thành phố')
+    //         || !validateField('#huyendiachi', 'Vui lòng chọn Quận/Huyện')
+    //         || !validateField('#xaphuongdiachi', 'Vui lòng chọn Phường/Xã')
+    //         || !validateField('#diachi', 'Vui lòng nhập số nhà, đường')) {
 
-            event.preventDefault();
-        }
-    });
+    //         event.preventDefault();
+    //     }
+    // });
 
     $.ajax({
         url: '../../controller/getProvinces.php', // URL server để lấy danh sách Tỉnh/Thành phố
