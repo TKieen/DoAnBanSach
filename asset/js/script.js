@@ -40,7 +40,9 @@ if(isNaN(maxPrice)){
   return false;
 }
 
-if(minPrice=="" || maxPrice=="" || minPrice<=0 || maxPrice<=0 ||(minPrice>maxPrice)){
+minPrice = parseFloat(minPrice);
+maxPrice = parseFloat(maxPrice);
+if(minPrice<=0 || maxPrice<=0 ||(minPrice>maxPrice)){
   alert("Vui lòng nhập khoảng tiền hợp lệ");
   return false;
 }
