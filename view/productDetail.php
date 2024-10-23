@@ -27,13 +27,14 @@
                         </div>
                         <div class="container-bottom-content1-row1-items-priceContent-row3">
                             <div class="container-bottom-content1-row1-items-priceContent-row3-button">
-                            <form action="?page=addToCart" method="post">
+                            <form id="addToCart-form" method="post">
                                 <input type="hidden" name="idSach" value="<?=$idSach?>">
                                 <input type="hidden" name="img" value="<?=$hinhanh?>">
                                 <input type="hidden" name="name" value="<?=$tuasach?>">
                                 <input type="hidden" name="originalPrice" value="<?=$giabia?>">
                                 <input type="hidden" name="salePrice" value="<?=$giaban?>">
-                                <button onclick="cartNotification()" type="submit" name="addToCart" class="addToCart-btn" value="themvaogio">
+                                <input type="hidden" name="addToCart">
+                                <button type="submit" name="addToCart" class="addToCart-btn" value="themvaogio">
                                     <i class="fa-solid fa-cart-plus"></i>
                                     <strong>Thêm Vào Giỏ Hàng</strong>
                                 </button>

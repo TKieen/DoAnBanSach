@@ -35,7 +35,7 @@ $(document).ready(function() {
         var r_n_password = $('#change-pwd-form input[name="r_n_password"]').val();
         let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/;
         if (!matkhauRegex.test(n_password)) {
-            $('.alert1').html('<span style="color: red;">Mật khẩu chưa đủ mạnh</span>')  ;    
+            $('.alert1').html('<span style="color: red;">Mật khẩu tối thiểu 8 kí tự, gồm kí tự hoa, thường và kí tự đặc biệt</span>')  ;    
             return;
         }
         if(n_password == r_n_password){

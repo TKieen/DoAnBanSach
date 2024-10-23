@@ -119,7 +119,11 @@ $(document).ready(function() {
                 const obj = JSON.parse(response);
                 if (obj.success) {
                     // Display success message when the status was updated successfully
-                    $('.alert').html('<span class="green">Cập nhật thành công</span>');
+                    var curr_page = $('.curr_page').val();
+                    $('.alert').html('');
+                    $('#edit-modal-order').hide();
+                    alert("Cập nhật thành công");
+                    window.location.href="index.php?page=order&index="+curr_page;
                 } else {
                     // Display alert if no changes were made
                     if (obj.message === 'Trạng thái không thay đổi') {

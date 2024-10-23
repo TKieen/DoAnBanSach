@@ -77,9 +77,9 @@ $(document).ready(function() {
                 }
                 $('#edit-form-product select[name="idTL"]').val(obj.idTL);
                 $('#edit-form-product select[name="idNCC"]').val(obj.idNCC);
-                $('#edit-form-product select[name="idMGG"]').val(obj.idMGG);
                 //ma giam gia dang hoat dong 
                 $('#edit-form-product select[name="idMGG"]').html(obj.optionsMGG);
+                $('#edit-form-product select[name="idMGG"]').val(obj.idMGG);
                 $('#edit-form-product textarea[name="mota"]').html(obj.mota);
                 $('#edit-form-product input[name="trangthai"][value="'+(obj.trangthai)+'"]').prop("checked",true);
     
@@ -210,4 +210,6 @@ $(document).ready(function() {
         });
    });
     /* End: unlock */
+
+    
 });

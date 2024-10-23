@@ -354,7 +354,7 @@ function formValidateDiscount(phantram, ngaybatdau, ngayketthuc) {
     }
 
     if(ngaybatdau >= ngayketthuc){
-        alert = "<span class='red'>Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!</span>";
+        alert = "<span class='red'>Ngày kết thúc phải lớn hơn ngày bắt đầu!</span>";
         return alert;
     }
 
@@ -512,3 +512,52 @@ function formValidateInventory2(soluong) {
     }
     return alert;
  }
+
+//  function checkFilterProduct(){
+//     priceFrom = document.getElementById("priceFrom").value;
+//     priceTo = document.getElementById("priceTo").value;
+//      // TH1: nếu người dùng nhập cả 2 ô priceFrom và priceTo
+//     if(priceFrom != "" && priceTo != ""){
+//         if(!isNaN(priceFrom) && !isNaN(priceTo)){
+//             if(priceFrom < 0 || priceTo<0){
+//                 alert("Số tiền nhập vào phải lớn hơn 0!");
+//                 return false;
+//             }
+//             else
+//                 if(priceFrom> priceTo){
+//                     alert("Giá tối thiểu phải nhỏ hơn giá tối đa!");
+//                     return false;
+//                 }
+//             }else{
+//                 alert("Giá trị nhập vào phải là chữ số!");
+//                 return false;
+//             }
+//     }else{
+//         // TH2: nếu người dùng chỉ nhập priceFrom
+//         if(priceFrom != ""){
+//             if(!isNaN(priceFrom)){
+//                 if(priceFrom < 0){
+//                     alert("Số tiền nhập vào phải lớn hơn 0!");
+//                     return false;
+//                 }
+//             }else{
+//                 alert("Giá trị nhập vào phải là chữ số!");
+//                 return false;
+//             }
+//         }
+//         else{
+//             // TH3: nếu người dùng chỉ nhập priceTo
+//             if(!isNaN(priceTo)){
+//                 if(priceTo < 0){
+//                     alert("Số tiền nhập vào phải lớn hơn 0!");
+//                     return false;
+//                 }
+//             }else{
+//                 alert("Giá trị nhập vào phải là chữ số!");
+//                 return false;
+//             }
+//         }
+//     }
+    
+
+//}

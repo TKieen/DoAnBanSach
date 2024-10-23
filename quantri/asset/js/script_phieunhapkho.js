@@ -340,6 +340,8 @@ $('.inventory').submit(function(event) {
         // Hide the edit form modal
         $('.alert').html('');
         $('#add-modal-phieunhapkho').hide();
+        var curr_page = $('.curr_page').val();
+        window.location.href="index.php?page=phieunhapkho&index="+curr_page;
     });
 
      // Event listener for close button clicks

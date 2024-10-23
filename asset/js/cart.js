@@ -60,3 +60,32 @@ function updateQuantity(element) {
         });
     });
 }
+
+$(document).ready(function() {
+    /*Start: sign-in form*/
+    $('#addToCart-form').submit(function(event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+            // Serialize form data
+            var formData = new FormData( $('#addToCart-form')[0]);
+            // AJAX request to handle form submission
+            $.ajax({
+                url: 'controller/addToCart.php', // URL to handle form submission
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log(response);
+                    const obj = JSON.parse(response);
+                    console.log(obj);
+                    if(obj.success) window.location.href = "?page=cart";
+                    else if(obj.direct) window.location.href = "?page=signIn";
+                    else alert("Sản phẩm đã hết hàng");
+                    
+                },
+            });
+    });
+    /* End: sign-in form */
+})

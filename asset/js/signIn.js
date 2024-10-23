@@ -84,8 +84,9 @@ $(document).ready(function() {
         event.preventDefault();
         var password = $('#forgotPwd3-form input[name="password"]').val();
         var r_password = $('#forgotPwd3-form input[name="r_password"]').val();
-        if (password.length < 8) {
-            $('.alert').html('<span style="color: red;">Mật khẩu phải ít nhất 8 ký tự</span>');
+        let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/;
+        if (!matkhauRegex.test(password)) {
+            $('.alert').html('<span style="color: red;">Mật khẩu tối thiểu 8 kí tự, gồm kí tự hoa, thường và kí tự đặc biệt</span>');
             return;
         }
         if (password !== r_password) {
