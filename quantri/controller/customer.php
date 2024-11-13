@@ -5,16 +5,27 @@ require '../model/user.php';
 
 /* add-data */
 if(isset($_POST['add_data_customer'])){
-    $ten = $_POST['ten'];
-    $email = $_POST['email'];
-    $dienthoai = $_POST['dienthoai'];
-    $p = $_POST['matkhau'];
-    $p_hash = password_hash($p, PASSWORD_DEFAULT);
-    if(!isExist($email, $dienthoai)){
-        addUser($ten, $email, $dienthoai, "KH", $p_hash);
+    $name = htmlspecialchars($_POST['ten']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['dienthoai']);
+    $password = htmlspecialchars($_POST['matkhau']);
+
+    try {
+        validateName($name);
+        validateEmail($email);
+        validatePassword($password);
+        validatePhone($phone);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        if (isExist($email, $phone)) {
+            echo json_encode(array('success'=>false, 'message'=>"Người này đã tồn tại do trùng email hoặc số điện thoại"));
+            return;
+        }
+        addUser($name, $email, $phone, "KH", $hashedPassword);
         echo json_encode(array('success'=>true));
+    } catch (Exception $e) {
+        echo json_encode(['success'=>false, 'message'=>$e->getMessage()]);
+        return;
     }
-    else echo json_encode(array('success'=>false));
 }
 /* add-data */
 
@@ -27,13 +38,21 @@ if(isset($_POST['edit_data_customer'])){
 
 /* update-data */
 if(isset($_POST['update_data_customer'])){
-    $id = $_POST['user_id'];
-    $ten = $_POST['ten'];
-    $email = $_POST['email'];
-    $dienthoai = $_POST['dienthoai'];
-    $trangthai = $_POST['trangthai'];
-    if(!isExist_update($id, $email, $dienthoai)){
-        editUser($id,$ten,$email,$dienthoai,"KH",$trangthai);
+    $id = htmlspecialchars($_POST['user_id']);
+    $name = htmlspecialchars($_POST['ten']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['dienthoai']);
+    $status = htmlspecialchars($_POST['trangthai']);
+    try {
+        validateName($name);
+        validateEmail($email);
+        validatePhone($phone);
+    } catch (Exception $e) {
+        echo json_encode(['success'=>false, 'message'=>$e->getMessage()]);
+        return;
+    }
+    if(!isExist_update($id, $email, $phone)){
+        editUser($id,$name,$email,$phone,"KH",$status);
         echo json_encode(array('success'=>true));
     }
     else echo json_encode(array('success'=>false));
