@@ -65,15 +65,15 @@ function validatePassword($password, $rePassword = '') {
     if (strlen($password) < 8 || strlen($password) > 20) {
         throw new Exception("Mật khẩu phải có độ dài từ 8 đến 20 ký tự!");
     }
-    if (!preg_match('/[A-Z]/', $password)) {
-        throw new Exception("Mật khẩu phải chứa ít nhất một chữ cái viết hoa!");
-    }
-    if (!preg_match('/\d/', $password)) {
-        throw new Exception("Mật khẩu phải chứa ít nhất một chữ số!");
-    }
-    if (!preg_match('/[@#$%^&*!]/', $password)) {
-        throw new Exception("Mật khẩu phải chứa ít nhất một ký tự đặc biệt!");
-    }
+//    if (!preg_match('/[A-Z]/', $password)) {
+//        throw new Exception("Mật khẩu phải chứa ít nhất một chữ cái viết hoa!");
+//    }
+//    if (!preg_match('/\d/', $password)) {
+//        throw new Exception("Mật khẩu phải chứa ít nhất một chữ số!");
+//    }
+//    if (!preg_match('/[@#$%^&*!]/', $password)) {
+//        throw new Exception("Mật khẩu phải chứa ít nhất một ký tự đặc biệt!");
+//    }
     if (!empty($rePassword) && !hash_equals($rePassword, $password)) {
         throw new Exception('Xác nhận mật khẩu và mật khẩu không khớp!');
     }
