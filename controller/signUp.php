@@ -39,6 +39,11 @@
         if (check_phone_is_existed($phone)) {
             echo json_encode(['success'=>false, 'message'=>'Số điện thoại đã tồn tại']); return;
         }
+
+        if (strlen($password) < 8 || strlen($password) > 20) {
+            echo json_encode(['success'=>false, 'message'=>'Mật khẩu phải có độ dài từ 8 đến 20 ký tự']); return;
+        }
+
         if (check_password_is_unmatched($password, $rPassword)) {
             echo json_encode(['success'=>false, 'message'=>'Mật khẩu và xác nhận mật khẩu không khớp.']); return;
         }

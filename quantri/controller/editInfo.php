@@ -71,21 +71,21 @@ require 'userValidation.php';
 
 
     if(isset($_POST['submit_password'])) {
-        $currentPassword = $_POST['c_password'];
-        $newPassword = $_POST['n_password'];
-        $reNewPassword = $_POST['r_n_password'];
-
-        $user = getUserById($_SESSION['user']['id']);
-
-        if (empty($currentPassword) && !password_verify($currentPassword, $user['password'])) {
-            echo json_encode(array('success' => false, 'message' => 'Mật khẩu hiện tai không đúng!'));
-            return;
-        }
+        $currentPassword = htmlspecialchars($_POST['c_password']);
+        $newPassword = htmlspecialchars($_POST['n_password']);
+        $reNewPassword = htmlspecialchars($_POST['r_n_password']);
 
         try {
             validatePassword($newPassword, $reNewPassword);
         } catch (Exception $e) {
             echo json_encode(array('success' => false, 'message' => $e->getMessage()));
+            return;
+        }
+
+        $user = getUserById($_SESSION['admin']['id']);
+
+        if (empty($currentPassword) || !password_verify($currentPassword, $user['matkhau'])) {
+            echo json_encode(array('success' => false, 'message' => 'Mật khẩu hiện tai không đúng!'));
             return;
         }
 

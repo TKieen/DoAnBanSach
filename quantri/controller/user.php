@@ -18,18 +18,17 @@ if(isset($_POST['add_data_user'])){
         validatePassword($password);
         validatePhone($phone);
         validateRole($role);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        if (isExist($email, $phone)) {
+            echo json_encode(array('success'=>false, 'message'=>"Người này đã tồn tại do trùng email hoặc số điện thoại"));
+            return;
+        }
+        addUser($name, $email, $phone, $role, $hashedPassword);
+        echo json_encode(array('success'=>true));
     } catch (Exception $e) {
         echo json_encode(['success'=>false, 'message'=>$e->getMessage()]);
         return;
     }
-
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    if (isExist($email, $phone)) {
-        echo json_encode(array('success'=>false, 'message'=>"Người này đã tồn tại do trùng email hoặc số điện thoại"));
-        return;
-    }
-    addUser($name, $email, $phone, $role, $hashedPassword);
-    echo json_encode(array('success'=>true));
 }
 /* add-data */
 
@@ -42,10 +41,17 @@ if(isset($_POST['edit_data_user'])){
 
 /* update-data */
 if(isset($_POST['update_data_user'])){
-    $id = $_POST['user_id'];
-    $email = $_POST['email'];
-    $phanquyen = $_POST['phanquyen'];
-    $trangthai = $_POST['trangthai'];
+    $id = htmlspecialchars($_POST['user_id']);
+    $email = htmlspecialchars($_POST['email']);
+    $phanquyen = htmlspecialchars($_POST['phanquyen']);
+    $trangthai = htmlspecialchars($_POST['trangthai']);
+    try {
+        validateEmail($email);
+        validateRole($phanquyen);
+    } catch (Exception $e) {
+        echo json_encode(['success'=>false, 'message'=>$e->getMessage()]);
+        return;
+    }
     if(!isExist_update($id, $email)){
         editUser($id,$email,$phanquyen,$trangthai);
         echo json_encode(array('success'=>true));
