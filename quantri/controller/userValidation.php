@@ -46,6 +46,9 @@ function validateEmail($email) {
     if (empty($email)) {
         throw new Exception("Vui lòng nhập email!");
     }
+    if (strlen($email) < 10 || strlen($email) > 254) {
+        throw new Exception("Email phải có độ dài từ 10 đến 254 ký tự!");
+    }
     if (!preg_match($emailRegex, $email)) {
         throw new Exception("Email không hợp lệ. Vui lòng kiểm tra lại!");
     }
