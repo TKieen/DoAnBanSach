@@ -6,7 +6,7 @@ $(document).ready(function() {
             var tenTK = $('#change-info-form input[name="tenTK"]').val();
             var email = $('#change-info-form input[name="email"]').val();
             var phone = $('#change-info-form input[name="phone"]').val();
-            if(tenTK != "" || email !="" || phone != ""){
+            if(tenTK !== "" || email !=="" || phone !== ""){
             // Serialize form data
             var formData = new FormData( $('#change-info-form')[0]);
             // AJAX request to handle form submission
@@ -34,7 +34,7 @@ $(document).ready(function() {
             var n_password = $('#change-pwd-form input[name="n_password"]').val();
             var r_n_password = $('#change-pwd-form input[name="r_n_password"]').val();
             
-            if(n_password == r_n_password){
+            if(n_password === r_n_password){
                 // Serialize form data
                 var formData = new FormData( $('#change-pwd-form')[0]);
                 // AJAX request to handle form submission
@@ -49,7 +49,7 @@ $(document).ready(function() {
                         const obj = JSON.parse(response);
                         console.log(obj);
                         if(obj.success) alert("Đã lưu thông tin");
-                        else alert("Mật khẩu hiện tại không đúng");
+                        else alert(obj.message);
                     },
                 });
             }
