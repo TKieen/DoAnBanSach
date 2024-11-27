@@ -7,7 +7,9 @@ require_once "../lib/session.php";
 
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        if(!empty($email) && isEmailValid($_SESSION['user']['id'], $email) != null) 
+        if(!empty($email)
+            && isEmailValid($_SESSION['user']['id'], $email) != null
+            && strlen($email) > 10 && strlen($email) < 254)
             echo json_encode(array('success'=>false));
         else if(!empty($phone) && isPhoneValid($_SESSION['user']['id'], $phone) != null)
             echo json_encode(array('success'=>false));
