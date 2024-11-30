@@ -17,8 +17,8 @@ $(document).ready(function() {
         var dienthoai = $('#add-form-user input[name="dienthoai"]').val();
         var phanquyen = $('#add-form-user select[name="phanquyen"]').val();
         var matkhau = $('#add-form-user input[name="matkhau"]').val();
-        var alert = formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen);
-        if(alert ===''){
+        var msg = formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen);
+        if(msg ===''){
             // Serialize form data
             var formData = new FormData( $('#add-form-user')[0]);
             // AJAX request to handle form submission
@@ -38,7 +38,7 @@ $(document).ready(function() {
                 },
             });
         }
-        else $('.alert').html(alert);
+        else $('.alert').html(msg);
     });
     /* End: add form */
     
@@ -75,8 +75,8 @@ $(document).ready(function() {
         // validate form
         var email = $('#edit-form-user input[name="email"]').val();
         var phanquyen = $('#edit-form-user select[name="phanquyen"]').val();
-        var alert = formValidateUser_edit(email, phanquyen);
-        if(alert ===''){
+        var msg = formValidateUser_edit(email, phanquyen);
+        if(msg ===''){
         // Serialize form data
         var formData = new FormData( $('#edit-form-user')[0]);
         // AJAX request to handle form submission
@@ -94,7 +94,7 @@ $(document).ready(function() {
             },
         });
     }
-    else $('.alert').html(alert);
+    else $('.alert').html(msg);
     });
     /* End: edit form */
 
