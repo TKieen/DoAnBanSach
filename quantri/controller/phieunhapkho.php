@@ -24,7 +24,8 @@ if(isset($_POST['add_inventory_form_btn'])){
     $tongtien = 0;
     $tongsoluong = 0;
     $thanhtien_arr = [];
-
+    $error = false;
+    $errorCount = 0;
     for($i=1; $i<$n; $i++){
         $thanhtien = 0;
         $idSach = $_POST['product'][$i];
@@ -34,20 +35,35 @@ if(isset($_POST['add_inventory_form_btn'])){
         $thanhtien = $gianhap * $soluong;
         $thanhtien_arr[] = $thanhtien;
         $tongtien+=$thanhtien;
-        addCTPhieuNhapKho($idPN, $idSach, $soluong);
+        if(!addCTPhieuNhapKho($idPN, $idSach, $soluong)){
+            deletePhieuNhapKho($idPN);
+            $error = true;
+            $errorCount = $i;
+            break;
+        }
+        
     }
-    updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $chietkhau, $tongsoluong, $tongtien, "cht");
-    
-    // tong so luong
-    // thanh tien
-    // tong tien
-    $result = [
-        'success' => true,
-        'tongsoluong' => $tongsoluong,
-        'tongtien' => $tongtien,
-        'thanhtien_arr' => $thanhtien_arr
-    ];
-    echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+    if(!$error){
+        updatePhieuNhapKhoById($idPN, $ngaytao, $ngaycapnhat, $chietkhau, $tongsoluong, $tongtien, "cht");
+        
+        // tong so luong
+        // thanh tien
+        // tong tien
+        $result = [
+            'success' => true,
+            'tongsoluong' => $tongsoluong,
+            'tongtien' => $tongtien,
+            'thanhtien_arr' => $thanhtien_arr
+        ];
+        echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+    }
+    else{
+        $result = [
+            'success' => false,
+            'msg' => 'Sản phẩm dòng thứ '.$errorCount.' bị trùng'
+        ];
+        echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+    }
 }
 /* add inventory */
 
