@@ -297,6 +297,7 @@ $('.inventory').submit(function(event) {
     var sanpham = $('.inventory select[name="product[]"]').not(':first');
     var soluong = $('.inventory input[name="soluong[]"]').not(':first');
     if(formValidateInventory(sanpham, soluong) === true){
+        console.log("hello");
         // Serialize form data
         var formData = new FormData( $('.inventory')[0]);
         // AJAX request to handle form submission
@@ -328,7 +329,7 @@ $('.inventory').submit(function(event) {
                     alert("Đã thêm thành công"); 
                     window.location.href="index.php?page=phieunhapkho";
                 }
-                            
+                else alert(obj.msg);      
             },
         });
     }
