@@ -32,6 +32,9 @@
         if (check_email_is_valid($email)) {
             echo json_encode(['success'=>false, 'message'=>'Email không hợp lệ']); return;
         }
+        if (strlen($email) < 10 || strlen($email) > 254) {
+            echo json_encode(['success'=>false, 'message'=>'Email phải có độ dài từ 10 đến 254 ký tự']); return;
+        }
         if (check_email_is_existed($email)) {
             echo json_encode(['success'=>false, 'message'=>'Email đã tồn tại']); return;
         }
@@ -39,6 +42,11 @@
         if (check_phone_is_existed($phone)) {
             echo json_encode(['success'=>false, 'message'=>'Số điện thoại đã tồn tại']); return;
         }
+
+        if (strlen($password) < 8 || strlen($password) > 20) {
+            echo json_encode(['success'=>false, 'message'=>'Mật khẩu phải có độ dài từ 8 đến 20 ký tự']); return;
+        }
+
         if (check_password_is_unmatched($password, $rPassword)) {
             echo json_encode(['success'=>false, 'message'=>'Mật khẩu và xác nhận mật khẩu không khớp.']); return;
         }

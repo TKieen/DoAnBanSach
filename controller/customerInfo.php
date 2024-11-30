@@ -7,7 +7,9 @@ require_once "../lib/session.php";
 
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        if(!empty($email) && isEmailValid($_SESSION['user']['id'], $email) != null) 
+        if(!empty($email)
+            && isEmailValid($_SESSION['user']['id'], $email) != null
+            && strlen($email) > 10 && strlen($email) < 254)
             echo json_encode(array('success'=>false));
         else if(!empty($phone) && isPhoneValid($_SESSION['user']['id'], $phone) != null)
             echo json_encode(array('success'=>false));
@@ -72,6 +74,15 @@ require_once "../lib/session.php";
         $c_password = $_POST['c_password'];
         $n_password = $_POST['n_password'];
         $r_n_password = $_POST['r_n_password'];
+
+        if (strlen($n_password) < 8 || strlen($n_password) > 20) {
+            echo json_encode(['success'=>false, 'message'=>'Mật khẩu phải có độ dài từ 8 đến 20 ký tự']); return;
+        }
+
+        if (check_password_is_unmatched($n_password, $r_n_password)) {
+            echo json_encode(['success'=>false, 'message'=>'Mật khẩu và xác nhận mật khẩu không khớp.']); return;
+        }
+
         $user = getOneCustomerById($_SESSION['user']['id']);
         if(password_verify($c_password, $user['matkhau']) && $c_password != '') {
             $password_hash = password_hash($n_password, PASSWORD_DEFAULT);
