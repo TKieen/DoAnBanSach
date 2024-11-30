@@ -461,12 +461,15 @@ function formValidateInventory(sanpham, soluong) {
         }
 
     for(var i = 0; i<soluong.length; i++)
-        if(soluong[i].value <= 0){
-            alert("Vui lòng nhập số lượng lớn hơn 0.\nLỗi: dòng "+(i+1));
-            return false;
-        }
-        else if(soluong[i].value == ""){
+        if(soluong[i].value == ""){
             alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
+            return false;
+        } else if(isNaN(soluong[i].value)){
+            alert("Vui lòng nhập số lượng là số lớn hơn 0 và bé hơn 9999.\nLỗi: dòng "+(i+1));
+             return false;
+        }
+        else if(soluong[i].value <= 0){
+            alert("Vui lòng nhập số lượng lớn hơn 0.\nLỗi: dòng "+(i+1));
             return false;
         }
     
@@ -478,12 +481,15 @@ function formValidateInventory(sanpham, soluong) {
 function formValidateInventory2(soluong) {
     // Kiểm tra hợp lệ 
      for(var i = 0; i<soluong.length; i++)
-         if(soluong[i].value <= 0){
-             alert("Vui lòng nhập số lượng lớn hơn 0.\nLỗi: dòng "+(i+1));
+        if(soluong[i].value == ""){
+            alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
+            return false;
+        } else if(isNaN(soluong[i].value)){
+            alert("Vui lòng nhập số lượng là số lớn hơn 0 và bé hơn 9999.\nLỗi: dòng "+(i+1));
              return false;
-         }
-         else if(soluong[i].value == ""){
-             alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
+        }
+        else if(soluong[i].value <= 0 || soluong[i].value >9999){
+             alert("Vui lòng nhập số lượng lớn hơn 0 và bé hơn 9999.\nLỗi: dòng "+(i+1));
              return false;
          }
  
