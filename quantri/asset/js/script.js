@@ -18,8 +18,9 @@ let updateFile = document.getElementById("update_file");
 function formValidate(ten, email, dienthoai) {
     //Kiểm tra hợp lệ
     let alert = '';
+    let tenRegex = /^[\p{L} ]+$/u;
     let phoneRegex = /^0[0-9]{9}$/;
-    let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+    let emailRegex = /^(?=.{10,254}$)[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
 
     //Fullname
     if(ten === '') {   //nếu tên rỗng
@@ -30,6 +31,11 @@ function formValidate(ten, email, dienthoai) {
         alert = "<span class='red'>Vui lòng nhập họ tên nhiều hơn 3 ký tự.</span>";
         return alert;
     }
+    else if(!tenRegex.test(ten)){
+        alert = "<span class='red'>Tên không hợp lệ. Vui lòng chỉ sử dụng chữ cái.</span>";
+        return alert;
+    }
+
 
     //Email
     if(email === ''){
@@ -59,8 +65,9 @@ function formValidate(ten, email, dienthoai) {
 function formValidate_add(ten, email, dienthoai, matkhau) {
     //Kiểm tra hợp lệ
     let alert = '';
+    let tenRegex = /^[\p{L} ]+$/u;
     let phoneRegex = /^0[0-9]{9}$/;
-    let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+    let emailRegex = /^(?=.{10,254}$)[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
 
     //Fullname
     if(ten === '') {   //nếu tên rỗng
@@ -69,6 +76,10 @@ function formValidate_add(ten, email, dienthoai, matkhau) {
     }
     else if(ten.length < 3){
         alert = "<span class='red'>Vui lòng nhập họ tên nhiều hơn 3 ký tự.</span>";
+        return alert;
+    }
+    else if(!tenRegex.test(ten)){
+        alert = "<span class='red'>Tên không hợp lệ. Vui lòng chỉ sử dụng chữ cái.</span>";
         return alert;
     }
 
@@ -106,8 +117,9 @@ function formValidate_add(ten, email, dienthoai, matkhau) {
 function formValidateUser(ten, email, dienthoai, phanquyen) {
     //Kiểm tra hợp lệ
     let alert = '';
+    let tenRegex = /^[\p{L} ]+$/u;
     let phoneRegex = /^0[0-9]{9}$/;
-    let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+    let emailRegex = /^(?=.{10,254}$)[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
 
     //Fullname
     if(ten === '') {   //nếu tên rỗng
@@ -116,6 +128,10 @@ function formValidateUser(ten, email, dienthoai, phanquyen) {
     }
     else if(ten.length < 3){
         alert = "<span class='red'>Vui lòng nhập họ tên nhiều hơn 3 ký tự.</span>";
+        return alert;
+    }
+    else if(!tenRegex.test(ten)){
+        alert = "<span class='red'>Tên không hợp lệ. Vui lòng chỉ sử dụng chữ cái.</span>";
         return alert;
     }
 
@@ -153,15 +169,14 @@ function formValidateUser_edit(email, phanquyen) {
     //Kiểm tra hợp lệ
     let alert = '';
     
-    let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
-
+    let emailRegex = /^(?=.{10,254}$)[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
     //Email
     if(email === ''){
         alert = "<span class='red'>Vui lòng nhập email.</span>";
         return alert;
     }
     else if(!emailRegex.test(email)){
-        alert = "<span class='red'>Email không hợp lệ.</span>";
+        alert = "<span class='red'>Email phải có độ dài từ 10 đến 20 kí tự. vd: thaovy3724@gmail.com</span>";
         return alert;
     }
     
@@ -174,13 +189,13 @@ function formValidateUser_edit(email, phanquyen) {
 }
 
 /* function validate user form */
-function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
+function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen=0) {
     //Kiểm tra hợp lệ
     let alert = '';
     let tenRegex = /^[\p{L} ]+$/u;
     let phoneRegex = /^0[0-9]{9}$/;
-    let emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
-    let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,}$/;
+    let emailRegex = /^(?=.{10,254}$)[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
+    let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,20}$/;
 
     //Fullname
     if(ten === '') {   //nếu tên rỗng
@@ -202,7 +217,7 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
         return alert;
     }
     else if(!emailRegex.test(email)){
-        alert = "<span class='red'>Email không hợp lệ.</span>";
+        alert = "<span class='red'>Email phải có độ dài từ 10 đến 20 kí tự. vd: thaovy3724@gmail.com</span>";
         return alert;
     }
 
@@ -211,7 +226,7 @@ function formValidateUser_add(ten, email, dienthoai, matkhau, phanquyen) {
         alert = "<span class='red'>Vui lòng nhập mật khẩu.</span>";
         return alert;
     } else if (!matkhauRegex.test(matkhau)){
-        alert = "<span class='red'>Mật khẩu chưa đủ mạnh</span>";
+        alert = "<span class='red'>Mật khẩu phải có 8-20 kí tự, gồm chữ thường, chữ hoa, số và kí tự đặc biệt</span>";
         return alert;
     }
 
@@ -461,12 +476,15 @@ function formValidateInventory(sanpham, soluong) {
         }
 
     for(var i = 0; i<soluong.length; i++)
-        if(soluong[i].value <= 0){
-            alert("Vui lòng nhập số lượng lớn hơn 0.\nLỗi: dòng "+(i+1));
-            return false;
-        }
-        else if(soluong[i].value == ""){
+        if(soluong[i].value == ""){
             alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
+            return false;
+        } else if(isNaN(soluong[i].value)){
+            alert("Vui lòng nhập số lượng là số lớn hơn 0 và bé hơn 9999.\nLỗi: dòng "+(i+1));
+             return false;
+        }
+        else if(soluong[i].value <= 0){
+            alert("Vui lòng nhập số lượng lớn hơn 0.\nLỗi: dòng "+(i+1));
             return false;
         }
     
@@ -478,12 +496,15 @@ function formValidateInventory(sanpham, soluong) {
 function formValidateInventory2(soluong) {
     // Kiểm tra hợp lệ 
      for(var i = 0; i<soluong.length; i++)
-         if(soluong[i].value <= 0){
-             alert("Vui lòng nhập số lượng lớn hơn 0.\nLỗi: dòng "+(i+1));
+        if(soluong[i].value == ""){
+            alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
+            return false;
+        } else if(isNaN(soluong[i].value)){
+            alert("Vui lòng nhập số lượng là số lớn hơn 0 và bé hơn 9999.\nLỗi: dòng "+(i+1));
              return false;
-         }
-         else if(soluong[i].value == ""){
-             alert("Vui lòng nhập số lượng.\nLỗi: dòng "+(i+1));
+        }
+        else if(soluong[i].value <= 0 || soluong[i].value >9999){
+             alert("Vui lòng nhập số lượng lớn hơn 0 và bé hơn 9999.\nLỗi: dòng "+(i+1));
              return false;
          }
  

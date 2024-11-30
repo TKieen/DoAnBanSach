@@ -87,7 +87,12 @@
         $sql=
         'INSERT INTO ctphieunhap(idPN, idSach, soluong) 
         VALUES ('.$idPN.','.$idSach.','.$soluong.')';
+        try {
         insert($sql);
+        return true;
+        } catch(Exception $e){
+            return false;
+        }
     }
 
     function updateCTPhieuNhapKho($idPN, $idSach, $soluong){
@@ -99,4 +104,11 @@
         edit($sql);
     }
     /* Chi tiet phieu nhap kho */
+
+    function deletePhieuNhapKho($idPN){
+        $sql = 'DELETE FROM ctphieunhap WHERE idPN = '.$idPN;
+        delete($sql);
+        $sql = 'DELETE FROM phieunhap WHERE idPN ='.$idPN;
+        delete($sql);
+    }
 ?>

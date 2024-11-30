@@ -16,8 +16,8 @@ $(document).ready(function() {
         var email = $('#add-form-customer input[name="email"]').val();
         var dienthoai = $('#add-form-customer input[name="dienthoai"]').val();
         var matkhau = $('#add-form-customer input[name="matkhau"]').val();
-        var alert = formValidate_add(ten, email, dienthoai, matkhau);
-        if(alert ===''){
+        var msg = formValidateUser_add(ten, email, dienthoai, matkhau);
+        if(msg ===''){
             // Serialize form data
             var formData = new FormData( $('#add-form-customer')[0]);
             // AJAX request to handle form submission
@@ -36,7 +36,7 @@ $(document).ready(function() {
                 },
             });
         }
-        else $('.alert').html(alert);
+        else $('.alert').html(msg);
     });
     /* End: add form */
 
@@ -73,8 +73,8 @@ $(document).ready(function() {
         var ten = $('#edit-form-customer input[name="ten"]').val();
         var email = $('#edit-form-customer input[name="email"]').val();
         var dienthoai = $('#edit-form-customer input[name="dienthoai"]').val();
-        var alert = formValidate(ten, email, dienthoai);
-        if(alert ===''){
+        var msg = formValidate(ten, email, dienthoai);
+        if(msg ===''){
         // Serialize form data
         var formData = new FormData( $('#edit-form-customer')[0]);
         // AJAX request to handle form submission
@@ -92,7 +92,7 @@ $(document).ready(function() {
             },
         });
     }
-    else $('.alert').html(alert);
+    else $('.alert').html(msg);
     });
     /* End: update form */
 

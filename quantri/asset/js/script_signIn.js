@@ -1,3 +1,25 @@
+function validateResetPassword(n_password, r_n_password){
+    let alert = '';
+    let matkhauRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,20}$/;
+    if(n_password == ''){
+        alert = '<span style="color: red;">Vui lòng nhập mật khẩu.</span>';
+        return alert;
+    }
+    else if(!matkhauRegex.test(n_password)){
+        alert = '<span style="color: red;">Mật khẩu phải có 8-20 kí tự, gồm chữ thường, chữ hoa, số và kí tự đặc biệt</span>';
+        return alert;
+    }
+
+    if(r_n_password == ''){
+        alert = '<span style="color: red;">Vui lòng nhập mật khẩu nhập lại.</span>';
+        return alert;
+    }
+    else if(n_password != r_n_password){
+        alert = '<span style="color: red;">Mật khẩu nhập lại không trùng khớp.</span>';
+        return alert;
+    }
+    return alert;
+}
 $(document).ready(function() {
     /*Start: sign-in form*/
     $('#signIn-form').submit(function(event) {
@@ -98,9 +120,10 @@ $(document).ready(function() {
         // Prevent the default form submission
         event.preventDefault();
 
-            var password = $('#forgotPwd3-form input[name="password"]').val();
-            var r_password = $('#forgotPwd3-form input[name="r_password"]').val();
-            if(password === r_password){
+        var password = $('#forgotPwd3-form input[name="password"]').val();
+        var r_password = $('#forgotPwd3-form input[name="r_password"]').val();
+        let msg = validateResetPassword(password, r_password);
+        if(msg == ''){
             // Serialize form data
             var formData = new FormData( $('#forgotPwd3-form')[0]);
             // AJAX request to handle form submission
@@ -117,8 +140,8 @@ $(document).ready(function() {
                     if(obj.success) window.location.href = "?page=signIn";
                 },
             });
-        }
-        else $('.alert').html('<span class="red">Mật khẩu không trùng khớp</span>');
+    }
+    else $('.alert').html(msg);
     });
     /* End: reset pwd */
 });
